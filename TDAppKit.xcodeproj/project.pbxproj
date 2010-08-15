@@ -1,0 +1,990 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		D30FD7C111C1B561005A2437 /* combo_field_progress_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */; };
+		D30FD7F611C1B5E3005A2437 /* TDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* TDAppKit.framework */; };
+		D318A05010F8570E00B6AA21 /* TDGutterView.h in Headers */ = {isa = PBXBuildFile; fileRef = D318A04C10F8570E00B6AA21 /* TDGutterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D318A05110F8570E00B6AA21 /* TDGutterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D318A04D10F8570E00B6AA21 /* TDGutterView.m */; };
+		D318A05210F8570E00B6AA21 /* TDSourceCodeTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = D318A04E10F8570E00B6AA21 /* TDSourceCodeTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D318A05310F8570E00B6AA21 /* TDSourceCodeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D318A04F10F8570E00B6AA21 /* TDSourceCodeTextView.m */; };
+		D31CBFB010EFB7010013347D /* TDListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D31CBFAA10EFB7010013347D /* TDListItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D31CBFB110EFB7010013347D /* TDListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFAB10EFB7010013347D /* TDListItem.m */; };
+		D31CBFB310EFB7010013347D /* TDListItemQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFAD10EFB7010013347D /* TDListItemQueue.m */; };
+		D31CBFB410EFB7010013347D /* TDListView.h in Headers */ = {isa = PBXBuildFile; fileRef = D31CBFAE10EFB7010013347D /* TDListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D31CBFB510EFB7010013347D /* TDListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFAF10EFB7010013347D /* TDListView.m */; };
+		D31CBFCA10EFB8180013347D /* TDUberView.h in Headers */ = {isa = PBXBuildFile; fileRef = D31CBFC810EFB8180013347D /* TDUberView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D31CBFCE10EFB8260013347D /* TDUberView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFCC10EFB8260013347D /* TDUberView.m */; };
+		D31CBFF410EFBA3C0013347D /* ListViewDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFF310EFBA3C0013347D /* ListViewDemoAppDelegate.m */; };
+		D31CBFFA10EFBD360013347D /* DemoListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFF910EFBD360013347D /* DemoListItemView.m */; };
+		D31CC01810EFC64E0013347D /* TDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* TDAppKit.framework */; };
+		D31CC02410EFC6BB0013347D /* TDAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D31CC02310EFC6BB0013347D /* TDAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D31CC05E10EFC80B0013347D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CC05D10EFC80B0013347D /* main.m */; };
+		D31CC0B010EFC9750013347D /* ListViewDemoMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31CC0AF10EFC9750013347D /* ListViewDemoMainMenu.xib */; };
+		D33B19F111168A3300F754AD /* TDScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = D33B19EF11168A3300F754AD /* TDScroller.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D33B19F211168A3300F754AD /* TDScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = D33B19F011168A3300F754AD /* TDScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D33B19F511168A3A00F754AD /* TDScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D33B19F311168A3A00F754AD /* TDScroller.m */; };
+		D33B19F611168A3A00F754AD /* TDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33B19F411168A3A00F754AD /* TDScrollView.m */; };
+		D34A54D3120BBF590059D145 /* NSDate+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D34A54D1120BBF590059D145 /* NSDate+TDAdditions.m */; };
+		D34A54D5120BBFD10059D145 /* NSDate+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D34A54D4120BBFD10059D145 /* NSDate+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D366C1B71128FF2400547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D366C1B51128FF2400547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D366C1B81128FF2400547FD6 /* NSAppleEventDescriptor+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D366C1B61128FF2400547FD6 /* NSAppleEventDescriptor+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D366C1BA1128FF3800547FD6 /* NSAppleEventDescriptor+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1B91128FF3800547FD6 /* NSAppleEventDescriptor+TDAdditions.m */; };
+		D366C1EC112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1EB112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */; };
+		D366C1EF112902E500547FD6 /* NSURL+NDCarbonUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D366C1ED112902E400547FD6 /* NSURL+NDCarbonUtilities.h */; };
+		D366C1F0112902E500547FD6 /* NSURL+NDCarbonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */; };
+		D36E1EA111702E5500110DBA /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E1E9F11702E5500110DBA /* TDComboField.m */; };
+		D36E1EAC11702E6A00110DBA /* TDComboField.h in Headers */ = {isa = PBXBuildFile; fileRef = D36E1EAB11702E6A00110DBA /* TDComboField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D36E1ED911703A1000110DBA /* TDComboFieldListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D36E1ED711703A1000110DBA /* TDComboFieldListItem.h */; };
+		D36E1EDA11703A1000110DBA /* TDComboFieldListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E1ED811703A1000110DBA /* TDComboFieldListItem.m */; };
+		D36E1F6E11703EAD00110DBA /* ComboFieldDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E1F2411703D9D00110DBA /* ComboFieldDemoAppDelegate.m */; };
+		D36E1F6F11703EB500110DBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E1F2911703DCB00110DBA /* main.m */; };
+		D36E1F7111703EBD00110DBA /* ComboFieldDemoMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36E1F2611703DB700110DBA /* ComboFieldDemoMainMenu.xib */; };
+		D36E20931170D0BF00110DBA /* TDFlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E20911170D0BF00110DBA /* TDFlippedView.m */; };
+		D36E20951170D0D400110DBA /* TDFlippedView.h in Headers */ = {isa = PBXBuildFile; fileRef = D36E20941170D0D400110DBA /* TDFlippedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D36E20C01170D26E00110DBA /* TDComboFieldListView.h in Headers */ = {isa = PBXBuildFile; fileRef = D36E20BE1170D26E00110DBA /* TDComboFieldListView.h */; };
+		D36E20C11170D26E00110DBA /* TDComboFieldListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E20BF1170D26E00110DBA /* TDComboFieldListView.m */; };
+		D36E21C71170DA0700110DBA /* TDComboFieldTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = D36E21C51170DA0700110DBA /* TDComboFieldTextView.h */; };
+		D36E21C81170DA0700110DBA /* TDComboFieldTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E21C61170DA0700110DBA /* TDComboFieldTextView.m */; };
+		D36E2FB511BDB247001CCE30 /* ComboFieldDemoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E2FB411BDB247001CCE30 /* ComboFieldDemoWindow.m */; };
+		D371244710F0520300D7107B /* TDUberViewSplitView.h in Headers */ = {isa = PBXBuildFile; fileRef = D371244610F0520300D7107B /* TDUberViewSplitView.h */; };
+		D371244810F0520800D7107B /* TDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D371244210F051E800D7107B /* TDBar.m */; };
+		D371244910F0520D00D7107B /* TDLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D371244310F051E800D7107B /* TDLine.m */; };
+		D371245410F0522700D7107B /* TDBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D371245210F0522700D7107B /* TDBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D371245510F0522700D7107B /* TDLine.h in Headers */ = {isa = PBXBuildFile; fileRef = D371245310F0522700D7107B /* TDLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D371246110F0526B00D7107B /* TDUberViewSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFC910EFB8180013347D /* TDUberViewSplitView.m */; };
+		D371DB7211C19F8C00D5434C /* favicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D371DB7111C19F8C00D5434C /* favicon.png */; };
+		D371DBEF11C1B14700D5434C /* combo_field_progress_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */; };
+		D392B08C1179594400823791 /* TDShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = D392B08A1179594400823791 /* TDShadowView.h */; };
+		D392B08D1179594400823791 /* TDShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D392B08B1179594400823791 /* TDShadowView.m */; };
+		D3A356BA11DFFB2A00EFEE29 /* TDClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3A356B811DFFB2A00EFEE29 /* TDClipView.h */; };
+		D3A356BB11DFFB2A00EFEE29 /* TDClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A356B911DFFB2A00EFEE29 /* TDClipView.m */; };
+		D3C9140111BD9742002A95CF /* TDComboFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D3C913FF11BD9742002A95CF /* TDComboFieldCell.h */; };
+		D3C9140211BD9742002A95CF /* TDComboFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C9140011BD9742002A95CF /* TDComboFieldCell.m */; };
+		D3D8023E111E2D810025650C /* NSURLRequest+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D8023C111E2D810025650C /* NSURLRequest+TDAdditions.m */; };
+		D3D80241111E2E890025650C /* NSURLRequest+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3D80240111E2E890025650C /* NSURLRequest+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3D804FD111F484D0025650C /* TDDraggableBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D3D804FC111F484D0025650C /* TDDraggableBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3D804FF111F485D0025650C /* TDDraggableBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D804FE111F485D0025650C /* TDDraggableBar.m */; };
+		D3E1320A110403D5007FE89E /* TDColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E13208110403D5007FE89E /* TDColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3E1320B110403D5007FE89E /* TDColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E13209110403D5007FE89E /* TDColorView.m */; };
+		D3EB212A11013C4E00633715 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EB212911013C4E00633715 /* QuartzCore.framework */; };
+		D3EB212D11013C5300633715 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EB212911013C4E00633715 /* QuartzCore.framework */; };
+		D3EB233E1101632B00633715 /* NSImage+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EB233C1101632B00633715 /* NSImage+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3EB233F1101632B00633715 /* NSImage+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB233D1101632B00633715 /* NSImage+TDAdditions.m */; };
+		D3EB2343110163F700633715 /* TDUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EB2341110163F700633715 /* TDUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3EB2344110163F700633715 /* TDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB2342110163F700633715 /* TDUtils.m */; };
+		D3EB23C61101686900633715 /* NSBezierPath+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB23C41101686900633715 /* NSBezierPath+TDAdditions.m */; };
+		D3EB23CC110168AD00633715 /* NSBezierPath+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EB23CB110168AD00633715 /* NSBezierPath+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F0C84011EAADB1002E2BA9 /* NSString+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F0C83E11EAADB1002E2BA9 /* NSString+TDAdditions.m */; };
+		D3F0C84211EAADC2002E2BA9 /* NSString+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F0C84111EAADC2002E2BA9 /* NSString+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FD53E911E28174009CFDA3 /* NSEvent+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FD53E811E28174009CFDA3 /* NSEvent+TDAdditions.m */; };
+		D3FD53EB11E2817E009CFDA3 /* NSEvent+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FD53EA11E2817E009CFDA3 /* NSEvent+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FFC3981204B3B6008E4948 /* DOMElement+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FFC3961204B3B6008E4948 /* DOMElement+TDAdditions.m */; };
+		D3FFC39E1204B3D7008E4948 /* DOMElement+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FFC39D1204B3D7008E4948 /* DOMElement+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FFC3A21204B3E7008E4948 /* DOMNodeList+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FFC3A01204B3E7008E4948 /* DOMNodeList+TDAdditions.m */; };
+		D3FFC3A41204B3F6008E4948 /* DOMNodeList+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FFC3A31204B3F6008E4948 /* DOMNodeList+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FFC3A81204B401008E4948 /* DOMHTMLCollection+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FFC3A61204B401008E4948 /* DOMHTMLCollection+TDAdditions.m */; };
+		D3FFC3AA1204B40E008E4948 /* DOMHTMLCollection+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FFC3A91204B40E008E4948 /* DOMHTMLCollection+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FFC3AE1204B43B008E4948 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FFC3AD1204B43B008E4948 /* WebKit.framework */; };
+		D3FFC3B41204B444008E4948 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FFC3AD1204B43B008E4948 /* WebKit.framework */; };
+		D3FFC48E1204B697008E4948 /* DOMHTMLOptionsCollection+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FFC48C1204B697008E4948 /* DOMHTMLOptionsCollection+TDAdditions.m */; };
+		D3FFC4901204B6CA008E4948 /* DOMHTMLOptionsCollection+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FFC48F1204B6CA008E4948 /* DOMHTMLOptionsCollection+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FFC4BA1204B8C1008E4948 /* WebView+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FFC4B81204B8C1008E4948 /* WebView+TDAdditions.m */; };
+		D3FFC4C61204B902008E4948 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FFC4C51204B902008E4948 /* JavaScriptCore.framework */; };
+		D3FFC4CE1204B92C008E4948 /* WebView+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FFC4CD1204B92C008E4948 /* WebView+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FFC4D81204B9C8008E4948 /* TDJSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FFC4D71204B9C8008E4948 /* TDJSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3FFC4DA1204B9CF008E4948 /* TDJSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FFC4D91204B9CF008E4948 /* TDJSUtils.m */; };
+		D3FFC4F01204BA58008E4948 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FFC4C51204B902008E4948 /* JavaScriptCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D31CC01610EFC6490013347D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = TDAppKit;
+		};
+		D36E1F6111703E8F00110DBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = TDAppKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* TDAppKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDAppKit_Prefix.pch; path = src/TDAppKit_Prefix.pch; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = res/conf/Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* TDAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D318A04C10F8570E00B6AA21 /* TDGutterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDGutterView.h; path = include/TDAppKit/TDGutterView.h; sourceTree = "<group>"; };
+		D318A04D10F8570E00B6AA21 /* TDGutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDGutterView.m; path = src/TDGutterView.m; sourceTree = "<group>"; };
+		D318A04E10F8570E00B6AA21 /* TDSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSourceCodeTextView.h; path = include/TDAppKit/TDSourceCodeTextView.h; sourceTree = "<group>"; };
+		D318A04F10F8570E00B6AA21 /* TDSourceCodeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSourceCodeTextView.m; path = src/TDSourceCodeTextView.m; sourceTree = "<group>"; };
+		D31CBFAA10EFB7010013347D /* TDListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDListItem.h; path = include/TDAppKit/TDListItem.h; sourceTree = "<group>"; };
+		D31CBFAB10EFB7010013347D /* TDListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDListItem.m; path = src/TDListItem.m; sourceTree = "<group>"; };
+		D31CBFAC10EFB7010013347D /* TDListItemQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDListItemQueue.h; path = src/TDListItemQueue.h; sourceTree = "<group>"; };
+		D31CBFAD10EFB7010013347D /* TDListItemQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDListItemQueue.m; path = src/TDListItemQueue.m; sourceTree = "<group>"; };
+		D31CBFAE10EFB7010013347D /* TDListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDListView.h; path = include/TDAppKit/TDListView.h; sourceTree = "<group>"; };
+		D31CBFAF10EFB7010013347D /* TDListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDListView.m; path = src/TDListView.m; sourceTree = "<group>"; };
+		D31CBFC810EFB8180013347D /* TDUberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDUberView.h; path = include/TDAppKit/TDUberView.h; sourceTree = "<group>"; };
+		D31CBFC910EFB8180013347D /* TDUberViewSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDUberViewSplitView.m; path = src/TDUberViewSplitView.m; sourceTree = "<group>"; };
+		D31CBFCC10EFB8260013347D /* TDUberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDUberView.m; path = src/TDUberView.m; sourceTree = "<group>"; };
+		D31CBFE910EFB9630013347D /* ListViewDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListViewDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31CBFEB10EFB9630013347D /* ListViewDemoApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ListViewDemoApp-Info.plist"; path = "demo/listview/ListViewDemoApp-Info.plist"; sourceTree = "<group>"; };
+		D31CBFF210EFBA3C0013347D /* ListViewDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewDemoAppDelegate.h; path = demo/listview/ListViewDemoAppDelegate.h; sourceTree = "<group>"; };
+		D31CBFF310EFBA3C0013347D /* ListViewDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewDemoAppDelegate.m; path = demo/listview/ListViewDemoAppDelegate.m; sourceTree = "<group>"; };
+		D31CBFF810EFBD360013347D /* DemoListItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoListItemView.h; path = demo/listview/DemoListItemView.h; sourceTree = "<group>"; };
+		D31CBFF910EFBD360013347D /* DemoListItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoListItemView.m; path = demo/listview/DemoListItemView.m; sourceTree = "<group>"; };
+		D31CC02310EFC6BB0013347D /* TDAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDAppKit.h; path = include/TDAppKit/TDAppKit.h; sourceTree = "<group>"; };
+		D31CC05D10EFC80B0013347D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = demo/listview/main.m; sourceTree = "<group>"; };
+		D31CC0AF10EFC9750013347D /* ListViewDemoMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListViewDemoMainMenu.xib; path = demo/listview/ListViewDemoMainMenu.xib; sourceTree = "<group>"; };
+		D33B19EF11168A3300F754AD /* TDScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDScroller.h; path = include/TDAppKit/TDScroller.h; sourceTree = "<group>"; };
+		D33B19F011168A3300F754AD /* TDScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDScrollView.h; path = include/TDAppKit/TDScrollView.h; sourceTree = "<group>"; };
+		D33B19F311168A3A00F754AD /* TDScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDScroller.m; path = src/TDScroller.m; sourceTree = "<group>"; };
+		D33B19F411168A3A00F754AD /* TDScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDScrollView.m; path = src/TDScrollView.m; sourceTree = "<group>"; };
+		D34A54D1120BBF590059D145 /* NSDate+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+TDAdditions.m"; path = "src/NSDate+TDAdditions.m"; sourceTree = "<group>"; };
+		D34A54D4120BBFD10059D145 /* NSDate+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+TDAdditions.h"; path = "include/TDAppKit/NSDate+TDAdditions.h"; sourceTree = "<group>"; };
+		D366C1B51128FF2400547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAppleEventDescriptor+NDAppleScriptObject.h"; path = "include/TDAppKit/NSAppleEventDescriptor+NDAppleScriptObject.h"; sourceTree = "<group>"; };
+		D366C1B61128FF2400547FD6 /* NSAppleEventDescriptor+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAppleEventDescriptor+TDAdditions.h"; path = "include/TDAppKit/NSAppleEventDescriptor+TDAdditions.h"; sourceTree = "<group>"; };
+		D366C1B91128FF3800547FD6 /* NSAppleEventDescriptor+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+TDAdditions.m"; path = "src/NSAppleEventDescriptor+TDAdditions.m"; sourceTree = "<group>"; };
+		D366C1EB112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+NDAppleScriptObject.m"; path = "src/NSAppleEventDescriptor+NDAppleScriptObject.m"; sourceTree = "<group>"; };
+		D366C1ED112902E400547FD6 /* NSURL+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+NDCarbonUtilities.h"; path = "src/NSURL+NDCarbonUtilities.h"; sourceTree = "<group>"; };
+		D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+NDCarbonUtilities.m"; path = "src/NSURL+NDCarbonUtilities.m"; sourceTree = "<group>"; };
+		D36E1E9F11702E5500110DBA /* TDComboField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboField.m; path = src/TDComboField.m; sourceTree = "<group>"; };
+		D36E1EAB11702E6A00110DBA /* TDComboField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = include/TDAppKit/TDComboField.h; sourceTree = "<group>"; };
+		D36E1ED711703A1000110DBA /* TDComboFieldListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldListItem.h; path = src/TDComboFieldListItem.h; sourceTree = "<group>"; };
+		D36E1ED811703A1000110DBA /* TDComboFieldListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldListItem.m; path = src/TDComboFieldListItem.m; sourceTree = "<group>"; };
+		D36E1F2311703D9D00110DBA /* ComboFieldDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComboFieldDemoAppDelegate.h; path = demo/combofield/ComboFieldDemoAppDelegate.h; sourceTree = "<group>"; };
+		D36E1F2411703D9D00110DBA /* ComboFieldDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComboFieldDemoAppDelegate.m; path = demo/combofield/ComboFieldDemoAppDelegate.m; sourceTree = "<group>"; };
+		D36E1F2611703DB700110DBA /* ComboFieldDemoMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ComboFieldDemoMainMenu.xib; path = demo/combofield/ComboFieldDemoMainMenu.xib; sourceTree = "<group>"; };
+		D36E1F2911703DCB00110DBA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = demo/combofield/main.m; sourceTree = "<group>"; };
+		D36E1F5B11703E8300110DBA /* FooBarDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FooBarDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36E1F5D11703E8300110DBA /* ComboFieldDemoApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ComboFieldDemoApp-Info.plist"; path = "demo/combofield/ComboFieldDemoApp-Info.plist"; sourceTree = "<group>"; };
+		D36E20911170D0BF00110DBA /* TDFlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFlippedView.m; path = src/TDFlippedView.m; sourceTree = "<group>"; };
+		D36E20941170D0D400110DBA /* TDFlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFlippedView.h; path = include/TDAppKit/TDFlippedView.h; sourceTree = "<group>"; };
+		D36E20BE1170D26E00110DBA /* TDComboFieldListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldListView.h; path = src/TDComboFieldListView.h; sourceTree = "<group>"; };
+		D36E20BF1170D26E00110DBA /* TDComboFieldListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldListView.m; path = src/TDComboFieldListView.m; sourceTree = "<group>"; };
+		D36E21C51170DA0700110DBA /* TDComboFieldTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldTextView.h; path = src/TDComboFieldTextView.h; sourceTree = "<group>"; };
+		D36E21C61170DA0700110DBA /* TDComboFieldTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldTextView.m; path = src/TDComboFieldTextView.m; sourceTree = "<group>"; };
+		D36E2FB311BDB247001CCE30 /* ComboFieldDemoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComboFieldDemoWindow.h; path = demo/combofield/ComboFieldDemoWindow.h; sourceTree = "<group>"; };
+		D36E2FB411BDB247001CCE30 /* ComboFieldDemoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComboFieldDemoWindow.m; path = demo/combofield/ComboFieldDemoWindow.m; sourceTree = "<group>"; };
+		D371244210F051E800D7107B /* TDBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBar.m; path = src/TDBar.m; sourceTree = "<group>"; };
+		D371244310F051E800D7107B /* TDLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDLine.m; path = src/TDLine.m; sourceTree = "<group>"; };
+		D371244610F0520300D7107B /* TDUberViewSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDUberViewSplitView.h; path = src/TDUberViewSplitView.h; sourceTree = "<group>"; };
+		D371245210F0522700D7107B /* TDBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBar.h; path = include/TDAppKit/TDBar.h; sourceTree = "<group>"; };
+		D371245310F0522700D7107B /* TDLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDLine.h; path = include/TDAppKit/TDLine.h; sourceTree = "<group>"; };
+		D371DB7111C19F8C00D5434C /* favicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favicon.png; path = demo/combofield/favicon.png; sourceTree = "<group>"; };
+		D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = combo_field_progress_indicator.png; path = res/img/combo_field_progress_indicator.png; sourceTree = "<group>"; };
+		D392B08A1179594400823791 /* TDShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDShadowView.h; path = src/TDShadowView.h; sourceTree = "<group>"; };
+		D392B08B1179594400823791 /* TDShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDShadowView.m; path = src/TDShadowView.m; sourceTree = "<group>"; };
+		D3A356B811DFFB2A00EFEE29 /* TDClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDClipView.h; path = src/TDClipView.h; sourceTree = "<group>"; };
+		D3A356B911DFFB2A00EFEE29 /* TDClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDClipView.m; path = src/TDClipView.m; sourceTree = "<group>"; };
+		D3C913FF11BD9742002A95CF /* TDComboFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldCell.h; path = src/TDComboFieldCell.h; sourceTree = "<group>"; };
+		D3C9140011BD9742002A95CF /* TDComboFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboFieldCell.m; path = src/TDComboFieldCell.m; sourceTree = "<group>"; };
+		D3D8023C111E2D810025650C /* NSURLRequest+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+TDAdditions.m"; path = "src/NSURLRequest+TDAdditions.m"; sourceTree = "<group>"; };
+		D3D80240111E2E890025650C /* NSURLRequest+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+TDAdditions.h"; path = "include/TDAppKit/NSURLRequest+TDAdditions.h"; sourceTree = "<group>"; };
+		D3D804FC111F484D0025650C /* TDDraggableBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDDraggableBar.h; path = include/TDAppKit/TDDraggableBar.h; sourceTree = "<group>"; };
+		D3D804FE111F485D0025650C /* TDDraggableBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDDraggableBar.m; path = src/TDDraggableBar.m; sourceTree = "<group>"; };
+		D3E13208110403D5007FE89E /* TDColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDColorView.h; path = include/TDAppKit/TDColorView.h; sourceTree = "<group>"; };
+		D3E13209110403D5007FE89E /* TDColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDColorView.m; path = src/TDColorView.m; sourceTree = "<group>"; };
+		D3EB212911013C4E00633715 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D3EB233C1101632B00633715 /* NSImage+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+TDAdditions.h"; path = "include/TDAppKit/NSImage+TDAdditions.h"; sourceTree = "<group>"; };
+		D3EB233D1101632B00633715 /* NSImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+TDAdditions.m"; path = "src/NSImage+TDAdditions.m"; sourceTree = "<group>"; };
+		D3EB2341110163F700633715 /* TDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDUtils.h; path = include/TDAppKit/TDUtils.h; sourceTree = "<group>"; };
+		D3EB2342110163F700633715 /* TDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDUtils.m; path = src/TDUtils.m; sourceTree = "<group>"; };
+		D3EB23C41101686900633715 /* NSBezierPath+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+TDAdditions.m"; path = "src/NSBezierPath+TDAdditions.m"; sourceTree = "<group>"; };
+		D3EB23CB110168AD00633715 /* NSBezierPath+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+TDAdditions.h"; path = "include/TDAppKit/NSBezierPath+TDAdditions.h"; sourceTree = "<group>"; };
+		D3F0C83E11EAADB1002E2BA9 /* NSString+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TDAdditions.m"; path = "src/NSString+TDAdditions.m"; sourceTree = "<group>"; };
+		D3F0C84111EAADC2002E2BA9 /* NSString+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TDAdditions.h"; path = "include/TDAppKit/NSString+TDAdditions.h"; sourceTree = "<group>"; };
+		D3FD53E811E28174009CFDA3 /* NSEvent+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSEvent+TDAdditions.m"; path = "src/NSEvent+TDAdditions.m"; sourceTree = "<group>"; };
+		D3FD53EA11E2817E009CFDA3 /* NSEvent+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSEvent+TDAdditions.h"; path = "include/TDAppKit/NSEvent+TDAdditions.h"; sourceTree = "<group>"; };
+		D3FFC3961204B3B6008E4948 /* DOMElement+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMElement+TDAdditions.m"; path = "src/DOMElement+TDAdditions.m"; sourceTree = "<group>"; };
+		D3FFC39D1204B3D7008E4948 /* DOMElement+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DOMElement+TDAdditions.h"; path = "include/TDAppKit/DOMElement+TDAdditions.h"; sourceTree = "<group>"; };
+		D3FFC3A01204B3E7008E4948 /* DOMNodeList+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNodeList+TDAdditions.m"; path = "src/DOMNodeList+TDAdditions.m"; sourceTree = "<group>"; };
+		D3FFC3A31204B3F6008E4948 /* DOMNodeList+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DOMNodeList+TDAdditions.h"; path = "include/TDAppKit/DOMNodeList+TDAdditions.h"; sourceTree = "<group>"; };
+		D3FFC3A61204B401008E4948 /* DOMHTMLCollection+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMHTMLCollection+TDAdditions.m"; path = "src/DOMHTMLCollection+TDAdditions.m"; sourceTree = "<group>"; };
+		D3FFC3A91204B40E008E4948 /* DOMHTMLCollection+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DOMHTMLCollection+TDAdditions.h"; path = "include/TDAppKit/DOMHTMLCollection+TDAdditions.h"; sourceTree = "<group>"; };
+		D3FFC3AD1204B43B008E4948 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D3FFC48C1204B697008E4948 /* DOMHTMLOptionsCollection+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMHTMLOptionsCollection+TDAdditions.m"; path = "src/DOMHTMLOptionsCollection+TDAdditions.m"; sourceTree = "<group>"; };
+		D3FFC48F1204B6CA008E4948 /* DOMHTMLOptionsCollection+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DOMHTMLOptionsCollection+TDAdditions.h"; path = "include/TDAppKit/DOMHTMLOptionsCollection+TDAdditions.h"; sourceTree = "<group>"; };
+		D3FFC4B81204B8C1008E4948 /* WebView+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WebView+TDAdditions.m"; path = "src/WebView+TDAdditions.m"; sourceTree = "<group>"; };
+		D3FFC4C51204B902008E4948 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		D3FFC4CD1204B92C008E4948 /* WebView+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WebView+TDAdditions.h"; path = "include/TDAppKit/WebView+TDAdditions.h"; sourceTree = "<group>"; };
+		D3FFC4D71204B9C8008E4948 /* TDJSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDJSUtils.h; path = include/TDAppKit/TDJSUtils.h; sourceTree = "<group>"; };
+		D3FFC4D91204B9CF008E4948 /* TDJSUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDJSUtils.m; path = src/TDJSUtils.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3FFC3B41204B444008E4948 /* WebKit.framework in Frameworks */,
+				D3EB212D11013C5300633715 /* QuartzCore.framework in Frameworks */,
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				D3FFC4F01204BA58008E4948 /* JavaScriptCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D31CBFE710EFB9630013347D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31CC01810EFC64E0013347D /* TDAppKit.framework in Frameworks */,
+				D3EB212A11013C4E00633715 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36E1F5911703E8300110DBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30FD7F611C1B5E3005A2437 /* TDAppKit.framework in Frameworks */,
+				D3FFC3AE1204B43B008E4948 /* WebKit.framework in Frameworks */,
+				D3FFC4C61204B902008E4948 /* JavaScriptCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* TDAppKit.framework */,
+				D31CBFE910EFB9630013347D /* ListViewDemoApp.app */,
+				D36E1F5B11703E8300110DBA /* FooBarDemoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* TDAppKit */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* TDAppKit Framework */,
+				D36E1F1E11703D5500110DBA /* ComboField Demo App */,
+				D31CBFF010EFB9710013347D /* ListView Demo App */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = TDAppKit;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */,
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* TDAppKit Framework */ = {
+			isa = PBXGroup;
+			children = (
+				D31CC02310EFC6BB0013347D /* TDAppKit.h */,
+				D3EB2341110163F700633715 /* TDUtils.h */,
+				D3EB2342110163F700633715 /* TDUtils.m */,
+				D36E1E8C11702E2700110DBA /* ComboField */,
+				D366C1AD1128FEE900547FD6 /* AppleEvents */,
+				D3EB233A1101631300633715 /* AppKit Categories */,
+				D3FFC3941204B392008E4948 /* WebKit Categories */,
+				D318A04A10F856FA00B6AA21 /* SourceCodeTextView */,
+				D31CBFBA10EFB7E90013347D /* UberView */,
+				D31CBFA810EFB6F80013347D /* ListView */,
+				D33B19ED11168A2600F754AD /* ScrollView */,
+				D371244010F051D600D7107B /* Misc Views */,
+			);
+			name = "TDAppKit Framework";
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3EB212911013C4E00633715 /* QuartzCore.framework */,
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+				D3FFC3AD1204B43B008E4948 /* WebKit.framework */,
+				D3FFC4C51204B902008E4948 /* JavaScriptCore.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* TDAppKit_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		D318A04A10F856FA00B6AA21 /* SourceCodeTextView */ = {
+			isa = PBXGroup;
+			children = (
+				D318A04C10F8570E00B6AA21 /* TDGutterView.h */,
+				D318A04D10F8570E00B6AA21 /* TDGutterView.m */,
+				D318A04E10F8570E00B6AA21 /* TDSourceCodeTextView.h */,
+				D318A04F10F8570E00B6AA21 /* TDSourceCodeTextView.m */,
+			);
+			name = SourceCodeTextView;
+			sourceTree = "<group>";
+		};
+		D31CBFA810EFB6F80013347D /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				D31CBFAE10EFB7010013347D /* TDListView.h */,
+				D31CBFAF10EFB7010013347D /* TDListView.m */,
+				D31CBFAA10EFB7010013347D /* TDListItem.h */,
+				D31CBFAB10EFB7010013347D /* TDListItem.m */,
+				D31CBFAC10EFB7010013347D /* TDListItemQueue.h */,
+				D31CBFAD10EFB7010013347D /* TDListItemQueue.m */,
+			);
+			name = ListView;
+			sourceTree = "<group>";
+		};
+		D31CBFBA10EFB7E90013347D /* UberView */ = {
+			isa = PBXGroup;
+			children = (
+				D31CBFC810EFB8180013347D /* TDUberView.h */,
+				D31CBFCC10EFB8260013347D /* TDUberView.m */,
+				D371244610F0520300D7107B /* TDUberViewSplitView.h */,
+				D31CBFC910EFB8180013347D /* TDUberViewSplitView.m */,
+			);
+			name = UberView;
+			sourceTree = "<group>";
+		};
+		D31CBFF010EFB9710013347D /* ListView Demo App */ = {
+			isa = PBXGroup;
+			children = (
+				D31CBFF210EFBA3C0013347D /* ListViewDemoAppDelegate.h */,
+				D31CBFF310EFBA3C0013347D /* ListViewDemoAppDelegate.m */,
+				D31CBFF810EFBD360013347D /* DemoListItemView.h */,
+				D31CBFF910EFBD360013347D /* DemoListItemView.m */,
+				D31CC05D10EFC80B0013347D /* main.m */,
+				D31CBFEB10EFB9630013347D /* ListViewDemoApp-Info.plist */,
+				D31CC0AF10EFC9750013347D /* ListViewDemoMainMenu.xib */,
+			);
+			name = "ListView Demo App";
+			sourceTree = "<group>";
+		};
+		D33B19ED11168A2600F754AD /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				D33B19F011168A3300F754AD /* TDScrollView.h */,
+				D33B19F411168A3A00F754AD /* TDScrollView.m */,
+				D33B19EF11168A3300F754AD /* TDScroller.h */,
+				D33B19F311168A3A00F754AD /* TDScroller.m */,
+				D3A356B811DFFB2A00EFEE29 /* TDClipView.h */,
+				D3A356B911DFFB2A00EFEE29 /* TDClipView.m */,
+			);
+			name = ScrollView;
+			sourceTree = "<group>";
+		};
+		D366C1AD1128FEE900547FD6 /* AppleEvents */ = {
+			isa = PBXGroup;
+			children = (
+				D366C1B51128FF2400547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.h */,
+				D366C1EB112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */,
+				D366C1B61128FF2400547FD6 /* NSAppleEventDescriptor+TDAdditions.h */,
+				D366C1B91128FF3800547FD6 /* NSAppleEventDescriptor+TDAdditions.m */,
+				D366C1ED112902E400547FD6 /* NSURL+NDCarbonUtilities.h */,
+				D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */,
+			);
+			name = AppleEvents;
+			sourceTree = "<group>";
+		};
+		D36E1E8C11702E2700110DBA /* ComboField */ = {
+			isa = PBXGroup;
+			children = (
+				D36E1EAB11702E6A00110DBA /* TDComboField.h */,
+				D36E1E9F11702E5500110DBA /* TDComboField.m */,
+				D3C913FF11BD9742002A95CF /* TDComboFieldCell.h */,
+				D3C9140011BD9742002A95CF /* TDComboFieldCell.m */,
+				D36E21C51170DA0700110DBA /* TDComboFieldTextView.h */,
+				D36E21C61170DA0700110DBA /* TDComboFieldTextView.m */,
+				D36E20BE1170D26E00110DBA /* TDComboFieldListView.h */,
+				D36E20BF1170D26E00110DBA /* TDComboFieldListView.m */,
+				D36E1ED711703A1000110DBA /* TDComboFieldListItem.h */,
+				D36E1ED811703A1000110DBA /* TDComboFieldListItem.m */,
+			);
+			name = ComboField;
+			sourceTree = "<group>";
+		};
+		D36E1F1E11703D5500110DBA /* ComboField Demo App */ = {
+			isa = PBXGroup;
+			children = (
+				D36E1F2311703D9D00110DBA /* ComboFieldDemoAppDelegate.h */,
+				D36E1F2411703D9D00110DBA /* ComboFieldDemoAppDelegate.m */,
+				D36E2FB311BDB247001CCE30 /* ComboFieldDemoWindow.h */,
+				D36E2FB411BDB247001CCE30 /* ComboFieldDemoWindow.m */,
+				D36E1F2911703DCB00110DBA /* main.m */,
+				D36E1F5D11703E8300110DBA /* ComboFieldDemoApp-Info.plist */,
+				D36E1F2611703DB700110DBA /* ComboFieldDemoMainMenu.xib */,
+				D371DB7111C19F8C00D5434C /* favicon.png */,
+			);
+			name = "ComboField Demo App";
+			sourceTree = "<group>";
+		};
+		D371244010F051D600D7107B /* Misc Views */ = {
+			isa = PBXGroup;
+			children = (
+				D371245210F0522700D7107B /* TDBar.h */,
+				D371244210F051E800D7107B /* TDBar.m */,
+				D3D804FC111F484D0025650C /* TDDraggableBar.h */,
+				D3D804FE111F485D0025650C /* TDDraggableBar.m */,
+				D371245310F0522700D7107B /* TDLine.h */,
+				D371244310F051E800D7107B /* TDLine.m */,
+				D3E13208110403D5007FE89E /* TDColorView.h */,
+				D3E13209110403D5007FE89E /* TDColorView.m */,
+				D36E20941170D0D400110DBA /* TDFlippedView.h */,
+				D36E20911170D0BF00110DBA /* TDFlippedView.m */,
+				D392B08A1179594400823791 /* TDShadowView.h */,
+				D392B08B1179594400823791 /* TDShadowView.m */,
+			);
+			name = "Misc Views";
+			sourceTree = "<group>";
+		};
+		D3EB233A1101631300633715 /* AppKit Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D3EB233C1101632B00633715 /* NSImage+TDAdditions.h */,
+				D3EB233D1101632B00633715 /* NSImage+TDAdditions.m */,
+				D3EB23CB110168AD00633715 /* NSBezierPath+TDAdditions.h */,
+				D3EB23C41101686900633715 /* NSBezierPath+TDAdditions.m */,
+				D3D80240111E2E890025650C /* NSURLRequest+TDAdditions.h */,
+				D3D8023C111E2D810025650C /* NSURLRequest+TDAdditions.m */,
+				D3FD53EA11E2817E009CFDA3 /* NSEvent+TDAdditions.h */,
+				D3FD53E811E28174009CFDA3 /* NSEvent+TDAdditions.m */,
+				D3F0C84111EAADC2002E2BA9 /* NSString+TDAdditions.h */,
+				D3F0C83E11EAADB1002E2BA9 /* NSString+TDAdditions.m */,
+				D34A54D4120BBFD10059D145 /* NSDate+TDAdditions.h */,
+				D34A54D1120BBF590059D145 /* NSDate+TDAdditions.m */,
+			);
+			name = "AppKit Categories";
+			sourceTree = "<group>";
+		};
+		D3FFC3941204B392008E4948 /* WebKit Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D3FFC4D71204B9C8008E4948 /* TDJSUtils.h */,
+				D3FFC4D91204B9CF008E4948 /* TDJSUtils.m */,
+				D3FFC39D1204B3D7008E4948 /* DOMElement+TDAdditions.h */,
+				D3FFC3961204B3B6008E4948 /* DOMElement+TDAdditions.m */,
+				D3FFC3A31204B3F6008E4948 /* DOMNodeList+TDAdditions.h */,
+				D3FFC3A01204B3E7008E4948 /* DOMNodeList+TDAdditions.m */,
+				D3FFC3A91204B40E008E4948 /* DOMHTMLCollection+TDAdditions.h */,
+				D3FFC3A61204B401008E4948 /* DOMHTMLCollection+TDAdditions.m */,
+				D3FFC48F1204B6CA008E4948 /* DOMHTMLOptionsCollection+TDAdditions.h */,
+				D3FFC48C1204B697008E4948 /* DOMHTMLOptionsCollection+TDAdditions.m */,
+				D3FFC4CD1204B92C008E4948 /* WebView+TDAdditions.h */,
+				D3FFC4B81204B8C1008E4948 /* WebView+TDAdditions.m */,
+			);
+			name = "WebKit Categories";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31CC02410EFC6BB0013347D /* TDAppKit.h in Headers */,
+				D31CBFCA10EFB8180013347D /* TDUberView.h in Headers */,
+				D31CBFB410EFB7010013347D /* TDListView.h in Headers */,
+				D31CBFB010EFB7010013347D /* TDListItem.h in Headers */,
+				D371244710F0520300D7107B /* TDUberViewSplitView.h in Headers */,
+				D371245410F0522700D7107B /* TDBar.h in Headers */,
+				D371245510F0522700D7107B /* TDLine.h in Headers */,
+				D318A05010F8570E00B6AA21 /* TDGutterView.h in Headers */,
+				D318A05210F8570E00B6AA21 /* TDSourceCodeTextView.h in Headers */,
+				D3EB233E1101632B00633715 /* NSImage+TDAdditions.h in Headers */,
+				D3EB2343110163F700633715 /* TDUtils.h in Headers */,
+				D3EB23CC110168AD00633715 /* NSBezierPath+TDAdditions.h in Headers */,
+				D3E1320A110403D5007FE89E /* TDColorView.h in Headers */,
+				D33B19F111168A3300F754AD /* TDScroller.h in Headers */,
+				D33B19F211168A3300F754AD /* TDScrollView.h in Headers */,
+				D3D80241111E2E890025650C /* NSURLRequest+TDAdditions.h in Headers */,
+				D3D804FD111F484D0025650C /* TDDraggableBar.h in Headers */,
+				D366C1B71128FF2400547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.h in Headers */,
+				D366C1B81128FF2400547FD6 /* NSAppleEventDescriptor+TDAdditions.h in Headers */,
+				D366C1EF112902E500547FD6 /* NSURL+NDCarbonUtilities.h in Headers */,
+				D36E1EAC11702E6A00110DBA /* TDComboField.h in Headers */,
+				D36E1ED911703A1000110DBA /* TDComboFieldListItem.h in Headers */,
+				D36E20951170D0D400110DBA /* TDFlippedView.h in Headers */,
+				D36E20C01170D26E00110DBA /* TDComboFieldListView.h in Headers */,
+				D36E21C71170DA0700110DBA /* TDComboFieldTextView.h in Headers */,
+				D392B08C1179594400823791 /* TDShadowView.h in Headers */,
+				D3C9140111BD9742002A95CF /* TDComboFieldCell.h in Headers */,
+				D3A356BA11DFFB2A00EFEE29 /* TDClipView.h in Headers */,
+				D3FD53EB11E2817E009CFDA3 /* NSEvent+TDAdditions.h in Headers */,
+				D3F0C84211EAADC2002E2BA9 /* NSString+TDAdditions.h in Headers */,
+				D3FFC39E1204B3D7008E4948 /* DOMElement+TDAdditions.h in Headers */,
+				D3FFC3A41204B3F6008E4948 /* DOMNodeList+TDAdditions.h in Headers */,
+				D3FFC3AA1204B40E008E4948 /* DOMHTMLCollection+TDAdditions.h in Headers */,
+				D3FFC4901204B6CA008E4948 /* DOMHTMLOptionsCollection+TDAdditions.h in Headers */,
+				D3FFC4CE1204B92C008E4948 /* WebView+TDAdditions.h in Headers */,
+				D3FFC4D81204B9C8008E4948 /* TDJSUtils.h in Headers */,
+				D34A54D5120BBFD10059D145 /* NSDate+TDAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8DC2EF4F0486A6940098B216 /* TDAppKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "TDAppKit" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TDAppKit;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = TDAppKit;
+			productReference = 8DC2EF5B0486A6940098B216 /* TDAppKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D31CBFE810EFB9630013347D /* ListViewDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D31CBFEE10EFB9640013347D /* Build configuration list for PBXNativeTarget "ListViewDemoApp" */;
+			buildPhases = (
+				D31CBFE510EFB9630013347D /* Resources */,
+				D31CBFE610EFB9630013347D /* Sources */,
+				D31CBFE710EFB9630013347D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D31CC01710EFC6490013347D /* PBXTargetDependency */,
+			);
+			name = ListViewDemoApp;
+			productName = ListViewDemoApp;
+			productReference = D31CBFE910EFB9630013347D /* ListViewDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D36E1F5A11703E8300110DBA /* ComboFieldDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D36E1F6011703E8400110DBA /* Build configuration list for PBXNativeTarget "ComboFieldDemoApp" */;
+			buildPhases = (
+				D36E1F5811703E8300110DBA /* Sources */,
+				D36E1F5911703E8300110DBA /* Frameworks */,
+				D36E1F5711703E8300110DBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D36E1F6211703E8F00110DBA /* PBXTargetDependency */,
+			);
+			name = ComboFieldDemoApp;
+			productName = FooBarDemoApp;
+			productReference = D36E1F5B11703E8300110DBA /* FooBarDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "TDAppKit" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* TDAppKit */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* TDAppKit */,
+				D31CBFE810EFB9630013347D /* ListViewDemoApp */,
+				D36E1F5A11703E8300110DBA /* ComboFieldDemoApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+				D371DBEF11C1B14700D5434C /* combo_field_progress_indicator.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D31CBFE510EFB9630013347D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31CC0B010EFC9750013347D /* ListViewDemoMainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36E1F5711703E8300110DBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36E1F7111703EBD00110DBA /* ComboFieldDemoMainMenu.xib in Resources */,
+				D371DB7211C19F8C00D5434C /* favicon.png in Resources */,
+				D30FD7C111C1B561005A2437 /* combo_field_progress_indicator.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31CBFCE10EFB8260013347D /* TDUberView.m in Sources */,
+				D31CBFB510EFB7010013347D /* TDListView.m in Sources */,
+				D31CBFB110EFB7010013347D /* TDListItem.m in Sources */,
+				D31CBFB310EFB7010013347D /* TDListItemQueue.m in Sources */,
+				D371244810F0520800D7107B /* TDBar.m in Sources */,
+				D371244910F0520D00D7107B /* TDLine.m in Sources */,
+				D371246110F0526B00D7107B /* TDUberViewSplitView.m in Sources */,
+				D318A05110F8570E00B6AA21 /* TDGutterView.m in Sources */,
+				D318A05310F8570E00B6AA21 /* TDSourceCodeTextView.m in Sources */,
+				D3EB233F1101632B00633715 /* NSImage+TDAdditions.m in Sources */,
+				D3EB2344110163F700633715 /* TDUtils.m in Sources */,
+				D3EB23C61101686900633715 /* NSBezierPath+TDAdditions.m in Sources */,
+				D3E1320B110403D5007FE89E /* TDColorView.m in Sources */,
+				D33B19F511168A3A00F754AD /* TDScroller.m in Sources */,
+				D33B19F611168A3A00F754AD /* TDScrollView.m in Sources */,
+				D3D8023E111E2D810025650C /* NSURLRequest+TDAdditions.m in Sources */,
+				D3D804FF111F485D0025650C /* TDDraggableBar.m in Sources */,
+				D366C1BA1128FF3800547FD6 /* NSAppleEventDescriptor+TDAdditions.m in Sources */,
+				D366C1EC112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */,
+				D366C1F0112902E500547FD6 /* NSURL+NDCarbonUtilities.m in Sources */,
+				D36E1EA111702E5500110DBA /* TDComboField.m in Sources */,
+				D36E1EDA11703A1000110DBA /* TDComboFieldListItem.m in Sources */,
+				D36E20931170D0BF00110DBA /* TDFlippedView.m in Sources */,
+				D36E20C11170D26E00110DBA /* TDComboFieldListView.m in Sources */,
+				D36E21C81170DA0700110DBA /* TDComboFieldTextView.m in Sources */,
+				D392B08D1179594400823791 /* TDShadowView.m in Sources */,
+				D3C9140211BD9742002A95CF /* TDComboFieldCell.m in Sources */,
+				D3A356BB11DFFB2A00EFEE29 /* TDClipView.m in Sources */,
+				D3FD53E911E28174009CFDA3 /* NSEvent+TDAdditions.m in Sources */,
+				D3F0C84011EAADB1002E2BA9 /* NSString+TDAdditions.m in Sources */,
+				D3FFC3981204B3B6008E4948 /* DOMElement+TDAdditions.m in Sources */,
+				D3FFC3A21204B3E7008E4948 /* DOMNodeList+TDAdditions.m in Sources */,
+				D3FFC3A81204B401008E4948 /* DOMHTMLCollection+TDAdditions.m in Sources */,
+				D3FFC48E1204B697008E4948 /* DOMHTMLOptionsCollection+TDAdditions.m in Sources */,
+				D3FFC4BA1204B8C1008E4948 /* WebView+TDAdditions.m in Sources */,
+				D3FFC4DA1204B9CF008E4948 /* TDJSUtils.m in Sources */,
+				D34A54D3120BBF590059D145 /* NSDate+TDAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D31CBFE610EFB9630013347D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31CBFF410EFBA3C0013347D /* ListViewDemoAppDelegate.m in Sources */,
+				D31CBFFA10EFBD360013347D /* DemoListItemView.m in Sources */,
+				D31CC05E10EFC80B0013347D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36E1F5811703E8300110DBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36E1F6E11703EAD00110DBA /* ComboFieldDemoAppDelegate.m in Sources */,
+				D36E1F6F11703EB500110DBA /* main.m in Sources */,
+				D36E2FB511BDB247001CCE30 /* ComboFieldDemoWindow.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D31CC01710EFC6490013347D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* TDAppKit */;
+			targetProxy = D31CC01610EFC6490013347D /* PBXContainerItemProxy */;
+		};
+		D36E1F6211703E8F00110DBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* TDAppKit */;
+			targetProxy = D36E1F6111703E8F00110DBA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@executable_path/../Frameworks";
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = src/TDAppKit_Prefix.pch;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = res/conf/Info.plist;
+				INSTALL_PATH = "build/$(CONFIGURATION)";
+				PRODUCT_NAME = TDAppKit;
+				SDKROOT = macosx10.5;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@executable_path/../Frameworks";
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = src/TDAppKit_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BLOCK_ASSERTIONS;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = res/conf/Info.plist;
+				INSTALL_PATH = "build/$(CONFIGURATION)";
+				PRODUCT_NAME = TDAppKit;
+				SDKROOT = macosx10.5;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		D31CBFEC10EFB9640013347D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/include";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = "demo/listview/ListViewDemoApp-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ListViewDemoApp;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		D31CBFED10EFB9640013347D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/include";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = "demo/listview/ListViewDemoApp-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ListViewDemoApp;
+				SDKROOT = macosx10.5;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		D36E1F5E11703E8400110DBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "demo/combofield/ComboFieldDemoApp-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FooBarDemoApp;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		D36E1F5F11703E8400110DBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "demo/combofield/ComboFieldDemoApp-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FooBarDemoApp;
+				SDKROOT = macosx10.5;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "TDAppKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "TDAppKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D31CBFEE10EFB9640013347D /* Build configuration list for PBXNativeTarget "ListViewDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D31CBFEC10EFB9640013347D /* Debug */,
+				D31CBFED10EFB9640013347D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D36E1F6011703E8400110DBA /* Build configuration list for PBXNativeTarget "ComboFieldDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D36E1F5E11703E8400110DBA /* Debug */,
+				D36E1F5F11703E8400110DBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
