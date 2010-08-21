@@ -33,4 +33,6 @@
 - (BOOL)isReturnKeyPressed;
 - (BOOL)isEnterKeyPressed;
 - (BOOL)isTabKeyDown;
+- (BOOL)isUpArrowKeyDown;
+- (BOOL)isDownArrowKeyDown;
 @end
