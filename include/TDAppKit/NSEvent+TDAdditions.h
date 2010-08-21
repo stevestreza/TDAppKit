@@ -19,6 +19,8 @@
 - (BOOL)isMouseMoved;
 - (BOOL)isMouseUp;
 - (BOOL)isMouseDragged;
+- (BOOL)isKeyUp;
+- (BOOL)isKeyDown;
 - (BOOL)isKeyUpOrDown;
 - (BOOL)is3rdButtonClick;
 - (BOOL)isScrollWheel;
@@ -30,5 +32,5 @@
 - (BOOL)isEscKeyPressed;
 - (BOOL)isReturnKeyPressed;
 - (BOOL)isEnterKeyPressed;
-- (BOOL)isTabKey;
+- (BOOL)isTabKeyDown;
 @end

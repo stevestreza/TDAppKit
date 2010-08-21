@@ -42,8 +42,18 @@
 }
 
 
+- (BOOL)isKeyUp {
+    return (NSKeyUp == [self type]);
+}
+
+
+- (BOOL)isKeyDown {
+    return (NSKeyDown == [self type]);
+}
+
+
 - (BOOL)isKeyUpOrDown {
-    return (NSKeyUp == [self type] || NSKeyDown == [self type]);
+    return [self isKeyUp] || [self isKeyDown];
 }
 
 
@@ -97,8 +107,8 @@
 }
 
 
-- (BOOL)isTabKey {
-    return [self isKeyUpOrDown] && TAB == [self keyCode];
+- (BOOL)isTabKeyDown {
+    return [self isKeyDown] && TAB == [self keyCode];
 }
 
 @end
