@@ -30,4 +30,5 @@
 - (BOOL)isEscKeyPressed;
 - (BOOL)isReturnKeyPressed;
 - (BOOL)isEnterKeyPressed;
+- (BOOL)isTabKey;
 @end

@@ -18,6 +18,7 @@
 #define ESC 53
 #define RETURN 36
 #define ENTER 76
+#define TAB 48
 
 @implementation NSEvent (TDAdditions)
 
@@ -93,6 +94,11 @@
 
 - (BOOL)isEnterKeyPressed {
     return [self isKeyUpOrDown] && ENTER == [self keyCode];
+}
+
+
+- (BOOL)isTabKey {
+    return [self isKeyUpOrDown] && TAB == [self keyCode];
 }
 
 @end
