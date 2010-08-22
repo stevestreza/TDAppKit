@@ -19,8 +19,9 @@
 #define RETURN 36
 #define ENTER 76
 #define TAB 48
+#define SPACE 49
 #define UP_ARROW 126
-#define DOWN_ARROW 125   
+#define DOWN_ARROW 125
 
 @implementation NSEvent (TDAdditions)
 
@@ -121,6 +122,11 @@
 
 - (BOOL)isDownArrowKeyDown {
     return [self isKeyDown] && DOWN_ARROW == [self keyCode];
+}
+
+
+- (BOOL)isSpaceKeyDown {
+    return [self isKeyDown] && SPACE == [self keyCode];
 }
 
 @end

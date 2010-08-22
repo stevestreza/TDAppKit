@@ -35,4 +35,5 @@
 - (BOOL)isTabKeyDown;
 - (BOOL)isUpArrowKeyDown;
 - (BOOL)isDownArrowKeyDown;
+- (BOOL)isSpaceKeyDown;
 @end
