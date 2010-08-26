@@ -16,6 +16,7 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 
 @interface WebView (TDAdditions)
+- (id)cocoaValueForEvaluatingScript:(NSString *)script error:(NSString **)outErrMsg;
 - (JSValueRef)valueForEvaluatingScript:(NSString *)script error:(NSString **)outErrMsg;
 - (BOOL)javaScriptEvalsTrue:(NSString *)script error:(NSString **)outErrMsg;
 - (BOOL)xpathEvalsTrue:(NSString *)xpath error:(NSString **)outErrMsg;
