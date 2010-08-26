@@ -742,14 +742,15 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     [unusedItems removeAllObjects];
     
     NSRect frame = [self frame];
+    NSRect vizRect = self.scrollView ? [self.scrollView documentVisibleRect] : viewportRect;
     if (isPortrait) {
         if ([self autoresizingMask] & NSViewHeightSizable) {
-            y = y < viewportRect.size.height ? viewportRect.size.height : y;
+            y = y < vizRect.size.height ? vizRect.size.height : y;
         }
         frame.size.height = y;
     } else {
         if ([self autoresizingMask] & NSViewWidthSizable) {
-            x = x < viewportRect.size.width ? viewportRect.size.width : x;
+            x = x < vizRect.size.width ? vizRect.size.width : x;
         }
         frame.size.width = x;
     }
