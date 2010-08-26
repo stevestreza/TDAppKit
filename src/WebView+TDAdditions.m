@@ -15,21 +15,61 @@
 #import <TDAppKit/WebView+TDAdditions.h>
 #import <TDAppKit/TDJSUtils.h>
 
+@interface WebView (TDAdditionsPrivate)
+- (JSGlobalContextRef)javaScriptContext;
+- (JSValueRef)valueForEvaluatingScript:(NSString *)script error:(NSString **)outErrMsg inContext:(JSGlobalContextRef)ctx;
+@end
+
 @implementation WebView (TDAdditions)
 
-- (JSValueRef)valueForEvaluatingScript:(NSString *)script error:(NSString **)outErrMsg {
-    JSValueRef result = NULL;
-    
+- (JSGlobalContextRef)javaScriptContext {
     // get context
     JSGlobalContextRef ctx = [[self mainFrame] globalContext];
     if (!ctx) {
         ctx = JSGlobalContextCreate(NULL);
     }
     
+    return ctx;
+}
+
+- (JSValueRef)valueForEvaluatingScript:(NSString *)script error:(NSString **)outErrMsg inContext:(JSGlobalContextRef)ctx {
+    if (!ctx) {
+        ctx = [self javaScriptContext];    
+    }
+    
     NSString *sourceURLString = [self mainFrameURL];
     
-    result = TDEvaluateScript(ctx, script, sourceURLString, outErrMsg);
+    JSValueRef result = TDEvaluateScript(ctx, script, sourceURLString, outErrMsg);
     return result;
+}
+
+
+- (id)cocoaValueForEvaluatingScript:(NSString *)script error:(NSString **)outErrMsg {
+    JSGlobalContextRef ctx = [self javaScriptContext];
+    JSValueRef val = [self valueForEvaluatingScript:script error:outErrMsg inContext:ctx];
+    
+    if (*outErrMsg) {
+        return nil;
+    }
+    
+    JSValueRef e = NULL;
+    id result = TDJSValueGetId(ctx, val, &e);
+    
+    if (e) {
+        if (outErrMsg) {
+            NSString *msg = TDJSValueGetNSString(ctx, e, NULL);
+            *outErrMsg = [NSString stringWithFormat:NSLocalizedString(@"JavaScript evaluation error:\n\n%@", @""), msg];
+            NSLog(@"%@", *outErrMsg);
+        }
+        return nil;
+    }
+    
+    return result;
+}
+
+
+- (JSValueRef)valueForEvaluatingScript:(NSString *)script error:(NSString **)outErrMsg {    
+    return [self valueForEvaluatingScript:script error:outErrMsg inContext:NULL];
 }
 
 
@@ -94,6 +134,5 @@
 - (NSArray *)allDOMDocuments {
     return [self allDOMDocumentsFromFrame:[self mainFrame]];
 }
-
 
 @end
