@@ -741,16 +741,18 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
     [unusedItems removeAllObjects];
     
+#define FUDGE 30.0
+    
     NSRect frame = [self frame];
     NSRect vizRect = self.scrollView ? [self.scrollView documentVisibleRect] : viewportRect;
     if (isPortrait) {
         if ([self autoresizingMask] & NSViewHeightSizable) {
-            y = y < vizRect.size.height ? vizRect.size.height : y;
+            y = y < vizRect.size.height - FUDGE ? vizRect.size.height : y + FUDGE;
         }
         frame.size.height = y;
     } else {
         if ([self autoresizingMask] & NSViewWidthSizable) {
-            x = x < vizRect.size.width ? vizRect.size.width : x;
+            x = x < vizRect.size.width - FUDGE ? vizRect.size.width : x + FUDGE;
         }
         frame.size.width = x;
     }
