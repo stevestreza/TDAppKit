@@ -117,6 +117,7 @@
     return boolValue;
 }
 
+
 - (NSArray *)allDOMDocumentsFromFrame:(WebFrame *)frame {
     NSMutableArray *docs = [NSMutableArray array];
     
