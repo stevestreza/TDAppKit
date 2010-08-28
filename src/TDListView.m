@@ -741,7 +741,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
     [unusedItems removeAllObjects];
     
-#define FUDGE 30.0
+#define FUDGE 40.0
     
     NSRect frame = [self frame];
     NSRect vizRect = self.scrollView ? [self.scrollView documentVisibleRect] : viewportRect;
