@@ -11,4 +11,5 @@
 @interface NSString (TDAdditions)
 - (NSString *)stringByCollapsingWhitespace;
 - (NSString *)stringByReplacingWhitespaceWithStars;
+- (NSString *)stringByTrimmingFirstAndLastChars;
 @end
