@@ -741,7 +741,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
     [unusedItems removeAllObjects];
     
-#define FUDGE 40.0
+#define FUDGE 120.0
     NSDragOperation mask = [self draggingSourceOperationMaskForLocal:YES];
     CGFloat fudge = (mask == NSDragOperationNone) ? 0 : FUDGE;
     
