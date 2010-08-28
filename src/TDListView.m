@@ -742,17 +742,19 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     [unusedItems removeAllObjects];
     
 #define FUDGE 40.0
+    NSDragOperation mask = [self draggingSourceOperationMaskForLocal:YES];
+    CGFloat fudge = (mask == NSDragOperationNone) ? 0 : FUDGE;
     
     NSRect frame = [self frame];
     NSRect vizRect = self.scrollView ? [self.scrollView documentVisibleRect] : viewportRect;
     if (isPortrait) {
         if ([self autoresizingMask] & NSViewHeightSizable) {
-            y = y < vizRect.size.height - FUDGE ? vizRect.size.height : y + FUDGE;
+            y = y < vizRect.size.height - fudge ? vizRect.size.height : y + fudge;
         }
         frame.size.height = y;
     } else {
         if ([self autoresizingMask] & NSViewWidthSizable) {
-            x = x < vizRect.size.width - FUDGE ? vizRect.size.width : x + FUDGE;
+            x = x < vizRect.size.width - fudge ? vizRect.size.width : x + fudge;
         }
         frame.size.width = x;
     }
