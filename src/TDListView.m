@@ -358,6 +358,12 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (void)handleRightClickEvent:(NSEvent *)evt {
+    NSPoint locInWin = [evt locationInWindow];
+    NSPoint p = [self convertPoint:locInWin fromView:nil];
+    NSUInteger i = [self indexForItemAtPoint:p];
+
+    self.selectedItemIndex = i;
+    
     if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemAtIndex:)]) {
         NSTimer *timer = [NSTimer timerWithTimeInterval:0 
                                                  target:self 
@@ -372,10 +378,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 - (void)displayContextMenu:(NSTimer *)timer {
     if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemAtIndex:)]) {
         NSEvent *evt = [timer userInfo];
-        
-        NSPoint locInWin = [evt locationInWindow];
-        NSPoint p = [self convertPoint:locInWin fromView:nil];
-        NSUInteger i = [self indexForItemAtPoint:p];
+        NSUInteger i = self.selectedItemIndex;
         
         //if (NSNotFound == i || i >= [dataSource numberOfItemsInListView:self]) return;
         
