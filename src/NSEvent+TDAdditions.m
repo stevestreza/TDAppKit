@@ -18,6 +18,7 @@
 #define ESC 53
 #define RETURN 36
 #define ENTER 76
+#define PERIOD 47
 #define TAB 48
 #define SPACE 49
 #define UP_ARROW 126
@@ -127,6 +128,11 @@
 
 - (BOOL)isSpaceKeyDown {
     return [self isKeyDown] && SPACE == [self keyCode];
+}
+
+
+- (BOOL)isCommandPeriodKeyDown {
+    return [self isKeyDown] && PERIOD == [self keyCode];
 }
 
 @end

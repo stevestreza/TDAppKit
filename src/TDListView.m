@@ -346,6 +346,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                 withinDragRadius = NO;
                 break;
             case NSLeftMouseUp:
+            case NSPeriodic:
                 withinDragRadius = NO;
                 [self draggingSourceDragDidEnd];
                 [self mouseUp:evt];

@@ -36,4 +36,5 @@
 - (BOOL)isUpArrowKeyDown;
 - (BOOL)isDownArrowKeyDown;
 - (BOOL)isSpaceKeyDown;
+- (BOOL)isCommandPeriodKeyDown;
 @end
