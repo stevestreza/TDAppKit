@@ -35,9 +35,10 @@
 #import <TDAppKit/TDFlippedView.h>
 
 // WebKit stuff
-#import <TDAppKit/WebView+TDAdditions.h>
 #import <TDAppKit/TDJSUtils.h>
+#import <TDAppKit/DOMNode+TDAdditions.h>
 #import <TDAppKit/DOMElement+TDAdditions.h>
 #import <TDAppKit/DOMNodeList+TDAdditions.h>
 #import <TDAppKit/DOMHTMLCollection+TDAdditions.h>
 #import <TDAppKit/DOMHTMLOptionsCollection+TDAdditions.h>
+#import <TDAppKit/WebView+TDAdditions.h>

@@ -13,7 +13,12 @@
 //  limitations under the License.
 
 #import <TDAppKit/DOMElement+TDAdditions.h>
+#import <TDAppKit/DOMNode+TDAdditions.h>
 #import <TDAppKit/DOMNodeList+TDAdditions.h>
+
+@interface DOMElement (TDAdditionsPrivate)
+- (void)dispatchUIEventWithName:(NSString *)name;
+@end
 
 @implementation DOMElement (TDAdditions)
 
@@ -45,13 +50,92 @@
 }
 
 
-- (void)dispatchClickEvent {
-    // create DOM click event
+- (void)dispatchUIEventWithName:(NSString *)name {
+    // create DOM UIEvents event
     DOMDocument *doc = [self ownerDocument];
     DOMAbstractView *window = [doc defaultView];
     DOMUIEvent *evt = (DOMUIEvent *)[doc createEvent:@"UIEvents"];
-    [evt initUIEvent:@"click" canBubble:YES cancelable:YES view:window detail:1];
+    [evt initUIEvent:name canBubble:YES cancelable:YES view:window detail:1];
     [self dispatchEvent:evt];
+}
+
+
+- (void)dispatchClickEvent {
+    [self dispatchUIEventWithName:@"click"];
+}
+
+
+- (void)simulateClickEvent {
+//    [self dispatchUIEventWithName:@"mouseover"];
+//    [self dispatchUIEventWithName:@"mousemove"];
+    [self dispatchUIEventWithName:@"mousedown"];
+    [self dispatchUIEventWithName:@"click"];
+    [self dispatchUIEventWithName:@"mouseup"];
+//    [self dispatchUIEventWithName:@"mousemove"];
+//    [self dispatchUIEventWithName:@"mouseout"];
+}
+
+
+
+- (void)dispatchMouseEventType:(NSString *)type 
+                    clickCount:(NSInteger)clickCount 
+                       ctrlKey:(BOOL)ctrlKeyPressed 
+                        altKey:(BOOL)altKeyPressed 
+                      shiftKey:(BOOL)shiftKeyPressed 
+                       metaKey:(BOOL)metaKeyPressed 
+                        button:(NSInteger)button 
+                 relatedTarget:(id)relatedTarget 
+                       webView:(WebView *)webView
+{
+    
+//    DOMDocument *doc = [self ownerDocument];
+
+    DOMDocument *doc = [webView mainFrameDocument];
+    DOMAbstractView *window = [doc defaultView];
+    WebFrameView *frameView = [[webView mainFrame] frameView];
+    NSView <WebDocumentView> *docView = [frameView documentView];
+    
+    NSRect screenRect = [[[webView window] screen] frame];
+    
+    CGFloat x = [self totalOffsetLeft];
+    CGFloat y = [self totalOffsetTop];
+    CGFloat width = [self offsetWidth];
+    CGFloat height = [self offsetHeight];
+    
+    CGFloat clientX = x + (width / 2);
+    CGFloat clientY = y + (height / 2);
+    
+    NSPoint screenPoint = [[webView window] convertBaseToScreen:[docView convertPointToBase:NSMakePoint(clientX, clientY)]];
+    CGFloat screenX = fabs(screenPoint.x);
+    CGFloat screenY = fabs(screenPoint.y);
+    
+    if (screenRect.origin.y >= 0) {
+        screenY = screenRect.size.height - screenY;
+    }
+    
+    DOMMouseEvent *evt = (DOMMouseEvent *)[doc createEvent:@"MouseEvents"];
+    [evt initMouseEvent:type 
+              canBubble:YES 
+             cancelable:YES 
+                   view:window 
+                 detail:clickCount 
+                screenX:screenX 
+                screenY:screenY 
+                clientX:clientX 
+                clientY:clientY 
+                ctrlKey:ctrlKeyPressed 
+                 altKey:altKeyPressed 
+               shiftKey:shiftKeyPressed 
+                metaKey:metaKeyPressed 
+                 button:button 
+          relatedTarget:relatedTarget];
+    
+    // register for next page load
+//    [self suspendExecutionUntilProgressFinishedWithCommand:cmd];
+    
+    // send event to the anchor
+    [self dispatchEvent:evt];
+        
 }
 
 

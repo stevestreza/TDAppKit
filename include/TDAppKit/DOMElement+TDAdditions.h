@@ -17,6 +17,17 @@
 @interface DOMElement (TDAdditions)
 - (NSString *)defaultXPath;
 - (void)dispatchClickEvent;
+- (void)simulateClickEvent;
+
+- (void)dispatchMouseEventType:(NSString *)type 
+                    clickCount:(NSInteger)clickCount 
+                       ctrlKey:(BOOL)cntrlKeyPressed 
+                        altKey:(BOOL)altKeyPressed 
+                      shiftKey:(BOOL)shiftKeyPressed 
+                       metaKey:(BOOL)metaKeyPressed 
+                        button:(NSInteger)button 
+                 relatedTarget:(id)relatedTarget
+                       webView:(WebView *)webView;
 
 - (BOOL)isTextField;
 - (BOOL)isTextArea;
