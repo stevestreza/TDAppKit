@@ -15,7 +15,6 @@
 #import <WebKit/WebKit.h>
 
 @interface DOMElement (TDAdditions)
-- (NSString *)defaultXPath;
 - (void)dispatchClickEvent;
 - (void)simulateClickEventInWebView:(WebView *)webView;
 
