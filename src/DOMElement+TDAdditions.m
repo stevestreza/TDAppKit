@@ -22,34 +22,6 @@
 
 @implementation DOMElement (TDAdditions)
 
-- (NSString *)defaultXPath {
-    NSMutableString *xpath = [NSMutableString string];
-    
-    DOMElement *el = self;
-    DOMNode *parent = [el parentNode];
-    while (parent && [el isKindOfClass:[DOMElement class]]) {
-        NSString *tagName = [el nodeName];
-        
-        NSMutableArray *siblings = [NSMutableArray array];
-        for (DOMNode *child in [[parent childNodes] asArray]) {
-            if ([child isKindOfClass:[DOMElement class]] && [[child nodeName] isEqualToString:tagName]) {
-                [siblings addObject:child];
-            }
-        }
-        
-        NSAssert([siblings count], @"");
-        NSUInteger i = [siblings indexOfObject:el] + 1;
-        NSString *s = [NSString stringWithFormat:@"/%@[%d]", tagName, i];
-        [xpath insertString:s atIndex:0];
-        
-        el = (DOMElement *)parent;
-        parent = [el parentNode];
-    }
-    
-    return [[xpath copy] autorelease];
-}
-
-
 - (void)dispatchUIEventType:(NSString *)type {
     // create DOM UIEvents event
     DOMDocument *doc = [self ownerDocument];
