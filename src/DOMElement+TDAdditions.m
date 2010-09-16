@@ -17,7 +17,7 @@
 #import <TDAppKit/DOMNodeList+TDAdditions.h>
 
 @interface DOMElement (TDAdditionsPrivate)
-- (void)dispatchUIEventWithName:(NSString *)name;
+- (void)dispatchUIEventType:(NSString *)type;
 @end
 
 @implementation DOMElement (TDAdditions)
@@ -50,29 +50,31 @@
 }
 
 
-- (void)dispatchUIEventWithName:(NSString *)name {
+- (void)dispatchUIEventType:(NSString *)type {
     // create DOM UIEvents event
     DOMDocument *doc = [self ownerDocument];
     DOMAbstractView *window = [doc defaultView];
     DOMUIEvent *evt = (DOMUIEvent *)[doc createEvent:@"UIEvents"];
-    [evt initUIEvent:name canBubble:YES cancelable:YES view:window detail:1];
+    [evt initUIEvent:type canBubble:YES cancelable:YES view:window detail:1];
     [self dispatchEvent:evt];
 }
 
 
 - (void)dispatchClickEvent {
-    [self dispatchUIEventWithName:@"click"];
+    [self dispatchUIEventType:@"click"];
 }
 
 
-- (void)simulateClickEvent {
-//    [self dispatchUIEventWithName:@"mouseover"];
-//    [self dispatchUIEventWithName:@"mousemove"];
-    [self dispatchUIEventWithName:@"mousedown"];
-    [self dispatchUIEventWithName:@"click"];
-    [self dispatchUIEventWithName:@"mouseup"];
-//    [self dispatchUIEventWithName:@"mousemove"];
-//    [self dispatchUIEventWithName:@"mouseout"];
+- (void)simulateClickEventInWebView:(WebView *)webView {
+    id relatedTarget = [(DOMHTMLDocument *)[self ownerDocument] body];
+    
+    [self dispatchMouseEventType:@"mouseover" clickCount:0 ctrlKey:NO altKey:NO shiftKey:NO metaKey:NO button:0 relatedTarget:relatedTarget webView:webView];
+    [self dispatchMouseEventType:@"mousemove" clickCount:0 ctrlKey:NO altKey:NO shiftKey:NO metaKey:NO button:0 relatedTarget:nil webView:webView];
+    [self dispatchMouseEventType:@"mousedown" clickCount:1 ctrlKey:NO altKey:NO shiftKey:NO metaKey:NO button:0 relatedTarget:nil webView:webView];
+    [self dispatchMouseEventType:@"click" clickCount:1 ctrlKey:NO altKey:NO shiftKey:NO metaKey:NO button:0 relatedTarget:nil webView:webView];
+    [self dispatchMouseEventType:@"mouseup" clickCount:1 ctrlKey:NO altKey:NO shiftKey:NO metaKey:NO button:0 relatedTarget:nil webView:webView];
+    [self dispatchMouseEventType:@"mousemove" clickCount:0 ctrlKey:NO altKey:NO shiftKey:NO metaKey:NO button:0 relatedTarget:nil webView:webView];
+    [self dispatchMouseEventType:@"mouseout" clickCount:0 ctrlKey:NO altKey:NO shiftKey:NO metaKey:NO button:0 relatedTarget:relatedTarget webView:webView];
 }
 
 
@@ -130,10 +132,6 @@
                  button:button 
           relatedTarget:relatedTarget];
     
-    // register for next page load
-//    [self suspendExecutionUntilProgressFinishedWithCommand:cmd];
-    
-    // send event to the anchor
     [self dispatchEvent:evt];
         
 }

@@ -17,7 +17,7 @@
 @interface DOMElement (TDAdditions)
 - (NSString *)defaultXPath;
 - (void)dispatchClickEvent;
-- (void)simulateClickEvent;
+- (void)simulateClickEventInWebView:(WebView *)webView;
 
 - (void)dispatchMouseEventType:(NSString *)type 
                     clickCount:(NSInteger)clickCount 
