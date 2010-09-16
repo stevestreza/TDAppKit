@@ -15,7 +15,6 @@
 #import <WebKit/WebKit.h>
 
 @interface DOMNode (TDAdditions)
-- (NSString *)defaultXPath;
 - (DOMElement *)firstAncestorOrSelfByTagName:(NSString *)tagName;
 - (CGFloat)totalOffsetTop;
 - (CGFloat)totalOffsetLeft;

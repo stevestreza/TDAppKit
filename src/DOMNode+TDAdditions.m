@@ -13,37 +13,8 @@
 //  limitations under the License.
 
 #import <TDAppKit/DOMNode+TDAdditions.h>
-#import <TDAppKit/DOMNodeList+TDAdditions.h>
 
 @implementation DOMNode (TDAdditions)
-
-- (NSString *)defaultXPath {
-    NSMutableString *xpath = [NSMutableString string];
-    
-    DOMNode *currNode = self;
-    DOMNode *parent = [currNode parentNode];
-    while (parent && [currNode isKindOfClass:[DOMNode class]]) {
-        NSString *tagName = [currNode nodeName];
-        
-        NSMutableArray *siblings = [NSMutableArray array];
-        for (DOMNode *child in [[parent childNodes] asArray]) {
-            if ([[child nodeName] isEqualToString:tagName]) {
-                [siblings addObject:child];
-            }
-        }
-        
-        NSAssert([siblings count], @"");
-        NSUInteger i = [siblings indexOfObject:currNode] + 1;
-        NSString *s = [NSString stringWithFormat:@"/%@[%d]", tagName, i];
-        [xpath insertString:s atIndex:0];
-        
-        currNode = parent;
-        parent = [currNode parentNode];
-    }
-    
-    return [[xpath copy] autorelease];
-}
-
 
 - (DOMElement *)firstAncestorOrSelfByTagName:(NSString *)tagName {
     DOMNode *curr = self;
