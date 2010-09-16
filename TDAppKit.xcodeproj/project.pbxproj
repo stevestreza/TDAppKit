@@ -84,6 +84,8 @@
 		D3EB23CC110168AD00633715 /* NSBezierPath+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EB23CB110168AD00633715 /* NSBezierPath+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F0B7821241155B0081838C /* DOMNode+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F0B7811241155B0081838C /* DOMNode+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F0B784124115680081838C /* DOMNode+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F0B783124115680081838C /* DOMNode+TDAdditions.m */; };
+		D3F0B97F124273980081838C /* WebScriptObject+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F0B97D124273980081838C /* WebScriptObject+TDAdditions.m */; };
+		D3F0B982124273BC0081838C /* WebScriptObject+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F0B981124273BC0081838C /* WebScriptObject+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F0C84011EAADB1002E2BA9 /* NSString+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F0C83E11EAADB1002E2BA9 /* NSString+TDAdditions.m */; };
 		D3F0C84211EAADC2002E2BA9 /* NSString+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F0C84111EAADC2002E2BA9 /* NSString+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3FD53E911E28174009CFDA3 /* NSEvent+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FD53E811E28174009CFDA3 /* NSEvent+TDAdditions.m */; };
@@ -211,6 +213,8 @@
 		D3EB23CB110168AD00633715 /* NSBezierPath+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+TDAdditions.h"; path = "include/TDAppKit/NSBezierPath+TDAdditions.h"; sourceTree = "<group>"; };
 		D3F0B7811241155B0081838C /* DOMNode+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DOMNode+TDAdditions.h"; path = "include/TDAppKit/DOMNode+TDAdditions.h"; sourceTree = "<group>"; };
 		D3F0B783124115680081838C /* DOMNode+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOMNode+TDAdditions.m"; path = "src/DOMNode+TDAdditions.m"; sourceTree = "<group>"; };
+		D3F0B97D124273980081838C /* WebScriptObject+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WebScriptObject+TDAdditions.m"; path = "src/WebScriptObject+TDAdditions.m"; sourceTree = "<group>"; };
+		D3F0B981124273BC0081838C /* WebScriptObject+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WebScriptObject+TDAdditions.h"; path = "include/TDAppKit/WebScriptObject+TDAdditions.h"; sourceTree = "<group>"; };
 		D3F0C83E11EAADB1002E2BA9 /* NSString+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TDAdditions.m"; path = "src/NSString+TDAdditions.m"; sourceTree = "<group>"; };
 		D3F0C84111EAADC2002E2BA9 /* NSString+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TDAdditions.h"; path = "include/TDAppKit/NSString+TDAdditions.h"; sourceTree = "<group>"; };
 		D3FD53E811E28174009CFDA3 /* NSEvent+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSEvent+TDAdditions.m"; path = "src/NSEvent+TDAdditions.m"; sourceTree = "<group>"; };
@@ -517,6 +521,8 @@
 				D3FFC48C1204B697008E4948 /* DOMHTMLOptionsCollection+TDAdditions.m */,
 				D3FFC4CD1204B92C008E4948 /* WebView+TDAdditions.h */,
 				D3FFC4B81204B8C1008E4948 /* WebView+TDAdditions.m */,
+				D3F0B981124273BC0081838C /* WebScriptObject+TDAdditions.h */,
+				D3F0B97D124273980081838C /* WebScriptObject+TDAdditions.m */,
 			);
 			name = "WebKit Categories";
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 				D3FFC4D81204B9C8008E4948 /* TDJSUtils.h in Headers */,
 				D34A54D5120BBFD10059D145 /* NSDate+TDAdditions.h in Headers */,
 				D3F0B7821241155B0081838C /* DOMNode+TDAdditions.h in Headers */,
+				D3F0B982124273BC0081838C /* WebScriptObject+TDAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +727,7 @@
 				D3FFC4DA1204B9CF008E4948 /* TDJSUtils.m in Sources */,
 				D34A54D3120BBF590059D145 /* NSDate+TDAdditions.m in Sources */,
 				D3F0B784124115680081838C /* DOMNode+TDAdditions.m in Sources */,
+				D3F0B97F124273980081838C /* WebScriptObject+TDAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

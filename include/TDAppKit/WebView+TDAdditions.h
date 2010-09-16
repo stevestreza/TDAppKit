@@ -21,4 +21,5 @@
 - (BOOL)javaScriptEvalsTrue:(NSString *)script error:(NSString **)outErrMsg;
 - (BOOL)xpathEvalsTrue:(NSString *)xpath error:(NSString **)outErrMsg;
 - (NSArray *)allDOMDocuments;
+- (NSMutableArray *)elementsForXPath:(NSString *)xpath;
 @end

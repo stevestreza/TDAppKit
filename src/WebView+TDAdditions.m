@@ -136,4 +136,66 @@
     return [self allDOMDocumentsFromFrame:[self mainFrame]];
 }
 
+
+- (NSMutableArray *)elementsForXPath:(NSString *)xpath {
+    NSMutableArray *result = [NSMutableArray array];
+    
+    if ([xpath length]) {
+        for (DOMDocument *doc in [self allDOMDocuments]) {
+            @try {
+                DOMXPathResult *nodes = [doc evaluate:xpath contextNode:doc resolver:nil type:DOM_ORDERED_NODE_SNAPSHOT_TYPE inResult:nil];
+                
+                NSUInteger i = 0;
+                NSUInteger count = [nodes snapshotLength];
+                
+                if (count) {
+                    for ( ; i < count; i++) {
+                        DOMNode *node = [nodes snapshotItem:i];
+                        if ([node isKindOfClass:[DOMHTMLElement class]]) {
+                            [result addObject:node];
+                        }
+                    }
+                } else {
+                    // this is a hack cuz sometimes the xpath `(//form)[1]` doesnt work. dunno why
+                    SEL sel = NULL;
+                    NSString *formsPrefix = @"(//form)[";
+                    NSString *linksPrefix = @"(//*[href])[";
+                    //NSString *anchorsPrefix = @"(//a)[";
+                    //NSString *imagesPrefix = @"(//img)[";
+                    
+                    NSString *prefix = nil;
+                    if ([xpath hasPrefix:formsPrefix]) {
+                        prefix = formsPrefix;
+                        sel = @selector(forms);
+                    } else if ([xpath hasPrefix:linksPrefix]) {
+                        prefix = linksPrefix;
+                        sel = @selector(links);
+                        //                } else if ([xpath hasPrefix:anchorsPrefix]) {
+                        //                    prefix = anchorsPrefix;
+                        //                    sel = @selector(anchors);
+                        //                } else if ([xpath hasPrefix:imagesPrefix]) {
+                        //                    prefix = imagesPrefix;
+                        //                    sel = @selector(images);
+                    }
+                    
+                    if (prefix && [xpath hasSuffix:@"]"]) {
+                        NSScanner *scanner = [NSScanner scannerWithString:xpath];
+                        if ([scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil]) {
+                            NSInteger idx;
+                            if ([scanner scanInteger:&idx]) {
+                                [result addObject:[[(DOMHTMLDocument *)doc performSelector:sel] item:idx]];
+                            }
+                        }
+                    }
+                }
+            } @catch (NSException *e) {
+                NSLog(@"error evaling XPath: %@", [e reason]);
+                return nil;
+            }
+        }
+    }
+    
+    return result;
+}
+
 @end
