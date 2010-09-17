@@ -15,7 +15,7 @@
     if ([self respondsToSelector:@selector(length)]) {
         count = [(DOMNodeList *)self length];
     } else {
-        count = [[self callWebScriptMethod:@"length" withArguments:nil] unsignedIntegerValue];
+        count = [[self valueForKey:@"length"] unsignedIntegerValue];
     }
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:count];
     
