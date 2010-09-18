@@ -45,6 +45,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 - (void)handleRightClickEvent:(NSEvent *)evt;
 - (void)displayContextMenu:(NSTimer *)t;
 - (void)handleDoubleClickAtIndex:(NSUInteger)i;
+- (CGFloat)scrollFudgeExtent;
 
 @property (nonatomic, retain) NSMutableArray *items;
 @property (nonatomic, retain) NSMutableArray *unusedItems;
@@ -745,9 +746,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
     [unusedItems removeAllObjects];
     
-#define FUDGE 120.0
     NSDragOperation mask = [self draggingSourceOperationMaskForLocal:YES];
-    CGFloat fudge = (mask == NSDragOperationNone) ? 0 : FUDGE;
+    CGFloat fudge = (mask == NSDragOperationNone) ? 0 : [self scrollFudgeExtent];
     
     NSRect frame = [self frame];
     NSRect vizRect = self.scrollView ? [self.scrollView documentVisibleRect] : viewportRect;
@@ -870,6 +870,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     draggingIndex = NSNotFound;
     isDragSource = NO;
     self.lastMouseDownEvent = nil;
+}
+
+
+- (CGFloat)scrollFudgeExtent {
+    return 0.0;
 }
 
 @synthesize scrollView;
