@@ -38,7 +38,7 @@ extern NSString *const TDListItemPboardType;
     NSColor *backgroundColor;
     CGFloat itemExtent;
     CGFloat itemMargin;
-    NSInteger selectedItemIndex;
+    NSIndexSet *selectionIndexes;
     TDListViewOrientation orientation;
     BOOL displaysClippedItems;
     
@@ -96,9 +96,10 @@ extern NSString *const TDListItemPboardType;
 @property (nonatomic, retain) NSColor *backgroundColor;
 @property (nonatomic, assign) CGFloat itemExtent; // height if isPortrait. width if isLandscape
 @property (nonatomic, assign) CGFloat itemMargin; // height if isPortrait. width if isLandscape
-@property (nonatomic, assign) NSInteger selectedItemIndex;
+@property (nonatomic, retain) NSIndexSet *selectionIndexes;
 @property (nonatomic, assign) TDListViewOrientation orientation;
 @property (nonatomic, assign) BOOL displaysClippedItems; // default=YES
+@property (nonatomic, assign) BOOL allowsMultipleSelection; // default=YES
 
 // convenience
 @property (nonatomic, readonly, getter=isPortrait) BOOL portrait;
@@ -115,8 +116,8 @@ extern NSString *const TDListItemPboardType;
 @optional
 - (CGFloat)listView:(TDListView *)lv extentForItemAtIndex:(NSUInteger)i; // should return height if isPortrait. shoud return width if isLandscape
 - (void)listView:(TDListView *)lv willDisplayItem:(TDListItem *)item atIndex:(NSUInteger)i;
-- (NSUInteger)listView:(TDListView *)lv willSelectItemAtIndex:(NSUInteger)i;
-- (void)listView:(TDListView *)lv didSelectItemAtIndex:(NSUInteger)i;
+- (NSUInteger)listView:(TDListView *)lv willSelectItemsAtIndexes:(NSIndexSet *)set;
+- (void)listView:(TDListView *)lv didSelectItemsAtIndexes:(NSIndexSet *)set;
 - (void)listView:(TDListView *)lv itemWasDoubleClickedAtIndex:(NSUInteger)i;
 - (void)listViewEmptyAreaWasDoubleClicked:(TDListView *)lv;
 - (NSMenu *)listView:(TDListView *)lv contextMenuForItemAtIndex:(NSUInteger)i;
