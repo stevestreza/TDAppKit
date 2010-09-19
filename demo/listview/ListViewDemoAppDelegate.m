@@ -71,7 +71,7 @@
     }
     
     itemView.color = [colors objectAtIndex:i];
-    itemView.selected = (listView.selectedItemIndex == i);
+    itemView.selected = ([listView.selectionIndexes containsIndex:i]);
     [itemView setNeedsDisplay:YES];
     
     return itemView;
@@ -132,7 +132,7 @@
         [pboard declareTypes:[NSArray arrayWithObjects:NSColorPboardType, nil] owner:self];
         [itemView.color writeToPasteboard:pboard];
         [colors removeObjectAtIndex:i];
-        [listView setSelectedItemIndex:-1];
+        [listView setSelectionIndexes:nil];
         [listView reloadData];
         return YES;
     } else {

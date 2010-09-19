@@ -118,12 +118,12 @@
 
 
 - (NSUInteger)indexOfSelectedItem {
-    return self.listView.selectedItemIndex;
+    return [self.listView.selectionIndexes firstIndex];
 }
 
 
 - (void)deselectItemAtIndex:(NSUInteger)i {
-    self.listView.selectedItemIndex = NSNotFound;
+    self.listView.selectionIndexes = nil;
 }
 
 
@@ -228,10 +228,10 @@
 - (void)moveUp:(id)sender {
     [self removeTextFieldSelection];
     if (![self isListVisible]) {
-        listView.selectedItemIndex = NSNotFound;
+        listView.selectionIndexes = nil;
     }
 
-    NSUInteger i = listView.selectedItemIndex;
+    NSUInteger i = [listView.selectionIndexes firstIndex];
     if (i <= 0 || NSNotFound == i) {
         i = 0;
     } else {
@@ -244,10 +244,13 @@
 - (void)moveDown:(id)sender {
     [self removeTextFieldSelection];
     if (![self isListVisible]) {
-        listView.selectedItemIndex = NSNotFound;
+        listView.selectionIndexes = nil;
     }
     
-    NSUInteger i = listView.selectedItemIndex;
+    NSUInteger i = NSNotFound;
+    if ([listView.selectionIndexes count]) {
+        i = [listView.selectionIndexes firstIndex];
+    }
     NSUInteger last = [self numberOfItems] - 1;
     if (i < last) {
         i++;
@@ -259,7 +262,7 @@
 
 
 - (void)movedToIndex:(NSUInteger)i {
-    listView.selectedItemIndex = i;
+    listView.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
     [listView reloadData];
     
     NSUInteger c = [self numberOfItems];
@@ -315,7 +318,7 @@
 - (void)textDidBeginEditing:(NSNotification *)n {
     [super textDidBeginEditing:n];
 
-    self.listView.selectedItemIndex = 0;
+    self.listView.selectionIndexes = [NSIndexSet indexSetWithIndex:0];
     [self resizeListWindow];
 }
 
@@ -330,7 +333,7 @@
 - (void)textDidChange:(NSNotification *)n {
     [super textDidChange:n];
     
-    self.listView.selectedItemIndex = 0;
+    self.listView.selectionIndexes = [NSIndexSet indexSetWithIndex:0];
     [self.listView reloadData];
     [self resizeListWindow];
 }
@@ -362,7 +365,7 @@
 
 
 - (void)addTextFieldSelectionFromListSelection {
-    NSString *s = [dataSource comboField:self objectAtIndex:listView.selectedItemIndex];
+    NSString *s = [dataSource comboField:self objectAtIndex:[listView.selectionIndexes firstIndex]];
     if (![s length]) return;
     
     NSUInteger loc = [[self stringValue] length];
@@ -394,7 +397,7 @@
     
     item.first = (0 == i);
     item.last = (i == [self numberOfItems] - 1);
-    item.selected = (i == listView.selectedItemIndex);
+    item.selected = ([listView.selectionIndexes containsIndex:i]);
     item.labelText = [dataSource comboField:self objectAtIndex:i];
     [item setNeedsDisplay:YES];
     
@@ -598,6 +601,7 @@
         [listView setAutoresizingMask:NSViewWidthSizable];
         listView.dataSource = self;
         listView.delegate = self;
+        listView.allowsMultipleSelection = NO;
     }
     return listView;
 }

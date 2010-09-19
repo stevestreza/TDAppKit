@@ -90,6 +90,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.queue = nil;
     self.lastMouseDownEvent = nil;
     self.itemFrames = nil;
+    self.selectionIndexes = nil;
     [super dealloc];
 }
 
@@ -103,7 +104,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.items = [NSMutableArray array];
     self.unusedItems = [NSMutableArray array];
     
-    self.selectedItemIndex = NSNotFound;
+    self.selectionIndexes = nil;
     self.backgroundColor = [NSColor whiteColor];
     self.itemExtent = DEFAULT_ITEM_EXTENT;
     
@@ -214,21 +215,22 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 }
 
 
-- (void)setSelectedItemIndex:(NSInteger)i {
-    if (i != selectedItemIndex) {
-        if (NSNotFound != i) { // dont consult delegate if we are deselecting
-            if (delegate && [delegate respondsToSelector:@selector(listView:willSelectItemAtIndex:)]) {
-                if (NSNotFound == [delegate listView:self willSelectItemAtIndex:i]) {
-                    return;
-                }
+- (void)setSelectionIndexes:(NSIndexSet *)set {
+    if (set != selectionIndexes) {
+        
+        // dont consult delegate if we are deselecting
+        if (set && delegate && [delegate respondsToSelector:@selector(listView:willSelectItemsAtIndexes:)]) {
+            if (![delegate listView:self willSelectItemsAtIndexes:set]) {
+                return;
             }
         }
         
-        selectedItemIndex = i;
+        [selectionIndexes autorelease];
+        selectionIndexes = [set retain];
         [self reloadData];
         
-        if (selectedItemIndex != NSNotFound && delegate && [delegate respondsToSelector:@selector(listView:didSelectItemAtIndex:)]) {
-            [delegate listView:self didSelectItemAtIndex:i];
+        if (selectionIndexes && delegate && [delegate respondsToSelector:@selector(listView:didSelectItemsAtIndexes:)]) {
+            [delegate listView:self didSelectItemsAtIndexes:set];
         }
     }
 }
@@ -321,7 +323,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.lastMouseDownEvent = evt;
     
     if (NSNotFound != i) {
-        self.selectedItemIndex = i;
+        self.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
     }
     
     // this adds support for click-to-select-and-drag all in one click. 
@@ -364,7 +366,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     NSPoint p = [self convertPoint:locInWin fromView:nil];
     NSUInteger i = [self indexForItemAtPoint:p];
 
-    self.selectedItemIndex = i;
+    self.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
     
     if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemAtIndex:)]) {
         NSTimer *timer = [NSTimer timerWithTimeInterval:0 
@@ -380,7 +382,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 - (void)displayContextMenu:(NSTimer *)timer {
     if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemAtIndex:)]) {
         NSEvent *evt = [timer userInfo];
-        NSUInteger i = self.selectedItemIndex;
+        NSUInteger i = [self.selectionIndexes firstIndex];
         
         //if (NSNotFound == i || i >= [dataSource numberOfItemsInListView:self]) return;
         
@@ -443,7 +445,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     }
     if (!canDrag) return;
     
-    self.selectedItemIndex = NSNotFound;
+    self.selectionIndexes = nil;
     
     NSPoint p = [self convertPoint:[evt locationInWindow] fromView:nil];
     
@@ -883,7 +885,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 @synthesize backgroundColor;
 @synthesize itemExtent;
 @synthesize itemMargin;
-@synthesize selectedItemIndex;
+@synthesize selectionIndexes;
 @synthesize orientation;
 @synthesize items;
 @synthesize unusedItems;
@@ -892,4 +894,5 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 @synthesize lastMouseDownEvent;
 @synthesize itemFrames;
 @synthesize dragOffset;
+@synthesize allowsMultipleSelection;
 @end
