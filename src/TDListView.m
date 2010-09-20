@@ -95,9 +95,9 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 }
 
 
-- (void)awakeFromNib {
-
-}
+//- (void)awakeFromNib {
+//
+//}
 
 
 - (void)setUp {
@@ -323,7 +323,30 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.lastMouseDownEvent = evt;
     
     if (NSNotFound != i) {
-        self.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
+        NSIndexSet *oldIndexes = self.selectionIndexes;
+        NSMutableIndexSet *newIndexes = [NSMutableIndexSet indexSet];
+        [newIndexes addIndexes:oldIndexes];
+
+        if ([evt isCommandKeyPressed]) {
+            if ([oldIndexes containsIndex:i]) {
+                [newIndexes removeIndex:i];
+            } else {
+                [newIndexes addIndex:i];
+            }
+        } else if ([evt isShiftKeyPressed]) {
+            [newIndexes addIndex:i];
+
+            NSUInteger firstIndex = [oldIndexes firstIndex];
+            NSUInteger lastIndex = [oldIndexes lastIndex];
+            if (i < firstIndex) {
+                [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
+            } else if (i > lastIndex) {
+                [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
+            }
+        } else {
+            [newIndexes addIndex:i];
+        }
+        self.selectionIndexes = newIndexes;
     }
     
     // this adds support for click-to-select-and-drag all in one click. 
