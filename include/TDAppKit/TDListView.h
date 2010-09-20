@@ -41,6 +41,7 @@ extern NSString *const TDListItemPboardType;
     NSIndexSet *selectionIndexes;
     TDListViewOrientation orientation;
     BOOL displaysClippedItems;
+    BOOL allowsMultipleSelection;
     
     NSMutableArray *items;
     NSMutableArray *unusedItems;
@@ -96,10 +97,10 @@ extern NSString *const TDListItemPboardType;
 @property (nonatomic, retain) NSColor *backgroundColor;
 @property (nonatomic, assign) CGFloat itemExtent; // height if isPortrait. width if isLandscape
 @property (nonatomic, assign) CGFloat itemMargin; // height if isPortrait. width if isLandscape
-@property (nonatomic, retain) NSIndexSet *selectionIndexes;
+@property (nonatomic, copy) NSIndexSet *selectionIndexes;
 @property (nonatomic, assign) TDListViewOrientation orientation;
 @property (nonatomic, assign) BOOL displaysClippedItems; // default=YES
-@property (nonatomic, assign) BOOL allowsMultipleSelection; // default=YES
+@property (nonatomic, assign) BOOL allowsMultipleSelection; // default=NO
 
 // convenience
 @property (nonatomic, readonly, getter=isPortrait) BOOL portrait;
