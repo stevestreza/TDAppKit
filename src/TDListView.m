@@ -226,7 +226,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         }
         
         [selectionIndexes autorelease];
-        selectionIndexes = [set retain];
+        selectionIndexes = [set copy];
         [self reloadData];
         
         if (selectionIndexes && delegate && [delegate respondsToSelector:@selector(listView:didSelectItemsAtIndexes:)]) {
