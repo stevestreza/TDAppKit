@@ -413,26 +413,6 @@
 }
 
 
-- (void)listView:(TDListView *)lv willDisplayItem:(TDListItem *)item atIndex:(NSUInteger)i {
-    
-}
-
-
-- (NSUInteger)listView:(TDListView *)lv willSelectItemAtIndex:(NSUInteger)i {
-    return i;
-}
-
-
-- (void)listView:(TDListView *)lv didSelectItemAtIndex:(NSUInteger)i {
-    
-}
-
-
-- (void)listView:(TDListView *)lv itemWasDoubleClickedAtIndex:(NSUInteger)i {
-    
-}
-
-
 #pragma mark -
 #pragma mark Buttons
 

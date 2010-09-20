@@ -220,7 +220,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         
         // dont consult delegate if we are deselecting
         if (set && delegate && [delegate respondsToSelector:@selector(listView:willSelectItemsAtIndexes:)]) {
-            if (![delegate listView:self willSelectItemsAtIndexes:set]) {
+            if (![[delegate listView:self willSelectItemsAtIndexes:set] count]) {
                 return;
             }
         }

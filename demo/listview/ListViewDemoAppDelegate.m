@@ -91,16 +91,6 @@
 }
 
 
-- (NSInteger)listView:(TDListView *)lv willSelectItemAtIndex:(NSInteger)i {
-    return i;
-}
-
-
-- (void)listView:(TDListView *)lv didSelectItemAtIndex:(NSInteger)i {
-
-}
-
-
 - (void)listView:(TDListView *)lv itemWasDoubleClickedAtIndex:(NSUInteger)i {
     
 }
