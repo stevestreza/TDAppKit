@@ -326,15 +326,16 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         NSMutableIndexSet *newIndexes = [NSMutableIndexSet indexSet];
         if (self.allowsMultipleSelection) {
             NSIndexSet *oldIndexes = self.selectionIndexes;
-            [newIndexes addIndexes:oldIndexes];
             
             if ([evt isCommandKeyPressed]) {
+                [newIndexes addIndexes:oldIndexes];
                 if ([oldIndexes containsIndex:i]) {
                     [newIndexes removeIndex:i];
                 } else {
                     [newIndexes addIndex:i];
                 }
             } else if ([evt isShiftKeyPressed]) {
+                [newIndexes addIndexes:oldIndexes];
                 [newIndexes addIndex:i];
                 
                 NSUInteger firstIndex = [oldIndexes firstIndex];
@@ -343,6 +344,10 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                     [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
                 } else if (i > lastIndex) {
                     [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
+                } else if (i > firstIndex) {
+                    [newIndexes removeIndexesInRange:NSMakeRange(firstIndex, i - firstIndex)];
+                } else if (i < lastIndex) {
+                    [newIndexes removeIndexesInRange:NSMakeRange(i + 1, lastIndex - i + 1)];
                 }
             } else {
                 [newIndexes addIndex:i];
