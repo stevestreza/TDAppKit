@@ -59,6 +59,8 @@
     
     OSErr err = noErr; 
     err = AESendMessage(aevt, replyEvt, kAEWaitReply|kAENeverInteract|kAECanSwitchLayer, kAEDefaultTimeout);
+
+    //AEDisposeDesc((AEDesc *)&aevt); // don't
     return err;
 }
 
@@ -68,6 +70,8 @@
     [self sendToOwnProcessWaitReply:&aeReply];
     
     NSAppleEventDescriptor *reply = [[[NSAppleEventDescriptor alloc] initWithAEDescNoCopy:&aeReply] autorelease];
+
+    //AEDisposeDesc(&aeReply); // don't
     return reply;
 }
 
