@@ -356,7 +356,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                         [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
                     } else if (i < anchorIndex) {
                         [newIndexes removeIndexesInRange:NSMakeRange(firstIndex, i - firstIndex)];
-                    } else if (i >= anchorIndex) {
+                    } else if (i > anchorIndex) {
                         [newIndexes removeIndexesInRange:NSMakeRange(i + 1, lastIndex - i + 1)];
                     }
                 }
