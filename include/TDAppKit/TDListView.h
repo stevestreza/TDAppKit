@@ -39,6 +39,7 @@ extern NSString *const TDListItemPboardType;
     CGFloat itemExtent;
     CGFloat itemMargin;
     NSIndexSet *selectionIndexes;
+    NSUInteger anchorIndex;
     TDListViewOrientation orientation;
     BOOL displaysClippedItems;
     BOOL allowsMultipleSelection;

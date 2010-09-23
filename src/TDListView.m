@@ -227,6 +227,13 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         
         [selectionIndexes autorelease];
         selectionIndexes = [set copy];
+        
+        // find anchor
+        if (1 == [selectionIndexes count]) {
+            anchorIndex = [selectionIndexes firstIndex];
+        }
+        
+        // reload
         [self reloadData];
         
         if (selectionIndexes && delegate && [delegate respondsToSelector:@selector(listView:didSelectItemsAtIndexes:)]) {
@@ -344,9 +351,9 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                     [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
                 } else if (i > lastIndex) {
                     [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
-                } else if (i > firstIndex) {
+                } else if (i < anchorIndex) {
                     [newIndexes removeIndexesInRange:NSMakeRange(firstIndex, i - firstIndex)];
-                } else if (i < lastIndex) {
+                } else if (i > anchorIndex) {
                     [newIndexes removeIndexesInRange:NSMakeRange(i + 1, lastIndex - i + 1)];
                 }
             } else {
