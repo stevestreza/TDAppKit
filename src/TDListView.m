@@ -342,20 +342,25 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                     [newIndexes addIndex:i];
                 }
             } else if ([evt isShiftKeyPressed]) {
-                [newIndexes addIndexes:oldIndexes];
                 [newIndexes addIndex:i];
                 
-                NSUInteger firstIndex = [oldIndexes firstIndex];
-                NSUInteger lastIndex = [oldIndexes lastIndex];
-                if (i < firstIndex) {
-                    [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
-                } else if (i > lastIndex) {
-                    [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
-                } else if (i < anchorIndex) {
-                    [newIndexes removeIndexesInRange:NSMakeRange(firstIndex, i - firstIndex)];
-                } else if (i > anchorIndex) {
-                    [newIndexes removeIndexesInRange:NSMakeRange(i + 1, lastIndex - i + 1)];
+                if (i == anchorIndex) {
+                    // we're done
+                } else {
+                    NSUInteger firstIndex = [oldIndexes firstIndex];
+                    NSUInteger lastIndex = [oldIndexes lastIndex];
+                    [newIndexes addIndexes:oldIndexes];
+                    if (i < firstIndex) {
+                        [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
+                    } else if (i > lastIndex) {
+                        [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
+                    } else if (i < anchorIndex) {
+                        [newIndexes removeIndexesInRange:NSMakeRange(firstIndex, i - firstIndex)];
+                    } else if (i >= anchorIndex) {
+                        [newIndexes removeIndexesInRange:NSMakeRange(i + 1, lastIndex - i + 1)];
+                    }
                 }
+                
             } else {
                 [newIndexes addIndex:i];
             }
