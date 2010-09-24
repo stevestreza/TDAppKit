@@ -901,11 +901,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
             
             NSRect r = [v rectValue];
             if (NSPointInRect(p, r)) {
-                if (i >= [draggingVisibleIndexes lastIndex]) {
-                    return [[items objectAtIndex:i] index] + 1 - offset;
-                } else {
+//                if (i >= [draggingVisibleIndexes firstIndex]) {
+//                    return [[items objectAtIndex:i] index] + 1 - offset;
+//                } else {
                     return [[items objectAtIndex:i] index] - offset;
-                }
+//                }
             }
             i++;
         }
