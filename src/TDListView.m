@@ -402,7 +402,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                     idx = [self.selectionIndexes indexLessThanIndex:idx];
                 }
                 
-                self.draggingVisibleIndexes = isCopy ? nil : [NSIndexSet indexSetWithIndex:visibleIndex];
+                self.draggingVisibleIndexes = isCopy ? nil : visSet; //[NSIndexSet indexSetWithIndex:visibleIndex];
                 isDragSource = YES;
                 [self mouseDragged:evt];
                 withinDragRadius = NO;
