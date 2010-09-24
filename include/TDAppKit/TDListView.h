@@ -50,8 +50,8 @@ extern NSString *const TDListItemPboardType;
     
     // drag and drop
     NSEvent *lastMouseDownEvent;
-    NSUInteger draggingIndex;
-    NSUInteger draggingVisibleIndex;
+    NSIndexSet *draggingIndexes;
+    NSIndexSet *draggingVisibleIndexes;
     NSPoint dragOffset;
     NSDragOperation localDragOperationMask;
     NSDragOperation nonLocalDragOperationMask;
@@ -88,7 +88,7 @@ extern NSString *const TDListItemPboardType;
  By default, an image will be created that contains a rendering of the visible portions of the views for each item. 
  If the delegate implements the equivalent delegate method, it will be preferred over this method.
  */
-- (NSImage *)draggingImageForItemAtIndex:(NSInteger)i withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset;
+- (NSImage *)draggingImageForItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset;
 
 - (BOOL)ignoreModifierKeysWhileDragging;
 
@@ -129,7 +129,7 @@ extern NSString *const TDListItemPboardType;
 /* The return value indicates whether the list view can attempt to initiate a drag for the given event and items. 
  If the delegate does not implement this method, the list view will act as if it returned YES.
  */
-- (BOOL)listView:(TDListView *)lv canDragItemAtIndex:(NSUInteger)i withEvent:(NSEvent *)evt slideBack:(BOOL *)slideBack;
+- (BOOL)listView:(TDListView *)lv canDragItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt slideBack:(BOOL *)slideBack;
 
 /*
  This method is called after it has been determined that a drag should begin, but before the drag has been started. 
@@ -138,7 +138,7 @@ extern NSString *const TDListItemPboardType;
  The drag image and other drag related information will be set up and provided by the view once this call returns YES. 
  You need to implement this method for your list view to be a drag source.
  */
-- (BOOL)listView:(TDListView *)lv writeItemAtIndex:(NSUInteger)i toPasteboard:(NSPasteboard *)pboard;
+- (BOOL)listView:(TDListView *)lv writeItemsAtIndexes:(NSIndexSet *)set toPasteboard:(NSPasteboard *)pboard;
 
 /* The delegate can support file promise drags by adding NSFilesPromisePboardType to the pasteboard in -collectionView:writeItemsAtIndexes:toPasteboard:. 
  NSCollectionView implements -namesOfPromisedFilesDroppedAtDestination: to return the results of this delegate method. 
@@ -146,7 +146,7 @@ extern NSString *const TDListItemPboardType;
  For more information on file promise dragging, see documentation for the NSDraggingSource protocol and -namesOfPromisedFilesDroppedAtDestination:. 
  You do not need to implement this method for your list view to be a drag source.
  */
-- (NSArray *)listView:(TDListView *)lv namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropURL forDraggedItemAtIndex:(NSUInteger)i;
+- (NSArray *)listView:(TDListView *)lv namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropURL forDraggedItemAtIndexes:(NSIndexSet *)set;
 
 /* Allows the delegate to construct a custom dragging image for the items being dragged. 'indexes' contains the indexes of the items being dragged. 
  'event' is a reference to the  mouse down event that began the drag. 'dragImageOffset' is an in/out parameter. 
@@ -154,7 +154,7 @@ extern NSString *const TDListItemPboardType;
  A dragImageOffset of NSZeroPoint will cause the image to be centered under the mouse. You can safely call -[NSCollectionView draggingImageForItemsAtIndexes:withEvent:offset:] from within this method. 
  You do not need to implement this method for your list view to be a drag source.
  */
-- (NSImage *)listView:(TDListView *)lv draggingImageForItemAtIndex:(NSUInteger)i withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset;
+- (NSImage *)listView:(TDListView *)lv draggingImageForItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset;
 
 /* This method is used by the list view to determine a valid drop target. Based on the mouse position, the list view will suggest a proposed index and drop operation. 
  These values are in/out parameters and can be changed by the delegate to retarget the drop operation. 
@@ -173,7 +173,7 @@ extern NSString *const TDListItemPboardType;
  */
 - (BOOL)listView:(TDListView *)lv acceptDrop:(id <NSDraggingInfo>)draggingInfo index:(NSUInteger)index dropOperation:(TDListViewDropOperation)dropOperation;
 
-- (BOOL)listView:(TDListView *)lv shouldRunPoofAt:(NSPoint)endPointInScreen forRemovedItemAtIndex:(NSUInteger)index;
+- (BOOL)listView:(TDListView *)lv shouldRunPoofAt:(NSPoint)endPointInScreen forRemovedItemsAtIndexes:(NSIndexSet *)set;
 
 @end
 
