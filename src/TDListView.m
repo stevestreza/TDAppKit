@@ -391,7 +391,17 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                     // still within drag radius tolerance. dont drag yet
                     break;
                 }
-                self.draggingIndexes = [NSIndexSet indexSetWithIndex:i];
+                self.draggingIndexes = self.selectionIndexes; //[NSIndexSet indexSetWithIndex:i];
+
+                NSMutableIndexSet *visSet = [NSMutableIndexSet indexSet];
+                NSUInteger visOffset = visibleIndex - i;
+                // Backward
+                NSUInteger idx = [self.selectionIndexes lastIndex];
+                while (NSNotFound != idx) {
+                    [visSet addIndex:idx + visOffset];
+                    idx = [self.selectionIndexes indexLessThanIndex:idx];
+                }
+                
                 self.draggingVisibleIndexes = isCopy ? nil : [NSIndexSet indexSetWithIndex:visibleIndex];
                 isDragSource = YES;
                 [self mouseDragged:evt];
