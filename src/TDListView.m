@@ -395,6 +395,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 - (void)updateSelectionWithEvent:(NSEvent *)evt index:(NSUInteger)i {
     NSMutableIndexSet *newIndexes = nil;
+    NSUInteger newAnchorIndex = NSNotFound;
     if (NSNotFound == i) {
         // set to nil selection
     } else {
@@ -405,28 +406,71 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
             if ([evt isCommandKeyPressed]) {
                 [newIndexes addIndexes:oldIndexes];
                 if ([oldIndexes containsIndex:i]) {
+                    if (i == anchorIndex) {
+                        if ([oldIndexes lastIndex] > i) {
+                            newAnchorIndex = [oldIndexes lastIndex];
+                        } else {
+                            newAnchorIndex = [oldIndexes firstIndex];
+                        }
+                    }
                     [newIndexes removeIndex:i];
                 } else {
+                    newAnchorIndex = i;
                     [newIndexes addIndex:i];
                 }
             } else if ([evt isShiftKeyPressed]) {
-                [newIndexes addIndex:i];
                 
                 if (i == anchorIndex || NSNotFound == anchorIndex) {
                     // we're done
+                    [newIndexes addIndex:i];
                 } else {
-                    NSUInteger firstIndex = [oldIndexes firstIndex];
-                    NSUInteger lastIndex = [oldIndexes lastIndex];
                     [newIndexes addIndexes:oldIndexes];
-                    if (i < firstIndex) {
-                        [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
-                    } else if (i > lastIndex) {
-                        [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
-                    } else if (i < anchorIndex) {
-                        [newIndexes removeIndexesInRange:NSMakeRange(firstIndex, i - firstIndex)];
-                    } else if (i > anchorIndex) {
-                        [newIndexes removeIndexesInRange:NSMakeRange(i + 1, lastIndex - i + 1)];
+                                        
+                    if (i < anchorIndex) {
+                        NSUInteger removeIndex = [newIndexes indexLessThanIndex:i];
+                        while (NSNotFound != removeIndex) {
+                            [newIndexes removeIndex:removeIndex];
+                            removeIndex = [newIndexes indexLessThanIndex:removeIndex];
+                        }
+                        
+                        NSUInteger addIndex = i;
+                        for ( ; addIndex < anchorIndex; addIndex++) {
+                            [newIndexes addIndex:addIndex];
+                        }
+                        
+                        removeIndex = [newIndexes indexGreaterThanIndex:anchorIndex];
+                        while (NSNotFound != removeIndex) {
+                            [newIndexes removeIndex:removeIndex];
+                            removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                        }
+                    } else {
+                        NSUInteger removeIndex = [newIndexes indexLessThanIndex:anchorIndex];
+                        while (NSNotFound != removeIndex) {
+                            [newIndexes removeIndex:removeIndex];
+                            removeIndex = [newIndexes indexLessThanIndex:anchorIndex];
+                        }
+                        
+                        NSUInteger addIndex = anchorIndex;
+                        for ( ; addIndex <= i; addIndex++) {
+                            [newIndexes addIndex:addIndex];
+                        }
+                        
+                        removeIndex = [newIndexes indexGreaterThanIndex:i];
+                        while (NSNotFound != removeIndex) {
+                            [newIndexes removeIndex:removeIndex];
+                            removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                        }
                     }
+                    
+//                    if (i < firstIndex) {
+//                        [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
+//                    } else if (i > lastIndex) {
+//                        [newIndexes addIndexesInRange:NSMakeRange(lastIndex, i - lastIndex)];
+//                    } else if (i < anchorIndex) {
+//                        [newIndexes removeIndexesInRange:NSMakeRange(firstIndex, i - firstIndex)];
+//                    } else if (i > anchorIndex) {
+//                        [newIndexes removeIndexesInRange:NSMakeRange(i + 1, lastIndex - i + 1)];
+//                    }
                 }
                 
             } else {
@@ -437,6 +481,9 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         }
     }
     self.selectionIndexes = newIndexes;
+    if (NSNotFound != newAnchorIndex) {
+        self.anchorIndex = newAnchorIndex;
+    }
 }
 
 
@@ -809,7 +856,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     CGFloat w = isPortrait ? bounds.size.width : 0;
     CGFloat h = isPortrait ? 0 : bounds.size.height;
     
-    NSInteger c = [dataSource numberOfItemsInListView:self];
+    NSUInteger c = [dataSource numberOfItemsInListView:self];
     BOOL respondsToExtentForItem = (delegate && [delegate respondsToSelector:@selector(listView:extentForItemAtIndex:)]);
     BOOL respondsToWillDisplay = (delegate && [delegate respondsToSelector:@selector(listView:willDisplayItem:atIndex:)]);
     
