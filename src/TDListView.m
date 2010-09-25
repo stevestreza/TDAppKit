@@ -36,6 +36,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 - (void)setUp;
 - (void)layoutItems;
 - (void)layoutItemsWhileDragging;
+- (void)updateSelectionWithEvent:(NSEvent *)evt index:(NSUInteger)i;
 - (NSUInteger)indexForItemWhileDraggingAtPoint:(NSPoint)p;
 - (TDListItem *)itemAtVisibleIndex:(NSUInteger)i;
 - (NSUInteger)visibleIndexForItemAtPoint:(NSPoint)p;
@@ -334,6 +335,61 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     BOOL isCopy = [evt isOptionKeyPressed] && (NSDragOperationCopy & [self draggingSourceOperationMaskForLocal:YES]);
     self.lastMouseDownEvent = evt;
     
+    BOOL hasUpdatedSelection = NO;
+    if (![self.selectionIndexes containsIndex:i]) {
+        hasUpdatedSelection = YES;
+        [self updateSelectionWithEvent:evt index:i];
+    }
+    
+    // this adds support for click-to-select-and-drag all in one click. 
+    // otherwise you have to click once to select and then click again to begin a drag, which sux.
+    BOOL withinDragRadius = YES;
+        
+    NSInteger radius = DRAG_RADIUS;
+    NSRect r = NSMakeRect(locInWin.x - radius, locInWin.y - radius, radius * 2, radius * 2);
+    
+    while (withinDragRadius) {
+        evt = [[self window] nextEventMatchingMask:NSLeftMouseUpMask|NSLeftMouseDraggedMask|NSPeriodicMask];
+        
+        switch ([evt type]) {
+            case NSLeftMouseDragged:
+                if (NSPointInRect([evt locationInWindow], r)) {
+                    // still within drag radius tolerance. dont drag yet
+                    break;
+                }
+                self.draggingIndexes = self.selectionIndexes; //[NSIndexSet indexSetWithIndex:i];
+
+                NSMutableIndexSet *visSet = [NSMutableIndexSet indexSet];
+                NSUInteger visOffset = visibleIndex - i;
+                // Backward
+                NSUInteger idx = [self.selectionIndexes lastIndex];
+                while (NSNotFound != idx) {
+                    [visSet addIndex:idx + visOffset];
+                    idx = [self.selectionIndexes indexLessThanIndex:idx];
+                }
+                
+                self.draggingVisibleIndexes = isCopy ? nil : visSet; //[NSIndexSet indexSetWithIndex:visibleIndex];
+                isDragSource = YES;
+                [self mouseDragged:evt];
+                withinDragRadius = NO;
+                break;
+            case NSLeftMouseUp:
+            case NSPeriodic:
+                withinDragRadius = NO;
+                if (!hasUpdatedSelection) {
+                    [self updateSelectionWithEvent:evt index:i];
+                }
+                [self draggingSourceDragDidEnd];
+                [self mouseUp:evt];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
+- (void)updateSelectionWithEvent:(NSEvent *)evt index:(NSUInteger)i {
     if (NSNotFound != i) {
         NSMutableIndexSet *newIndexes = [NSMutableIndexSet indexSet];
         if (self.allowsMultipleSelection) {
@@ -373,49 +429,6 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
             [newIndexes addIndex:i];
         }
         self.selectionIndexes = newIndexes;
-    }
-    
-    // this adds support for click-to-select-and-drag all in one click. 
-    // otherwise you have to click once to select and then click again to begin a drag, which sux.
-    BOOL withinDragRadius = YES;
-        
-    NSInteger radius = DRAG_RADIUS;
-    NSRect r = NSMakeRect(locInWin.x - radius, locInWin.y - radius, radius * 2, radius * 2);
-    
-    while (withinDragRadius) {
-        evt = [[self window] nextEventMatchingMask:NSLeftMouseUpMask|NSLeftMouseDraggedMask|NSPeriodicMask];
-        
-        switch ([evt type]) {
-            case NSLeftMouseDragged:
-                if (NSPointInRect([evt locationInWindow], r)) {
-                    // still within drag radius tolerance. dont drag yet
-                    break;
-                }
-                self.draggingIndexes = self.selectionIndexes; //[NSIndexSet indexSetWithIndex:i];
-
-                NSMutableIndexSet *visSet = [NSMutableIndexSet indexSet];
-                NSUInteger visOffset = visibleIndex - i;
-                // Backward
-                NSUInteger idx = [self.selectionIndexes lastIndex];
-                while (NSNotFound != idx) {
-                    [visSet addIndex:idx + visOffset];
-                    idx = [self.selectionIndexes indexLessThanIndex:idx];
-                }
-                
-                self.draggingVisibleIndexes = isCopy ? nil : visSet; //[NSIndexSet indexSetWithIndex:visibleIndex];
-                isDragSource = YES;
-                [self mouseDragged:evt];
-                withinDragRadius = NO;
-                break;
-            case NSLeftMouseUp:
-            case NSPeriodic:
-                withinDragRadius = NO;
-                [self draggingSourceDragDidEnd];
-                [self mouseUp:evt];
-                break;
-            default:
-                break;
-        }
     }
 }
 
@@ -901,10 +914,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
             
             NSRect r = [v rectValue];
             if (NSPointInRect(p, r)) {
-                BOOL isLocal = [draggingIndexes count] > 0;
+                NSUInteger c = [draggingIndexes count];
+                BOOL isLocal = c > 0;
                 
                 if (isLocal && i >= [draggingVisibleIndexes firstIndex]) {
-                    return [[items objectAtIndex:i] index] + 1 - offset;
+                    return [[items objectAtIndex:i] index] + c - offset;
                 } else {
                     return [[items objectAtIndex:i] index] - offset;
                 }
