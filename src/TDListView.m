@@ -429,7 +429,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                     if (i < anchorIndex) {
                         NSUInteger removeIndex = [newIndexes indexLessThanIndex:i];
                         if (NSNotFound != removeIndex && i - removeIndex > 1) {
-                            // break
+                            // break. allow orphans
                         } else {
                             while (NSNotFound != removeIndex) {
                                 [newIndexes removeIndex:removeIndex];
@@ -460,9 +460,13 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                         }
                         
                         removeIndex = [newIndexes indexGreaterThanIndex:i];
-                        while (NSNotFound != removeIndex) {
-                            [newIndexes removeIndex:removeIndex];
-                            removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                        if (NSNotFound != removeIndex && removeIndex - i > 1) {
+                            // break. allow orphans
+                        } else {
+                            while (NSNotFound != removeIndex) {
+                                [newIndexes removeIndex:removeIndex];
+                                removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                            }
                         }
                     }
                     
