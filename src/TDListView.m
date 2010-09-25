@@ -885,10 +885,17 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     NSUInteger itemCount = [items count];
     TDListItem *item = nil;
     
-    TDListItem *draggingItem = [self itemAtVisibleIndex:[draggingVisibleIndexes firstIndex]]; // TODO
     CGFloat draggingExtent = 0;
-    if (draggingItem) {
-        draggingExtent = self.isPortrait ? NSHeight([draggingItem frame]) : NSWidth([draggingItem frame]);
+    if ([draggingVisibleIndexes count]) {
+
+        TDListItem *draggingItem = nil;
+        NSUInteger i = [draggingVisibleIndexes firstIndex];
+        while (NSNotFound != i) {
+            draggingItem = [self itemAtVisibleIndex:i];
+            draggingExtent += self.isPortrait ? NSHeight([draggingItem frame]) : NSWidth([draggingItem frame]);
+            i = [draggingVisibleIndexes indexGreaterThanIndex:i];
+        }
+        
     } else {
         draggingExtent = (itemExtent > 0) ? itemExtent : DEFAULT_ITEM_EXTENT;
     }
@@ -907,7 +914,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 //        CGFloat firstExtent = self.isPortrait ? NSMinY(startFrame) + NSHeight(startFrame) : NSMinX(startFrame) + NSWidth(startFrame);
 //        extent = extent > firstExtent ? firstExtent : extent;
     }
-    NSInteger i = 0;
+    NSUInteger i = 0;
     for ( ; i <= itemCount; i++) {
         item = [self itemAtVisibleIndex:i];
         NSRect frame = [item frame];
