@@ -555,13 +555,45 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (NSImage *)draggingImageForItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset {
-    TDListItem *item = [self itemAtIndex:[set firstIndex]]; // TODO
+    CGFloat width = 0;
+    CGFloat height = 0;
+    
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[set count]];
+
+    TDListItem *item = nil;
+    NSUInteger i = [set firstIndex];
+    while (NSNotFound != i) {
+        item = [self itemAtIndex:i];
+        NSRect itemFrame = [item frame];
+        width = itemFrame.size.width;
+        height += itemFrame.size.height;
+        [images addObject:[item draggingImage]];
+        i = [set indexGreaterThanIndex:i];
+    }
+
+    // get offset from last item
     if (dragImageOffset) {
         NSPoint p = [item convertPoint:[evt locationInWindow] fromView:nil];
         *dragImageOffset = NSMakePoint(p.x, p.y - NSHeight([item frame]));
     }
+    
+    NSImage *result = [[[NSImage alloc] initWithSize:NSMakeSize(width, height)] autorelease];
+    [result lockFocus];
+    NSGraphicsContext *currentContext = [NSGraphicsContext currentContext];
+    NSImageInterpolation savedInterpolation = [currentContext imageInterpolation];
+    [currentContext setImageInterpolation:NSImageInterpolationHigh];
 
-    return [item draggingImage];
+    CGFloat y = 0;
+    for (NSImage *img in images) {
+        NSSize imgSize = [img size];
+        [img drawInRect:NSMakeRect(0, y, imgSize.width, imgSize.height) fromRect:NSMakeRect(0, 0, imgSize.width, imgSize.height) operation:NSCompositeSourceOver fraction:.5];
+        y += imgSize.height;
+    }
+    
+    [currentContext setImageInterpolation:savedInterpolation];
+    [result unlockFocus];
+    
+    return result;
 }
 
 
