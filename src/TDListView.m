@@ -470,6 +470,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                         }
                     }
                     
+                    // old unanchored impl
 //                    if (i < firstIndex) {
 //                        [newIndexes addIndexesInRange:NSMakeRange(i, firstIndex - i)];
 //                    } else if (i > lastIndex) {
