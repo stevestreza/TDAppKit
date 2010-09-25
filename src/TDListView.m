@@ -111,7 +111,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.unusedItems = [NSMutableArray array];
     
     self.selectionIndexes = nil;
-    anchorIndex = NSNotFound;
+    self.anchorIndex = NSNotFound;
 
     self.backgroundColor = [NSColor whiteColor];
     self.itemExtent = DEFAULT_ITEM_EXTENT;
@@ -238,9 +238,9 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         NSUInteger c = [selectionIndexes count];
         
         if (1 == c) {
-            anchorIndex = [selectionIndexes firstIndex];
+            self.anchorIndex = [selectionIndexes firstIndex];
         } else if (0 == c) {
-            anchorIndex = NSNotFound;
+            self.anchorIndex = NSNotFound;
         }
         
         // reload
@@ -1010,6 +1010,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 @synthesize itemExtent;
 @synthesize itemMargin;
 @synthesize selectionIndexes;
+@synthesize anchorIndex;
 @synthesize orientation;
 @synthesize items;
 @synthesize unusedItems;

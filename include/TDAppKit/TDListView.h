@@ -99,6 +99,7 @@ extern NSString *const TDListItemPboardType;
 @property (nonatomic, assign) CGFloat itemExtent; // height if isPortrait. width if isLandscape
 @property (nonatomic, assign) CGFloat itemMargin; // height if isPortrait. width if isLandscape
 @property (nonatomic, copy) NSIndexSet *selectionIndexes;
+@property (nonatomic, assign) NSUInteger anchorIndex;
 @property (nonatomic, assign) TDListViewOrientation orientation;
 @property (nonatomic, assign) BOOL displaysClippedItems; // default=YES
 @property (nonatomic, assign) BOOL allowsMultipleSelection; // default=NO
