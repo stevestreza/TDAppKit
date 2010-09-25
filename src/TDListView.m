@@ -111,6 +111,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.unusedItems = [NSMutableArray array];
     
     self.selectionIndexes = nil;
+    anchorIndex = NSNotFound;
+
     self.backgroundColor = [NSColor whiteColor];
     self.itemExtent = DEFAULT_ITEM_EXTENT;
     
@@ -118,8 +120,6 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     
     self.displaysClippedItems = YES;
     
-//    self.draggingVisibleIndexes = nil;
-//    self.draggingIndexes = nil;
     [self setDraggingSourceOperationMask:NSDragOperationEvery forLocal:YES];
     [self setDraggingSourceOperationMask:NSDragOperationNone forLocal:NO];    
 }
@@ -235,8 +235,12 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         selectionIndexes = [set copy];
         
         // find anchor
-        if (1 == [selectionIndexes count]) {
+        NSUInteger c = [selectionIndexes count];
+        
+        if (1 == c) {
             anchorIndex = [selectionIndexes firstIndex];
+        } else if (0 == c) {
+            anchorIndex = NSNotFound;
         }
         
         // reload
@@ -336,7 +340,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.lastMouseDownEvent = evt;
     
     BOOL hasUpdatedSelection = NO;
-    if (![self.selectionIndexes containsIndex:i]) {
+    if (NSNotFound == i || ![self.selectionIndexes containsIndex:i]) {
         hasUpdatedSelection = YES;
         [self updateSelectionWithEvent:evt index:i];
     }
@@ -390,8 +394,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (void)updateSelectionWithEvent:(NSEvent *)evt index:(NSUInteger)i {
-    if (NSNotFound != i) {
-        NSMutableIndexSet *newIndexes = [NSMutableIndexSet indexSet];
+    NSMutableIndexSet *newIndexes = nil;
+    if (NSNotFound == i) {
+        // set to nil selection
+    } else {
+        newIndexes = [NSMutableIndexSet indexSet];
         if (self.allowsMultipleSelection) {
             NSIndexSet *oldIndexes = self.selectionIndexes;
             
@@ -405,7 +412,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
             } else if ([evt isShiftKeyPressed]) {
                 [newIndexes addIndex:i];
                 
-                if (i == anchorIndex) {
+                if (i == anchorIndex || NSNotFound == anchorIndex) {
                     // we're done
                 } else {
                     NSUInteger firstIndex = [oldIndexes firstIndex];
@@ -428,8 +435,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         } else {
             [newIndexes addIndex:i];
         }
-        self.selectionIndexes = newIndexes;
     }
+    self.selectionIndexes = newIndexes;
 }
 
 
