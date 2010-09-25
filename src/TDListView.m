@@ -428,9 +428,13 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                                         
                     if (i < anchorIndex) {
                         NSUInteger removeIndex = [newIndexes indexLessThanIndex:i];
-                        while (NSNotFound != removeIndex) {
-                            [newIndexes removeIndex:removeIndex];
-                            removeIndex = [newIndexes indexLessThanIndex:removeIndex];
+                        if (NSNotFound != removeIndex && i - removeIndex > 1) {
+                            // break
+                        } else {
+                            while (NSNotFound != removeIndex) {
+                                [newIndexes removeIndex:removeIndex];
+                                removeIndex = [newIndexes indexLessThanIndex:removeIndex];
+                            }
                         }
                         
                         NSUInteger addIndex = i;
