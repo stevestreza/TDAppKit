@@ -62,6 +62,8 @@
 		D371246110F0526B00D7107B /* TDUberViewSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CBFC910EFB8180013347D /* TDUberViewSplitView.m */; };
 		D371DB7211C19F8C00D5434C /* favicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D371DB7111C19F8C00D5434C /* favicon.png */; };
 		D371DBEF11C1B14700D5434C /* combo_field_progress_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */; };
+		D38984D3124E53DB00EBEFBA /* NSArray+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D38984D2124E53DB00EBEFBA /* NSArray+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D38984D8124E543E00EBEFBA /* NSArray+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D38984D7124E543E00EBEFBA /* NSArray+TDAdditions.m */; };
 		D392B08C1179594400823791 /* TDShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = D392B08A1179594400823791 /* TDShadowView.h */; };
 		D392B08D1179594400823791 /* TDShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D392B08B1179594400823791 /* TDShadowView.m */; };
 		D3A356BA11DFFB2A00EFEE29 /* TDClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3A356B811DFFB2A00EFEE29 /* TDClipView.h */; };
@@ -192,6 +194,8 @@
 		D371245310F0522700D7107B /* TDLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDLine.h; path = include/TDAppKit/TDLine.h; sourceTree = "<group>"; };
 		D371DB7111C19F8C00D5434C /* favicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favicon.png; path = demo/combofield/favicon.png; sourceTree = "<group>"; };
 		D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = combo_field_progress_indicator.png; path = res/img/combo_field_progress_indicator.png; sourceTree = "<group>"; };
+		D38984D2124E53DB00EBEFBA /* NSArray+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+TDAdditions.h"; path = "include/TDAppKit/NSArray+TDAdditions.h"; sourceTree = "<group>"; };
+		D38984D7124E543E00EBEFBA /* NSArray+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+TDAdditions.m"; path = "src/NSArray+TDAdditions.m"; sourceTree = "<group>"; };
 		D392B08A1179594400823791 /* TDShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDShadowView.h; path = src/TDShadowView.h; sourceTree = "<group>"; };
 		D392B08B1179594400823791 /* TDShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDShadowView.m; path = src/TDShadowView.m; sourceTree = "<group>"; };
 		D3A356B811DFFB2A00EFEE29 /* TDClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDClipView.h; path = src/TDClipView.h; sourceTree = "<group>"; };
@@ -498,6 +502,8 @@
 				D3FD53E811E28174009CFDA3 /* NSEvent+TDAdditions.m */,
 				D3F0C84111EAADC2002E2BA9 /* NSString+TDAdditions.h */,
 				D3F0C83E11EAADB1002E2BA9 /* NSString+TDAdditions.m */,
+				D38984D2124E53DB00EBEFBA /* NSArray+TDAdditions.h */,
+				D38984D7124E543E00EBEFBA /* NSArray+TDAdditions.m */,
 				D34A54D4120BBFD10059D145 /* NSDate+TDAdditions.h */,
 				D34A54D1120BBF590059D145 /* NSDate+TDAdditions.m */,
 			);
@@ -573,6 +579,7 @@
 				D34A54D5120BBFD10059D145 /* NSDate+TDAdditions.h in Headers */,
 				D3F0B7821241155B0081838C /* DOMNode+TDAdditions.h in Headers */,
 				D3F0B982124273BC0081838C /* WebScriptObject+TDAdditions.h in Headers */,
+				D38984D3124E53DB00EBEFBA /* NSArray+TDAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +741,7 @@
 				D34A54D3120BBF590059D145 /* NSDate+TDAdditions.m in Sources */,
 				D3F0B784124115680081838C /* DOMNode+TDAdditions.m in Sources */,
 				D3F0B97F124273980081838C /* WebScriptObject+TDAdditions.m in Sources */,
+				D38984D8124E543E00EBEFBA /* NSArray+TDAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
