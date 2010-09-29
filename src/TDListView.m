@@ -555,6 +555,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (void)mouseDragged:(NSEvent *)evt {
+    if (![draggingIndexes count]) return;
+    
     // have to get the image before calling any delegate methods... they may rearrange or remove views which would cause us to have the wrong image
     self.dragOffset = NSZeroPoint;
     NSImage *dragImg = nil;
@@ -618,6 +620,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (NSImage *)draggingImageForItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset {
+    if (![draggingIndexes count]) return nil;
+
     CGFloat width = 0;
     CGFloat height = 0;
     
