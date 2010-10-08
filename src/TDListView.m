@@ -621,12 +621,12 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 - (NSImage *)draggingImageForItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset {
     NSUInteger c = [set count];
-    if (0 == c) return nil;
+    if (!set || 0 == c) return nil;
     
     CGFloat width = 0;
     CGFloat height = 0;
     
-    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[set count]];
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:c];
 
     TDListItem *item = nil;
     NSUInteger i = [set firstIndex];
