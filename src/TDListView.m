@@ -620,8 +620,9 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (NSImage *)draggingImageForItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt offset:(NSPointPointer)dragImageOffset {
-    if (![draggingIndexes count]) return nil;
-
+    NSUInteger c = [set count];
+    if (0 == c) return nil;
+    
     CGFloat width = 0;
     CGFloat height = 0;
     
