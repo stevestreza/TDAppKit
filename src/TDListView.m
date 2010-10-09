@@ -500,10 +500,14 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     NSPoint locInWin = [evt locationInWindow];
     NSPoint p = [self convertPoint:locInWin fromView:nil];
     NSUInteger i = [self indexForItemAtPoint:p];
-
-    self.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
     
-    if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemAtIndex:)]) {
+    if (NSNotFound == i || i >= [dataSource numberOfItemsInListView:self]) {
+        self.selectionIndexes = nil;
+    } else if (![self.selectionIndexes containsIndex:i]) {
+        self.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
+    }
+
+    if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemsAtIndexes:)]) {
         NSTimer *timer = [NSTimer timerWithTimeInterval:0 
                                                  target:self 
                                                selector:@selector(displayContextMenu:) 
@@ -515,13 +519,9 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (void)displayContextMenu:(NSTimer *)timer {
-    if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemAtIndex:)]) {
-        NSEvent *evt = [timer userInfo];
-        NSUInteger i = [self.selectionIndexes firstIndex];
-        
-        //if (NSNotFound == i || i >= [dataSource numberOfItemsInListView:self]) return;
-        
-        NSMenu *menu = [delegate listView:self contextMenuForItemAtIndex:i];
+    if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemsAtIndexes:)]) {
+        NSEvent *evt = [timer userInfo];        
+        NSMenu *menu = [delegate listView:self contextMenuForItemsAtIndexes:self.selectionIndexes];
         if (menu) {
             NSEvent *click = [NSEvent mouseEventWithType:[evt type] 
                                                 location:[evt locationInWindow]

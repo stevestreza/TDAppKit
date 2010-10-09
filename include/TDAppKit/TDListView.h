@@ -123,7 +123,7 @@ extern NSString *const TDListItemPboardType;
 - (void)listView:(TDListView *)lv didSelectItemsAtIndexes:(NSIndexSet *)set;
 - (void)listView:(TDListView *)lv itemWasDoubleClickedAtIndex:(NSUInteger)i;
 - (void)listViewEmptyAreaWasDoubleClicked:(TDListView *)lv;
-- (NSMenu *)listView:(TDListView *)lv contextMenuForItemAtIndex:(NSUInteger)i;
+- (NSMenu *)listView:(TDListView *)lv contextMenuForItemsAtIndexes:(NSIndexSet *)set;
 
 /* Drag and drop support */
 
