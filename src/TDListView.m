@@ -363,13 +363,16 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                 }
                 self.draggingIndexes = self.selectionIndexes; //[NSIndexSet indexSetWithIndex:i];
 
-                NSMutableIndexSet *visSet = [NSMutableIndexSet indexSet];
-                NSUInteger visOffset = visibleIndex - i;
-                // Backward
-                NSUInteger idx = [self.selectionIndexes lastIndex];
-                while (NSNotFound != idx) {
-                    [visSet addIndex:idx + visOffset];
-                    idx = [self.selectionIndexes indexLessThanIndex:idx];
+                NSMutableIndexSet *visSet = nil;
+                if ([self.selectionIndexes count]) {
+                    visSet = [NSMutableIndexSet indexSet];
+                    NSUInteger visOffset = visibleIndex - i;
+                    // Backward
+                    NSUInteger idx = [self.selectionIndexes lastIndex];
+                    while (NSNotFound != idx) {
+                        [visSet addIndex:idx + visOffset];
+                        idx = [self.selectionIndexes indexLessThanIndex:idx];
+                    }
                 }
                 
                 self.draggingVisibleIndexes = isCopy ? nil : visSet; //[NSIndexSet indexSetWithIndex:visibleIndex];
