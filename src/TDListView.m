@@ -41,6 +41,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 - (TDListItem *)itemAtVisibleIndex:(NSUInteger)i;
 - (NSUInteger)visibleIndexForItemAtPoint:(NSPoint)p;
 - (TDListItem *)itemWhileDraggingAtIndex:(NSInteger)i;
+- (void)draggingSourceDragDidBegin;
 - (void)draggingSourceDragDidEnd;
 - (void)unsuppressLayout;
 - (void)handleRightClickEvent:(NSEvent *)evt;
@@ -377,6 +378,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                 
                 self.draggingVisibleIndexes = isCopy ? nil : visSet; //[NSIndexSet indexSetWithIndex:visibleIndex];
                 isDragSource = YES;
+                [self draggingSourceDragDidBegin];
                 [self mouseDragged:evt];
                 withinDragRadius = NO;
                 break;
@@ -1052,6 +1054,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         item = (i < 0) ? [items objectAtIndex:0] : [items lastObject];
     }
     return item;
+}
+
+
+- (void)draggingSourceDragDidBegin {
+
 }
 
 
