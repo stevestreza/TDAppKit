@@ -137,7 +137,7 @@
 }
 
 
-- (NSMutableArray *)elementsForXPath:(NSString *)xpath {
+- (NSMutableArray *)elementsForXPath:(NSString *)xpath error:(NSString **)outErrMsg {
     NSMutableArray *result = [NSMutableArray array];
     
     if ([xpath length]) {
@@ -190,7 +190,10 @@
                 }
             } @catch (NSException *e) {
                 NSLog(@"error evaling XPath: %@", [e reason]);
-                return nil;
+                if (outErrMsg) {
+                    *outErrMsg = [e reason];
+                    return nil;
+                }
             }
         }
     }
