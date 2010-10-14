@@ -436,9 +436,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                         if (NSNotFound != removeIndex && i - removeIndex > 1) {
                             // break. allow orphans
                         } else {
-                            while (NSNotFound != removeIndex) {
-                                [newIndexes removeIndex:removeIndex];
-                                removeIndex = [newIndexes indexLessThanIndex:removeIndex];
+                            if (newIndexes && [newIndexes count]) {
+                                while (NSNotFound != removeIndex) {
+                                    [newIndexes removeIndex:removeIndex];
+                                    removeIndex = [newIndexes indexLessThanIndex:removeIndex];
+                                }
                             }
                         }
                         
@@ -447,16 +449,20 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                             [newIndexes addIndex:addIndex];
                         }
                         
-                        removeIndex = [newIndexes indexGreaterThanIndex:anchorIndex];
-                        while (NSNotFound != removeIndex) {
-                            [newIndexes removeIndex:removeIndex];
-                            removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                        if (newIndexes && [newIndexes count]) {
+                            removeIndex = [newIndexes indexGreaterThanIndex:anchorIndex];
+                            while (NSNotFound != removeIndex) {
+                                [newIndexes removeIndex:removeIndex];
+                                removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                            }
                         }
                     } else {
                         NSUInteger removeIndex = [newIndexes indexLessThanIndex:anchorIndex];
-                        while (NSNotFound != removeIndex) {
-                            [newIndexes removeIndex:removeIndex];
-                            removeIndex = [newIndexes indexLessThanIndex:anchorIndex];
+                        if (newIndexes && [newIndexes count]) {
+                            while (NSNotFound != removeIndex) {
+                                [newIndexes removeIndex:removeIndex];
+                                removeIndex = [newIndexes indexLessThanIndex:anchorIndex];
+                            }
                         }
                         
                         NSUInteger addIndex = anchorIndex;
@@ -468,9 +474,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
                         if (NSNotFound != removeIndex && removeIndex - i > 1) {
                             // break. allow orphans
                         } else {
-                            while (NSNotFound != removeIndex) {
-                                [newIndexes removeIndex:removeIndex];
-                                removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                            if (newIndexes && [newIndexes count]) {
+                                while (NSNotFound != removeIndex) {
+                                    [newIndexes removeIndex:removeIndex];
+                                    removeIndex = [newIndexes indexGreaterThanIndex:removeIndex];
+                                }
                             }
                         }
                     }
@@ -959,7 +967,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     TDListItem *item = nil;
     
     CGFloat draggingExtent = 0;
-    if ([draggingVisibleIndexes count]) {
+    if (draggingVisibleIndexes && [draggingVisibleIndexes count]) {
 
         TDListItem *draggingItem = nil;
         NSUInteger i = [draggingVisibleIndexes firstIndex];
