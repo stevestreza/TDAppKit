@@ -309,7 +309,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (void)drawRect:(NSRect)dirtyRect {
-    [backgroundColor set];
+    [self.backgroundColor set];
 //    NSRectFill(dirtyRect);
     NSRectFill([self bounds]);
 }
