@@ -26,6 +26,8 @@
 
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     self.mainColor = nil;
     self.nonMainColor = nil;
     [super dealloc];
