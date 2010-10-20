@@ -12,9 +12,9 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import <TDAppKit/TDFlippedView.h>
+#import <TDAppKit/TDColorView.h>
 
-@interface TDFlippedView : NSView {
+@interface TDFlippedColorView : TDColorView {
 
 }
 

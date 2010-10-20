@@ -11,6 +11,8 @@
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		D30FD7C111C1B561005A2437 /* combo_field_progress_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */; };
 		D30FD7F611C1B5E3005A2437 /* TDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* TDAppKit.framework */; };
+		D3106ECE126F41AC00F9E37D /* TDFlippedColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3106ECC126F41AC00F9E37D /* TDFlippedColorView.m */; };
+		D3106ED0126F421B00F9E37D /* TDFlippedColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3106ECF126F421B00F9E37D /* TDFlippedColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D318A05010F8570E00B6AA21 /* TDGutterView.h in Headers */ = {isa = PBXBuildFile; fileRef = D318A04C10F8570E00B6AA21 /* TDGutterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D318A05110F8570E00B6AA21 /* TDGutterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D318A04D10F8570E00B6AA21 /* TDGutterView.m */; };
 		D318A05210F8570E00B6AA21 /* TDSourceCodeTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = D318A04E10F8570E00B6AA21 /* TDSourceCodeTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -135,6 +137,8 @@
 		32DBCF5E0370ADEE00C91783 /* TDAppKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDAppKit_Prefix.pch; path = src/TDAppKit_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = res/conf/Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* TDAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3106ECC126F41AC00F9E37D /* TDFlippedColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDFlippedColorView.m; path = src/TDFlippedColorView.m; sourceTree = "<group>"; };
+		D3106ECF126F421B00F9E37D /* TDFlippedColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDFlippedColorView.h; path = include/TDAppKit/TDFlippedColorView.h; sourceTree = "<group>"; };
 		D318A04C10F8570E00B6AA21 /* TDGutterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDGutterView.h; path = include/TDAppKit/TDGutterView.h; sourceTree = "<group>"; };
 		D318A04D10F8570E00B6AA21 /* TDGutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDGutterView.m; path = src/TDGutterView.m; sourceTree = "<group>"; };
 		D318A04E10F8570E00B6AA21 /* TDSourceCodeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDSourceCodeTextView.h; path = include/TDAppKit/TDSourceCodeTextView.h; sourceTree = "<group>"; };
@@ -483,6 +487,8 @@
 				D3E13209110403D5007FE89E /* TDColorView.m */,
 				D36E20941170D0D400110DBA /* TDFlippedView.h */,
 				D36E20911170D0BF00110DBA /* TDFlippedView.m */,
+				D3106ECF126F421B00F9E37D /* TDFlippedColorView.h */,
+				D3106ECC126F41AC00F9E37D /* TDFlippedColorView.m */,
 				D392B08A1179594400823791 /* TDShadowView.h */,
 				D392B08B1179594400823791 /* TDShadowView.m */,
 			);
@@ -580,6 +586,7 @@
 				D3F0B7821241155B0081838C /* DOMNode+TDAdditions.h in Headers */,
 				D3F0B982124273BC0081838C /* WebScriptObject+TDAdditions.h in Headers */,
 				D38984D3124E53DB00EBEFBA /* NSArray+TDAdditions.h in Headers */,
+				D3106ED0126F421B00F9E37D /* TDFlippedColorView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +750,7 @@
 				D3F0B784124115680081838C /* DOMNode+TDAdditions.m in Sources */,
 				D3F0B97F124273980081838C /* WebScriptObject+TDAdditions.m in Sources */,
 				D38984D8124E543E00EBEFBA /* NSArray+TDAdditions.m in Sources */,
+				D3106ECE126F41AC00F9E37D /* TDFlippedColorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

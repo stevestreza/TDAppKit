@@ -12,10 +12,12 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import <TDAppKit/TDFlippedView.h>
+#import <TDAppKit/TDFlippedColorView.h>
 
-@interface TDFlippedView : NSView {
+@implementation TDFlippedColorView
 
+- (BOOL)isFlipped {
+    return YES;
 }
 
 @end
