@@ -827,6 +827,11 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 }
 
 
+- (void)draggingEnded:(id <NSDraggingInfo>)dragInfo {
+    // don't remove
+}
+
+
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)dragInfo {
     //if (dropIndex > draggingIndexes) {
     NSUInteger lastDraggingIndex = [draggingIndexes lastIndex];
