@@ -829,11 +829,14 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)dragInfo {
     //if (dropIndex > draggingIndexes) {
-    if (dropIndex > [draggingIndexes lastIndex]) {
+    NSUInteger lastDraggingIndex = [draggingIndexes lastIndex];
+    
+    if (dropIndex > lastDraggingIndex) {
 
-//        NSUInteger diff = dropIndex - draggingIndex;
+//        NSUInteger diff = dropIndex - lastDraggingIndex;
 //        dropIndex -= diff;
 //        dropVisibleIndex -= diff;
+
         dropIndex--;
         dropVisibleIndex--;
     }
@@ -866,6 +869,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         return;
         //[NSException raise:EXCEPTION_NAME format:@"TDListView must have a dataSource before doing layout"];
     }
+    
+    if ([draggingIndexes count]) return; // fixes glitch/flicker when drag enters a subgroup. don't remove
 
     for (TDListItem *item in items) {
         [queue enqueue:item];
