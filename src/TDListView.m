@@ -1086,6 +1086,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     self.draggingIndexes = nil;
     isDragSource = NO;
     self.lastMouseDownEvent = nil;
+    
+    [self reloadData];
 }
 
 
