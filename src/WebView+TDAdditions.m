@@ -192,8 +192,8 @@
                 NSLog(@"error evaling XPath: %@", [e reason]);
                 if (outErrMsg) {
                     *outErrMsg = [e reason];
-                    return nil;
                 }
+                return nil;
             }
         }
     }
