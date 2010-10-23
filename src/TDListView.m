@@ -829,6 +829,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 - (void)draggingEnded:(id <NSDraggingInfo>)dragInfo {
     // don't remove
+    self.draggingIndexes = nil;
 }
 
 
