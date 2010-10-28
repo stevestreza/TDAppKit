@@ -65,6 +65,14 @@
 }
 
 
+- (void)dispatchChangeEvent {
+    DOMDocument *doc = [self ownerDocument];
+    DOMEvent *evt = [doc createEvent:@"Events"];
+    [evt initEvent:@"change" canBubbleArg:YES cancelableArg:YES];
+    [self dispatchEvent:evt];
+}
+
+
 - (void)simulateClickEventInWebView:(WebView *)webView {
     id relatedTarget = [(DOMHTMLDocument *)[self ownerDocument] body];
     

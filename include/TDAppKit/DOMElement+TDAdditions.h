@@ -18,6 +18,7 @@
 - (NSString *)defaultXPath;
 - (void)dispatchClickEvent;
 - (void)simulateClickEventInWebView:(WebView *)webView;
+- (void)dispatchChangeEvent;
 
 - (void)dispatchMouseEventType:(NSString *)type 
                     clickCount:(NSInteger)clickCount 
