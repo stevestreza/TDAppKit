@@ -46,7 +46,27 @@
 #pragma mark -
 #pragma mark Actions
 
+- (IBAction)performClose:(id)sender {
+    
+}
+
+
+- (IBAction)closeWindow:(id)sender {
+    
+}
+
+
 - (IBAction)closeTab:(id)sender {
+    
+}
+
+
+- (IBAction)newTab:(id)sender {
+    
+}
+
+
+- (IBAction)newBackgroundTab:(id)sender {
     
 }
 
