@@ -36,6 +36,13 @@
 #import <TDAppKit/TDFlippedView.h>
 #import <TDAppKit/TDFlippedColorView.h>
 
+// Tabbed App stuff
+#import <TDAppKit/TDTabbedDocumentController.h>
+#import <TDAppKit/TDTabbedDocument.h>
+#import <TDAppKit/TDTabbedWindowController.h>
+#import <TDAppKit/TDTabModel.h>
+#import <TDAppKit/TDTabController.h>
+
 // WebKit stuff
 #import <TDAppKit/TDJSUtils.h>
 #import <TDAppKit/DOMNode+TDAdditions.h>

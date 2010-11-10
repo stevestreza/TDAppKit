@@ -42,6 +42,16 @@
 		D366C1EC112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1EB112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */; };
 		D366C1EF112902E500547FD6 /* NSURL+NDCarbonUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D366C1ED112902E400547FD6 /* NSURL+NDCarbonUtilities.h */; };
 		D366C1F0112902E500547FD6 /* NSURL+NDCarbonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */; };
+		D36A3613128B246B00AB56C9 /* TDTabbedDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A3611128B246B00AB56C9 /* TDTabbedDocumentController.m */; };
+		D36A3619128B249100AB56C9 /* TDTabbedDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = D36A3618128B249100AB56C9 /* TDTabbedDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D36A361B128B24AB00AB56C9 /* TDTabbedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A361A128B24AB00AB56C9 /* TDTabbedDocument.m */; };
+		D36A361D128B24BD00AB56C9 /* TDTabbedDocumentController.h in Headers */ = {isa = PBXBuildFile; fileRef = D36A361C128B24BD00AB56C9 /* TDTabbedDocumentController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D36A3625128B24F200AB56C9 /* TDTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A3623128B24F200AB56C9 /* TDTabModel.m */; };
+		D36A3631128B260200AB56C9 /* TDTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A362F128B260200AB56C9 /* TDTabController.m */; };
+		D36A3633128B260F00AB56C9 /* TDTabController.h in Headers */ = {isa = PBXBuildFile; fileRef = D36A3632128B260F00AB56C9 /* TDTabController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D36A3635128B261D00AB56C9 /* TDTabModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D36A3634128B261D00AB56C9 /* TDTabModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D36A3652128B27CA00AB56C9 /* TDTabbedWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A3650128B27CA00AB56C9 /* TDTabbedWindowController.m */; };
+		D36A3662128B27DC00AB56C9 /* TDTabbedWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = D36A3661128B27DC00AB56C9 /* TDTabbedWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D36E1EA111702E5500110DBA /* TDComboField.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E1E9F11702E5500110DBA /* TDComboField.m */; };
 		D36E1EAC11702E6A00110DBA /* TDComboField.h in Headers */ = {isa = PBXBuildFile; fileRef = D36E1EAB11702E6A00110DBA /* TDComboField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D36E1ED911703A1000110DBA /* TDComboFieldListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D36E1ED711703A1000110DBA /* TDComboFieldListItem.h */; };
@@ -173,6 +183,16 @@
 		D366C1EB112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+NDAppleScriptObject.m"; path = "src/NSAppleEventDescriptor+NDAppleScriptObject.m"; sourceTree = "<group>"; };
 		D366C1ED112902E400547FD6 /* NSURL+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+NDCarbonUtilities.h"; path = "src/NSURL+NDCarbonUtilities.h"; sourceTree = "<group>"; };
 		D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+NDCarbonUtilities.m"; path = "src/NSURL+NDCarbonUtilities.m"; sourceTree = "<group>"; };
+		D36A3611128B246B00AB56C9 /* TDTabbedDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocumentController.m; path = src/TDTabbedDocumentController.m; sourceTree = "<group>"; };
+		D36A3618128B249100AB56C9 /* TDTabbedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabbedDocument.h; path = include/TDAppKit/TDTabbedDocument.h; sourceTree = "<group>"; };
+		D36A361A128B24AB00AB56C9 /* TDTabbedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocument.m; path = src/TDTabbedDocument.m; sourceTree = "<group>"; };
+		D36A361C128B24BD00AB56C9 /* TDTabbedDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabbedDocumentController.h; path = include/TDAppKit/TDTabbedDocumentController.h; sourceTree = "<group>"; };
+		D36A3623128B24F200AB56C9 /* TDTabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabModel.m; path = src/TDTabModel.m; sourceTree = "<group>"; };
+		D36A362F128B260200AB56C9 /* TDTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabController.m; path = src/TDTabController.m; sourceTree = "<group>"; };
+		D36A3632128B260F00AB56C9 /* TDTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabController.h; path = include/TDAppKit/TDTabController.h; sourceTree = "<group>"; };
+		D36A3634128B261D00AB56C9 /* TDTabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabModel.h; path = include/TDAppKit/TDTabModel.h; sourceTree = "<group>"; };
+		D36A3650128B27CA00AB56C9 /* TDTabbedWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedWindowController.m; path = src/TDTabbedWindowController.m; sourceTree = "<group>"; };
+		D36A3661128B27DC00AB56C9 /* TDTabbedWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabbedWindowController.h; path = include/TDAppKit/TDTabbedWindowController.h; sourceTree = "<group>"; };
 		D36E1E9F11702E5500110DBA /* TDComboField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDComboField.m; path = src/TDComboField.m; sourceTree = "<group>"; };
 		D36E1EAB11702E6A00110DBA /* TDComboField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboField.h; path = include/TDAppKit/TDComboField.h; sourceTree = "<group>"; };
 		D36E1ED711703A1000110DBA /* TDComboFieldListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDComboFieldListItem.h; path = src/TDComboFieldListItem.h; sourceTree = "<group>"; };
@@ -326,6 +346,7 @@
 				D31CC02310EFC6BB0013347D /* TDAppKit.h */,
 				D3EB2341110163F700633715 /* TDUtils.h */,
 				D3EB2342110163F700633715 /* TDUtils.m */,
+				D36A360F128B245200AB56C9 /* TabbedDocumentApp */,
 				D36E1E8C11702E2700110DBA /* ComboField */,
 				D366C1AD1128FEE900547FD6 /* AppleEvents */,
 				D3EB233A1101631300633715 /* AppKit Categories */,
@@ -440,6 +461,23 @@
 				D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */,
 			);
 			name = AppleEvents;
+			sourceTree = "<group>";
+		};
+		D36A360F128B245200AB56C9 /* TabbedDocumentApp */ = {
+			isa = PBXGroup;
+			children = (
+				D36A361C128B24BD00AB56C9 /* TDTabbedDocumentController.h */,
+				D36A3611128B246B00AB56C9 /* TDTabbedDocumentController.m */,
+				D36A3618128B249100AB56C9 /* TDTabbedDocument.h */,
+				D36A361A128B24AB00AB56C9 /* TDTabbedDocument.m */,
+				D36A3661128B27DC00AB56C9 /* TDTabbedWindowController.h */,
+				D36A3650128B27CA00AB56C9 /* TDTabbedWindowController.m */,
+				D36A3634128B261D00AB56C9 /* TDTabModel.h */,
+				D36A3623128B24F200AB56C9 /* TDTabModel.m */,
+				D36A3632128B260F00AB56C9 /* TDTabController.h */,
+				D36A362F128B260200AB56C9 /* TDTabController.m */,
+			);
+			name = TabbedDocumentApp;
 			sourceTree = "<group>";
 		};
 		D36E1E8C11702E2700110DBA /* ComboField */ = {
@@ -587,6 +625,11 @@
 				D3F0B982124273BC0081838C /* WebScriptObject+TDAdditions.h in Headers */,
 				D38984D3124E53DB00EBEFBA /* NSArray+TDAdditions.h in Headers */,
 				D3106ED0126F421B00F9E37D /* TDFlippedColorView.h in Headers */,
+				D36A3619128B249100AB56C9 /* TDTabbedDocument.h in Headers */,
+				D36A361D128B24BD00AB56C9 /* TDTabbedDocumentController.h in Headers */,
+				D36A3633128B260F00AB56C9 /* TDTabController.h in Headers */,
+				D36A3635128B261D00AB56C9 /* TDTabModel.h in Headers */,
+				D36A3662128B27DC00AB56C9 /* TDTabbedWindowController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +794,11 @@
 				D3F0B97F124273980081838C /* WebScriptObject+TDAdditions.m in Sources */,
 				D38984D8124E543E00EBEFBA /* NSArray+TDAdditions.m in Sources */,
 				D3106ECE126F41AC00F9E37D /* TDFlippedColorView.m in Sources */,
+				D36A3613128B246B00AB56C9 /* TDTabbedDocumentController.m in Sources */,
+				D36A361B128B24AB00AB56C9 /* TDTabbedDocument.m in Sources */,
+				D36A3625128B24F200AB56C9 /* TDTabModel.m in Sources */,
+				D36A3631128B260200AB56C9 /* TDTabController.m in Sources */,
+				D36A3652128B27CA00AB56C9 /* TDTabbedWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
