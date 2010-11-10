@@ -34,6 +34,7 @@
 #import <TDAppKit/TDLine.h>
 #import <TDAppKit/TDColorView.h>
 #import <TDAppKit/TDFlippedView.h>
+#import <TDAppKit/TDFlippedColorView.h>
 
 // WebKit stuff
 #import <TDAppKit/TDJSUtils.h>
