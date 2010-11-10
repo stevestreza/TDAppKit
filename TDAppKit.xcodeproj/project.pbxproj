@@ -88,12 +88,11 @@
 		D3D804FF111F485D0025650C /* TDDraggableBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D804FE111F485D0025650C /* TDDraggableBar.m */; };
 		D3E1320A110403D5007FE89E /* TDColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E13208110403D5007FE89E /* TDColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3E1320B110403D5007FE89E /* TDColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E13209110403D5007FE89E /* TDColorView.m */; };
-		D3EAAFD7128B4137006EDFF7 /* TDTabsListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EAAFD5128B4137006EDFF7 /* TDTabsListViewController.h */; };
 		D3EAAFD8128B4137006EDFF7 /* TDTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAAFD6128B4137006EDFF7 /* TDTabsListViewController.m */; };
 		D3EAAFE3128B42B3006EDFF7 /* TDTabListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EAAFE1128B42B3006EDFF7 /* TDTabListItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3EAAFE4128B42B3006EDFF7 /* TDTabListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAAFE2128B42B3006EDFF7 /* TDTabListItem.m */; };
-		D3EAB015128B44F9006EDFF7 /* TDTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EAB013128B44F9006EDFF7 /* TDTabView.xib */; };
 		D3EAB027128B45ED006EDFF7 /* TDTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */; };
+		D3EAB088128B5352006EDFF7 /* TDTabsListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EAB087128B5352006EDFF7 /* TDTabsListViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3EB212A11013C4E00633715 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EB212911013C4E00633715 /* QuartzCore.framework */; };
 		D3EB212D11013C5300633715 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EB212911013C4E00633715 /* QuartzCore.framework */; };
 		D3EB233E1101632B00633715 /* NSImage+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EB233C1101632B00633715 /* NSImage+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -238,12 +237,11 @@
 		D3D804FE111F485D0025650C /* TDDraggableBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDDraggableBar.m; path = src/TDDraggableBar.m; sourceTree = "<group>"; };
 		D3E13208110403D5007FE89E /* TDColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDColorView.h; path = include/TDAppKit/TDColorView.h; sourceTree = "<group>"; };
 		D3E13209110403D5007FE89E /* TDColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDColorView.m; path = src/TDColorView.m; sourceTree = "<group>"; };
-		D3EAAFD5128B4137006EDFF7 /* TDTabsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabsListViewController.h; path = src/TDTabsListViewController.h; sourceTree = "<group>"; };
 		D3EAAFD6128B4137006EDFF7 /* TDTabsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabsListViewController.m; path = src/TDTabsListViewController.m; sourceTree = "<group>"; };
 		D3EAAFE1128B42B3006EDFF7 /* TDTabListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabListItem.h; path = src/TDTabListItem.h; sourceTree = "<group>"; };
 		D3EAAFE2128B42B3006EDFF7 /* TDTabListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabListItem.m; path = src/TDTabListItem.m; sourceTree = "<group>"; };
-		D3EAB014128B44F9006EDFF7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TDTabView.xib; sourceTree = "<group>"; };
 		D3EAB026128B45ED006EDFF7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TDTabsListView.xib; sourceTree = "<group>"; };
+		D3EAB087128B5352006EDFF7 /* TDTabsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabsListViewController.h; path = include/TDAppKit/TDTabsListViewController.h; sourceTree = "<group>"; };
 		D3EB212911013C4E00633715 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3EB233C1101632B00633715 /* NSImage+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+TDAdditions.h"; path = "include/TDAppKit/NSImage+TDAdditions.h"; sourceTree = "<group>"; };
 		D3EB233D1101632B00633715 /* NSImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+TDAdditions.m"; path = "src/NSImage+TDAdditions.m"; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */,
 			);
 			name = TDAppKit;
 			sourceTree = "<group>";
@@ -490,7 +487,7 @@
 				D36A3623128B24F200AB56C9 /* TDTabModel.m */,
 				D36A3632128B260F00AB56C9 /* TDTabViewController.h */,
 				D36A362F128B260200AB56C9 /* TDTabViewController.m */,
-				D3EAAFD5128B4137006EDFF7 /* TDTabsListViewController.h */,
+				D3EAB087128B5352006EDFF7 /* TDTabsListViewController.h */,
 				D3EAAFD6128B4137006EDFF7 /* TDTabsListViewController.m */,
 				D3EAAFE1128B42B3006EDFF7 /* TDTabListItem.h */,
 				D3EAAFE2128B42B3006EDFF7 /* TDTabListItem.m */,
@@ -554,7 +551,7 @@
 		D3EAB017128B4582006EDFF7 /* nib */ = {
 			isa = PBXGroup;
 			children = (
-				D3EAB013128B44F9006EDFF7 /* TDTabView.xib */,
+				D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */,
 			);
 			name = nib;
 			sourceTree = "<group>";
@@ -680,8 +677,8 @@
 				D36A3633128B260F00AB56C9 /* TDTabViewController.h in Headers */,
 				D36A3635128B261D00AB56C9 /* TDTabModel.h in Headers */,
 				D36A3662128B27DC00AB56C9 /* TDTabbedWindowController.h in Headers */,
-				D3EAAFD7128B4137006EDFF7 /* TDTabsListViewController.h in Headers */,
 				D3EAAFE3128B42B3006EDFF7 /* TDTabListItem.h in Headers */,
+				D3EAB088128B5352006EDFF7 /* TDTabsListViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +774,6 @@
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
 				D371DBEF11C1B14700D5434C /* combo_field_progress_indicator.png in Resources */,
-				D3EAB015128B44F9006EDFF7 /* TDTabView.xib in Resources */,
 				D3EAB027128B45ED006EDFF7 /* TDTabsListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -900,14 +896,6 @@
 				089C1667FE841158C02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D3EAB013128B44F9006EDFF7 /* TDTabView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3EAB014128B44F9006EDFF7 /* English */,
-			);
-			name = TDTabView.xib;
 			sourceTree = "<group>";
 		};
 		D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */ = {

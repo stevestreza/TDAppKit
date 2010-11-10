@@ -16,20 +16,20 @@
 
 @implementation TDTabViewController
 
-- (id)init {
-    self = [super initWithNibName:@"TDTabView" bundle:nil];
-    return self;
-}
-
-
-- (id)initWithNibName:(NSString *)name bundle:(NSBundle *)b{
-    if (self = [super initWithNibName:name bundle:b]) {
-        
-    }
-    return self;
-}
-
-
+//- (id)init {
+//    self = [super initWithNibName:@"TDTabView" bundle:nil];
+//    return self;
+//}
+//
+//
+//- (id)initWithNibName:(NSString *)name bundle:(NSBundle *)b{
+//    if (self = [super initWithNibName:name bundle:b]) {
+//        
+//    }
+//    return self;
+//}
+//
+//
 - (void)dealloc {
     self.tabModel = nil;
     [super dealloc];

@@ -13,7 +13,7 @@
 @implementation TDTabsListViewController
 
 - (id)init {
-    self = [super initWithNibName:@"TDTabsListView" bundle:nil];
+    self = [super initWithNibName:@"TDTabsListView" bundle:[NSBundle bundleForClass:[self class]]];
     return self;
 }
 

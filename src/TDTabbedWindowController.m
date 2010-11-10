@@ -7,13 +7,51 @@
 //
 
 #import <TDAppKit/TDTabbedWindowController.h>
-#import "TDTabsListViewController.h"
+#import <TDAppKit/TDTabsListViewController.h>
+#import <TDAppKit/TDTabbedDocument.h>
+#import <TDAppKit/TDTabModel.h>
+
+@interface TDTabbedWindowController ()
+- (void)setUpTabsListView;
+@end
 
 @implementation TDTabbedWindowController
 
 - (void)dealloc {
     self.tabsListViewController = nil;
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark NSWindowController
+
+- (void)windowDidLoad {
+    [super windowDidLoad];
+    
+    [self setUpTabsListView];
+}
+
+
+- (void)setUpTabsListView {
+    self.tabsListViewController = [[[TDTabsListViewController alloc] init] autorelease];
+    tabsListViewController.delegate = self;
+}
+
+
+#pragma mark -
+#pragma mark TDTabsListViewControllerDelegate
+
+- (NSUInteger)numberOfTabsInTabsViewController:(TDTabsListViewController *)tvc {
+    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+    NSUInteger c = [doc.tabModels count];
+    return c;
+}
+
+
+- (TDTabModel *)tabsViewController:(TDTabsListViewController *)tvc tabModelAtIndex:(NSUInteger)i {
+    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+    TDTabModel *tabModel = [doc.tabModels objectAtIndex:i];
+    return tabModel;
 }
 
 @synthesize tabsListViewController;

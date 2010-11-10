@@ -28,17 +28,23 @@
 #pragma mark NSDocument
 
 - (void)makeWindowControllers {
-    
+    [super makeWindowControllers];
+
+}
+
+
+- (void)shouldCloseWindowController:(NSWindowController *)wc delegate:(id)delegate shouldCloseSelector:(SEL)sel contextInfo:(void *)ctx {
+    [super shouldCloseWindowController:wc delegate:delegate shouldCloseSelector:sel contextInfo:ctx];
+}
+
+
+- (void)canCloseDocumentWithDelegate:(id)delegate shouldCloseSelector:(SEL)sel contextInfo:(void *)ctx {
+    [super canCloseDocumentWithDelegate:delegate shouldCloseSelector:sel contextInfo:ctx];
 }
 
 
 #pragma mark -
 #pragma mark Actions
-
-- (IBAction)closeWindow:(id)sender {
-    
-}
-
 
 - (IBAction)closeTab:(id)sender {
     

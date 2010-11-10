@@ -17,7 +17,6 @@
     NSUInteger selectedTabIndex;
 }
 
-- (IBAction)closeWindow:(id)sender;
 - (IBAction)closeTab:(id)sender;
 
 @property (nonatomic, retain) NSMutableArray *tabModels;
