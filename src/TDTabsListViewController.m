@@ -7,8 +7,8 @@
 //
 
 #import "TDTabsListViewController.h"
-#import "TDTabModel.h"
-#import "TDTabListItem.h"
+#import <TDAppKit/TDTabModel.h>
+#import <TDAppKit/TDTabListItem.h>
 
 @implementation TDTabsListViewController
 

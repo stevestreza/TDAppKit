@@ -6,7 +6,13 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import "TDTabViewController.h"
+#import <TDAppKit/TDTabViewController.h>
+#import <TDAppKit/TDTabModel.h>
+
+@interface TDTabViewController ()
+- (void)startObservingTabModel:(TDTabModel *)m;
+- (void)stopObservingTabModel:(TDTabModel *)m;
+@end
 
 @implementation TDTabViewController
 
@@ -30,16 +36,36 @@
 }
 
 
+#pragma mark -
+#pragma mark Private
+
+- (void)startObservingTabModel:(TDTabModel *)m {
+    if (!m) return;
+    
+    [m addObserver:self forKeyPath:@"title" options:0 context:NULL];
+}
+
+
+- (void)stopObservingTabModel:(TDTabModel *)m {
+    if (!m) return;
+    
+    [m removeObserver:self forKeyPath:@"title"];
+}
+
+
+#pragma mark -
+#pragma mark Properties
+
 - (void)setTabModel:(TDTabModel *)m {
     if (tabModel != m) {
         [self willChangeValueForKey:@"tabModel"];
+        
+        [self stopObservingTabModel:tabModel];
 
         [tabModel autorelease];
         tabModel = [m retain];
         
-        if (tabModel) {
-            [tabModel addObserver:self forKeyPath:@"title" options:0 context:NULL];
-        }
+        [self startObservingTabModel:tabModel];
         
         [self didChangeValueForKey:@"tabModel"];
     }

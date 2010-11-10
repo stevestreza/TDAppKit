@@ -6,7 +6,7 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import "TDTabbedDocumentController.h"
+#import <TDAppKit/TDTabbedDocumentController.h>
 
 @implementation TDTabbedDocumentController
 

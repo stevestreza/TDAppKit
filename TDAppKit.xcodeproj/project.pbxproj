@@ -90,7 +90,7 @@
 		D3E1320B110403D5007FE89E /* TDColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E13209110403D5007FE89E /* TDColorView.m */; };
 		D3EAAFD7128B4137006EDFF7 /* TDTabsListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EAAFD5128B4137006EDFF7 /* TDTabsListViewController.h */; };
 		D3EAAFD8128B4137006EDFF7 /* TDTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAAFD6128B4137006EDFF7 /* TDTabsListViewController.m */; };
-		D3EAAFE3128B42B3006EDFF7 /* TDTabListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EAAFE1128B42B3006EDFF7 /* TDTabListItem.h */; };
+		D3EAAFE3128B42B3006EDFF7 /* TDTabListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EAAFE1128B42B3006EDFF7 /* TDTabListItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3EAAFE4128B42B3006EDFF7 /* TDTabListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAAFE2128B42B3006EDFF7 /* TDTabListItem.m */; };
 		D3EAB015128B44F9006EDFF7 /* TDTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EAB013128B44F9006EDFF7 /* TDTabView.xib */; };
 		D3EAB027128B45ED006EDFF7 /* TDTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */; };

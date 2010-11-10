@@ -6,7 +6,7 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import "TDTabModel.h"
+#import <TDAppKit/TDTabModel.h>
 
 @implementation TDTabModel
 

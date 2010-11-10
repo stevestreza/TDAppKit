@@ -6,7 +6,7 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import "TDTabbedWindowController.h"
+#import <TDAppKit/TDTabbedWindowController.h>
 #import "TDTabsListViewController.h"
 
 @implementation TDTabbedWindowController

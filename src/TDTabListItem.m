@@ -6,7 +6,7 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import "TDTabListItem.h"
+#import <TDAppKit/TDTabListItem.h>
 
 @implementation TDTabListItem
 

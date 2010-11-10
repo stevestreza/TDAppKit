@@ -6,9 +6,9 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import "TDTabbedDocument.h"
-#import "TDTabModel.h"
-#import "TDTabViewController.h"
+#import <TDAppKit/TDTabbedDocument.h>
+#import <TDAppKit/TDTabModel.h>
+#import <TDAppKit/TDTabViewController.h>
 
 @interface TDTabbedDocument ()
 //@property (nonatomic, retain, readwrite) TDTabController *selectedTabModel;
@@ -28,6 +28,19 @@
 #pragma mark NSDocument
 
 - (void)makeWindowControllers {
+    
+}
+
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)closeWindow:(id)sender {
+    
+}
+
+
+- (IBAction)closeTab:(id)sender {
     
 }
 
