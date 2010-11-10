@@ -9,12 +9,25 @@
 #import <Cocoa/Cocoa.h>
 #import <TDAppKit/TDListItem.h>
 
+@class TDTabModel;
+
 @interface TDTabListItem : TDListItem {
-    NSString *title;
+    TDTabModel *tabModel;
+    NSButton *closeButton;
+    NSProgressIndicator *progressIndicator;
+//    FUTabsViewController *viewController;
+    
+    NSTimer *drawHiRezTimer;
+    BOOL drawHiRez;
 }
 
 + (CGFloat)defaultHeight;
 + (NSString *)reuseIdentifier;
 
-@property (nonatomic, copy) NSString *title;
+- (void)drawHiRezLater;
+
+@property (nonatomic, retain) TDTabModel *tabModel;
+@property (nonatomic, retain) NSButton *closeButton;
+@property (nonatomic, retain) NSProgressIndicator *progressIndicator;
+//@property (nonatomic, assign) FUTabsViewController *viewController;
 @end

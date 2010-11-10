@@ -50,7 +50,7 @@
         listItem = [[[TDTabListItem alloc] init] autorelease];
     }
     
-    listItem.title = tabModel.title;
+    listItem.tabModel = tabModel;
     
     [listItem setNeedsDisplay:YES];
     return listItem;
