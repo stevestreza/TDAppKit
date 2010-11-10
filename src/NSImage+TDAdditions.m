@@ -20,14 +20,17 @@
 + (NSImage *)imageNamed:(NSString *)name inBundleForClass:(Class)cls {
     NSBundle *bundle = [NSBundle bundleForClass:cls];
     NSString *path = [bundle pathForImageResource:name];
+
     NSImage *image = nil;
     if ([path length]) {
-        NSURL *URL = [NSURL URLWithString:path];
+        NSURL *URL = [NSURL fileURLWithPath:path];
         image = [[[NSImage alloc] initWithContentsOfURL:URL] autorelease];
     } 
+    
     if (!image) {
         NSLog(@"%s couldnt load image named %@ in bundle %@\npath %@", __PRETTY_FUNCTION__, name, bundle, path);
     }
+    
     return image;
 }
 
