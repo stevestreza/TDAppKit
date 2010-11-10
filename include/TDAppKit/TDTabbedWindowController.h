@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TDTabbedWindowController : NSWindowController {
+@class TDTabsListViewController;
 
+@interface TDTabbedWindowController : NSWindowController {
+    TDTabsListViewController *tabsListViewController;
 }
 
+@property (nonatomic, retain) TDTabsListViewController *tabsListViewController;
 @end

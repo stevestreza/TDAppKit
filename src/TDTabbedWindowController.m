@@ -7,7 +7,14 @@
 //
 
 #import "TDTabbedWindowController.h"
+#import "TDTabsListViewController.h"
 
 @implementation TDTabbedWindowController
 
+- (void)dealloc {
+    self.tabsListViewController = nil;
+    [super dealloc];
+}
+
+@synthesize tabsListViewController;
 @end

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class TDTabModel;
-@class TDTabController;
+@class TDTabViewController;
 
 @interface TDTabbedDocument : NSDocument {
     NSMutableArray *tabModels;
@@ -21,5 +21,5 @@
 @property (nonatomic, retain) NSMutableArray *tabControllers;
 @property (nonatomic, assign) NSUInteger selectedTabIndex;
 @property (nonatomic, retain, readonly) TDTabModel *selectedTabModel;
-@property (nonatomic, retain, readonly) TDTabController *selectedTabController;
+@property (nonatomic, retain, readonly) TDTabViewController *selectedTabController;
 @end

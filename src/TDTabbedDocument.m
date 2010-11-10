@@ -8,7 +8,7 @@
 
 #import "TDTabbedDocument.h"
 #import "TDTabModel.h"
-#import "TDTabController.h"
+#import "TDTabViewController.h"
 
 @interface TDTabbedDocument ()
 //@property (nonatomic, retain, readwrite) TDTabController *selectedTabModel;
@@ -40,7 +40,7 @@
 }
 
 
-- (TDTabController *)selectedTabController {
+- (TDTabViewController *)selectedTabController {
     return [tabControllers objectAtIndex:selectedTabIndex];
 }
 

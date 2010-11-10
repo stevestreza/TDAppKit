@@ -1,15 +1,13 @@
 //
-//  TDTabController.h
+//  TDTabController.m
 //  TDAppKit
 //
 //  Created by Todd Ditchendorf on 11/10/10.
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "TDTabViewController.h"
 
-@interface TDTabController : NSViewController {
-
-}
+@implementation TDTabViewController
 
 @end

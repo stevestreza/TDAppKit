@@ -41,7 +41,7 @@
 #import <TDAppKit/TDTabbedDocument.h>
 #import <TDAppKit/TDTabbedWindowController.h>
 #import <TDAppKit/TDTabModel.h>
-#import <TDAppKit/TDTabController.h>
+#import <TDAppKit/TDTabViewController.h>
 
 // WebKit stuff
 #import <TDAppKit/TDJSUtils.h>
