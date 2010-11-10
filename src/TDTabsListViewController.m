@@ -12,6 +12,20 @@
 
 @implementation TDTabsListViewController
 
+- (id)init {
+    self = [super initWithNibName:@"TDTabsListView" bundle:nil];
+    return self;
+}
+
+
+- (id)initWithNibName:(NSString *)name bundle:(NSBundle *)b{
+    if (self = [super initWithNibName:name bundle:b]) {
+        
+    }
+    return self;
+}
+
+
 - (void)dealloc {
     self.listView = nil;
     [super dealloc];

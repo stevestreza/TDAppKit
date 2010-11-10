@@ -92,6 +92,8 @@
 		D3EAAFD8128B4137006EDFF7 /* TDTabsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAAFD6128B4137006EDFF7 /* TDTabsListViewController.m */; };
 		D3EAAFE3128B42B3006EDFF7 /* TDTabListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EAAFE1128B42B3006EDFF7 /* TDTabListItem.h */; };
 		D3EAAFE4128B42B3006EDFF7 /* TDTabListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EAAFE2128B42B3006EDFF7 /* TDTabListItem.m */; };
+		D3EAB015128B44F9006EDFF7 /* TDTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EAB013128B44F9006EDFF7 /* TDTabView.xib */; };
+		D3EAB027128B45ED006EDFF7 /* TDTabsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */; };
 		D3EB212A11013C4E00633715 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EB212911013C4E00633715 /* QuartzCore.framework */; };
 		D3EB212D11013C5300633715 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EB212911013C4E00633715 /* QuartzCore.framework */; };
 		D3EB233E1101632B00633715 /* NSImage+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EB233C1101632B00633715 /* NSImage+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -240,6 +242,8 @@
 		D3EAAFD6128B4137006EDFF7 /* TDTabsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabsListViewController.m; path = src/TDTabsListViewController.m; sourceTree = "<group>"; };
 		D3EAAFE1128B42B3006EDFF7 /* TDTabListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabListItem.h; path = src/TDTabListItem.h; sourceTree = "<group>"; };
 		D3EAAFE2128B42B3006EDFF7 /* TDTabListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabListItem.m; path = src/TDTabListItem.m; sourceTree = "<group>"; };
+		D3EAB014128B44F9006EDFF7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TDTabView.xib; sourceTree = "<group>"; };
+		D3EAB026128B45ED006EDFF7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TDTabsListView.xib; sourceTree = "<group>"; };
 		D3EB212911013C4E00633715 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3EB233C1101632B00633715 /* NSImage+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+TDAdditions.h"; path = "include/TDAppKit/NSImage+TDAdditions.h"; sourceTree = "<group>"; };
 		D3EB233D1101632B00633715 /* NSImage+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+TDAdditions.m"; path = "src/NSImage+TDAdditions.m"; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */,
 			);
 			name = TDAppKit;
 			sourceTree = "<group>";
@@ -341,9 +346,10 @@
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */,
-				8DC2EF5A0486A6940098B216 /* Info.plist */,
-				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+				D3EAB01A128B459B006EDFF7 /* strings */,
+				D3EAB019128B4593006EDFF7 /* conf */,
+				D3EAB018128B4589006EDFF7 /* img */,
+				D3EAB017128B4582006EDFF7 /* nib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -545,6 +551,38 @@
 			name = "Misc Views";
 			sourceTree = "<group>";
 		};
+		D3EAB017128B4582006EDFF7 /* nib */ = {
+			isa = PBXGroup;
+			children = (
+				D3EAB013128B44F9006EDFF7 /* TDTabView.xib */,
+			);
+			name = nib;
+			sourceTree = "<group>";
+		};
+		D3EAB018128B4589006EDFF7 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		D3EAB019128B4593006EDFF7 /* conf */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+			);
+			name = conf;
+			sourceTree = "<group>";
+		};
+		D3EAB01A128B459B006EDFF7 /* strings */ = {
+			isa = PBXGroup;
+			children = (
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = strings;
+			sourceTree = "<group>";
+		};
 		D3EB233A1101631300633715 /* AppKit Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,6 +777,8 @@
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
 				D371DBEF11C1B14700D5434C /* combo_field_progress_indicator.png in Resources */,
+				D3EAB015128B44F9006EDFF7 /* TDTabView.xib in Resources */,
+				D3EAB027128B45ED006EDFF7 /* TDTabsListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,6 +900,22 @@
 				089C1667FE841158C02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D3EAB013128B44F9006EDFF7 /* TDTabView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3EAB014128B44F9006EDFF7 /* English */,
+			);
+			name = TDTabView.xib;
+			sourceTree = "<group>";
+		};
+		D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3EAB026128B45ED006EDFF7 /* English */,
+			);
+			name = TDTabsListView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

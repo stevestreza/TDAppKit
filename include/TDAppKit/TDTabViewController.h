@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TDTabViewController : NSViewController {
+@class TDTabModel;
 
+@interface TDTabViewController : NSViewController {
+    TDTabModel *tabModel;
 }
 
+@property (nonatomic, retain) TDTabModel *tabModel;
 @end
