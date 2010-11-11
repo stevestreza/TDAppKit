@@ -11,6 +11,7 @@
 #import <TDAppKit/TDTabViewController.h>
 
 @interface TDTabbedDocument ()
+@property (nonatomic, retain) NSMutableArray *models;
 @property (nonatomic, retain, readwrite) TDTabModel *selectedTabModel;
 @end
 
@@ -20,7 +21,7 @@
     if (self = [super init]) {
         selectedTabIndex = NSNotFound;
         
-        self.tabModels = [NSMutableArray array];
+        self.models = [NSMutableArray array];
         self.tabViewControllers = [NSMutableArray array];
     }
     return self;
@@ -28,7 +29,7 @@
 
 
 - (void)dealloc {
-    self.tabModels = nil;
+    self.models = nil;
     self.tabViewControllers = nil;
     self.selectedTabModel = nil;
     [super dealloc];
@@ -67,23 +68,31 @@
 
 
 - (IBAction)newTab:(id)sender {
-    [self addTabAtIndex:[tabModels count] select:YES];
+    NSUInteger i = [models count];
+    [self addTabModelAtIndex:[models count]];
+    self.selectedTabIndex = i;
 }
 
 
 - (IBAction)newBackgroundTab:(id)sender {
-    [self addTabAtIndex:[tabModels count] select:NO];
+    [self addTabModelAtIndex:[models count]];
 }
 
 
 #pragma mark -
 #pragma mark Public
 
-- (void)addTabAtIndex:(NSUInteger)i select:(BOOL)select {
-    NSParameterAssert(NSNotFound != i && i >= 0 && i <= [tabModels count]);
-    
+- (void)addTabModelAtIndex:(NSUInteger)i {
     // create model
     TDTabModel *tm = [[[TDTabModel alloc] init] autorelease];
+    [self addTabModel:tm atIndex:i];
+}
+
+
+- (void)addTabModel:(TDTabModel *)tm atIndex:(NSUInteger)i {
+    NSParameterAssert(NSNotFound != i && i >= 0 && i <= [models count]);
+    
+    // set index
     tm.index = i;
     
     // create viewController
@@ -91,29 +100,24 @@
     tvc.tabModel = tm;
     
     // add or insert
-    BOOL isAppend = (i == [tabModels count]);
+    BOOL isAppend = (i == [models count]);
     if (isAppend) {
-        [tabModels addObject:tm];
+        [models addObject:tm];
         [tabViewControllers addObject:tvc];
     } else {
-        [tabModels insertObject:tm atIndex:i];
+        [models insertObject:tm atIndex:i];
         [tabViewControllers insertObject:tvc atIndex:i];
     }
     
     // notify
     [self didAddTabModel:tm];
-    
-    // select
-    if (select) {
-        self.selectedTabIndex = tm.index;
-    }
 }
 
 
 - (void)removeTabAtIndex:(NSUInteger)i {
-    NSParameterAssert(NSNotFound != i && i >= 0 && i <= [tabModels count]);
+    NSParameterAssert(NSNotFound != i && i >= 0 && i <= [models count]);
 
-    NSUInteger c = [tabModels count];
+    NSUInteger c = [models count];
 
     if (1 == c) {
         [self closeWindow:nil];
@@ -126,14 +130,29 @@
     }
     
     //TDTabModel *tm = 
-    [[[tabModels objectAtIndex:i] retain] autorelease];
-    [tabModels removeObjectAtIndex:i];
+    [[[models objectAtIndex:i] retain] autorelease];
+    [models removeObjectAtIndex:i];
     
     TDTabViewController *tvc = [[[tabViewControllers objectAtIndex:i] retain] autorelease];
     [[tvc view] removeFromSuperview]; // ?? 
     [tabViewControllers removeObjectAtIndex:i];
     
     self.selectedTabIndex = newIndex;
+}
+
+
+- (void)removeTabModel:(TDTabModel *)tm {
+    [self removeTabAtIndex:[models indexOfObject:tm]];
+}
+
+
+- (TDTabModel *)tabModelAtIndex:(NSUInteger)i {
+    return [models objectAtIndex:i];
+}
+
+
+- (NSUInteger)indexOfTabModel:(TDTabModel *)tm {
+    return [models indexOfObject:tm];
 }
 
 
@@ -170,13 +189,13 @@
 #pragma mark TDTabsListViewControllerDelegate
 
 - (NSUInteger)numberOfTabsInTabsViewController:(TDTabsListViewController *)tvc {
-    NSUInteger c = [tabModels count];
+    NSUInteger c = [models count];
     return c;
 }
 
 
 - (TDTabModel *)tabsViewController:(TDTabsListViewController *)tvc tabModelAtIndex:(NSUInteger)i {
-    TDTabModel *tabModel = [tabModels objectAtIndex:i];
+    TDTabModel *tabModel = [models objectAtIndex:i];
     return tabModel;
 }
 
@@ -204,6 +223,11 @@
 #pragma mark -
 #pragma mark Properties
 
+- (NSArray *)tabModels {
+    return [[models copy] autorelease];
+}
+
+
 - (TDTabViewController *)selectedTabViewController {
     return [tabViewControllers objectAtIndex:selectedTabIndex];
 }
@@ -221,7 +245,7 @@
         
         TDTabModel *tm = nil;
         if (NSNotFound != selectedTabIndex) {
-            tm = [tabModels objectAtIndex:selectedTabIndex];
+            tm = [models objectAtIndex:selectedTabIndex];
             tm.selected = YES;
         }
         self.selectedTabModel = tm;
@@ -232,7 +256,7 @@
     //}
 }
 
-@synthesize tabModels;
+@synthesize models;
 @synthesize tabViewControllers;
 @synthesize selectedTabIndex;
 @synthesize selectedTabModel;

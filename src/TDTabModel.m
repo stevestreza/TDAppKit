@@ -7,6 +7,7 @@
 //
 
 #import <TDAppKit/TDTabModel.h>
+#import <TDAppKit/TDTabViewController.h>
 
 @interface TDTabModel ()
 
@@ -25,6 +26,7 @@
 
 - (void)dealloc {
     self.representedObject = nil;
+    self.tabViewController = nil;
     self.image = nil;
     self.scaledImage = nil;
     self.title = nil;
@@ -61,6 +63,7 @@
 }
 
 @synthesize representedObject;
+@synthesize tabViewController;
 @synthesize image;
 @synthesize scaledImage;
 @synthesize title;
