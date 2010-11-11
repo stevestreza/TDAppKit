@@ -6,11 +6,11 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <TDAppKit/TDViewController.h>
 
 @class TDTabModel;
 
-@interface TDTabViewController : NSViewController {
+@interface TDTabViewController : TDViewController {
     TDTabModel *tabModel;
 }
 

@@ -76,6 +76,8 @@
 		D371DBEF11C1B14700D5434C /* combo_field_progress_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */; };
 		D38984D3124E53DB00EBEFBA /* NSArray+TDAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D38984D2124E53DB00EBEFBA /* NSArray+TDAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D38984D8124E543E00EBEFBA /* NSArray+TDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D38984D7124E543E00EBEFBA /* NSArray+TDAdditions.m */; };
+		D38F3D25128B8B9F00DC5FDB /* TDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38F3D23128B8B9F00DC5FDB /* TDViewController.m */; };
+		D38F3D27128B8BD300DC5FDB /* TDViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D38F3D26128B8BD300DC5FDB /* TDViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D392B08C1179594400823791 /* TDShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = D392B08A1179594400823791 /* TDShadowView.h */; };
 		D392B08D1179594400823791 /* TDShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D392B08B1179594400823791 /* TDShadowView.m */; };
 		D3A356BA11DFFB2A00EFEE29 /* TDClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3A356B811DFFB2A00EFEE29 /* TDClipView.h */; };
@@ -225,6 +227,8 @@
 		D371DBEE11C1B14700D5434C /* combo_field_progress_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = combo_field_progress_indicator.png; path = res/img/combo_field_progress_indicator.png; sourceTree = "<group>"; };
 		D38984D2124E53DB00EBEFBA /* NSArray+TDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+TDAdditions.h"; path = "include/TDAppKit/NSArray+TDAdditions.h"; sourceTree = "<group>"; };
 		D38984D7124E543E00EBEFBA /* NSArray+TDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+TDAdditions.m"; path = "src/NSArray+TDAdditions.m"; sourceTree = "<group>"; };
+		D38F3D23128B8B9F00DC5FDB /* TDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDViewController.m; path = src/TDViewController.m; sourceTree = "<group>"; };
+		D38F3D26128B8BD300DC5FDB /* TDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDViewController.h; path = include/TDAppKit/TDViewController.h; sourceTree = "<group>"; };
 		D392B08A1179594400823791 /* TDShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDShadowView.h; path = src/TDShadowView.h; sourceTree = "<group>"; };
 		D392B08B1179594400823791 /* TDShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDShadowView.m; path = src/TDShadowView.m; sourceTree = "<group>"; };
 		D3A356B811DFFB2A00EFEE29 /* TDClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDClipView.h; path = src/TDClipView.h; sourceTree = "<group>"; };
@@ -357,6 +361,7 @@
 				D31CC02310EFC6BB0013347D /* TDAppKit.h */,
 				D3EB2341110163F700633715 /* TDUtils.h */,
 				D3EB2342110163F700633715 /* TDUtils.m */,
+				D38F3D21128B8B9400DC5FDB /* ViewController */,
 				D36A360F128B245200AB56C9 /* TabbedDocumentApp */,
 				D36E1E8C11702E2700110DBA /* ComboField */,
 				D366C1AD1128FEE900547FD6 /* AppleEvents */,
@@ -548,6 +553,15 @@
 			name = "Misc Views";
 			sourceTree = "<group>";
 		};
+		D38F3D21128B8B9400DC5FDB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D38F3D26128B8BD300DC5FDB /* TDViewController.h */,
+				D38F3D23128B8B9F00DC5FDB /* TDViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		D3EAB017128B4582006EDFF7 /* nib */ = {
 			isa = PBXGroup;
 			children = (
@@ -679,6 +693,7 @@
 				D36A3662128B27DC00AB56C9 /* TDTabbedWindowController.h in Headers */,
 				D3EAAFE3128B42B3006EDFF7 /* TDTabListItem.h in Headers */,
 				D3EAB088128B5352006EDFF7 /* TDTabsListViewController.h in Headers */,
+				D38F3D27128B8BD300DC5FDB /* TDViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +866,7 @@
 				D36A3652128B27CA00AB56C9 /* TDTabbedWindowController.m in Sources */,
 				D3EAAFD8128B4137006EDFF7 /* TDTabsListViewController.m in Sources */,
 				D3EAAFE4128B42B3006EDFF7 /* TDTabListItem.m in Sources */,
+				D38F3D25128B8B9F00DC5FDB /* TDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

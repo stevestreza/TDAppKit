@@ -19,7 +19,7 @@
 
 - (void)dealloc {
     self.tabModels = nil;
-    self.tabControllers = nil;
+    self.tabViewControllers = nil;
     [super dealloc];
 }
 
@@ -79,8 +79,8 @@
 }
 
 
-- (TDTabViewController *)selectedTabController {
-    return [tabControllers objectAtIndex:selectedTabIndex];
+- (TDTabViewController *)selectedTabViewController {
+    return [tabViewControllers objectAtIndex:selectedTabIndex];
 }
 
 
@@ -95,6 +95,6 @@
 }
 
 @synthesize tabModels;
-@synthesize tabControllers;
+@synthesize tabViewControllers;
 @synthesize selectedTabIndex;
 @end

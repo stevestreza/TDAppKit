@@ -9,7 +9,7 @@
 #import <TDAppKit/TDTabModel.h>
 
 @interface TDTabModel ()
-- (NSUInteger)incrementChangeCount;
+
 @end
 
 @implementation TDTabModel
@@ -25,6 +25,7 @@
 
 
 - (void)dealloc {
+    self.representedObject = nil;
     self.image = nil;
     self.scaledImage = nil;
     self.title = nil;
@@ -48,25 +49,13 @@
 }
 
 
-- (NSUInteger)incrementChangeCount {
-    return ++changeCount;
-}
-
-
 - (BOOL)wantsNewImage {
     if (needsNewImage || !image) {
         needsNewImage = NO;
         return YES;
     }
-    
-    [self incrementChangeCount];
-    if (estimatedProgress > .9) {
-        self.estimatedProgress = 1.0;
-        return YES;
-    } else {
-        // only update web image every sixth notification
-        return (0 == changeCount % 6);
-    }
+
+    return NO;
 }
 
 
@@ -74,12 +63,12 @@
     needsNewImage = yn;
 }
 
+@synthesize representedObject;
 @synthesize image;
 @synthesize scaledImage;
 @synthesize title;
 @synthesize URLString;
 @synthesize index;
-@synthesize estimatedProgress;
 @synthesize loading;
 @synthesize selected;
 @end

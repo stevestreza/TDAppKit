@@ -13,7 +13,7 @@
 
 @interface TDTabbedDocument : NSDocument {
     NSMutableArray *tabModels;
-    NSMutableArray *tabControllers;
+    NSMutableArray *tabViewControllers;
     NSUInteger selectedTabIndex;
 }
 
@@ -25,8 +25,8 @@
 - (IBAction)newBackgroundTab:(id)sender;
 
 @property (nonatomic, retain) NSMutableArray *tabModels;
-@property (nonatomic, retain) NSMutableArray *tabControllers;
+@property (nonatomic, retain) NSMutableArray *tabViewControllers;
 @property (nonatomic, assign) NSUInteger selectedTabIndex;
 @property (nonatomic, retain, readonly) TDTabModel *selectedTabModel;
-@property (nonatomic, retain, readonly) TDTabViewController *selectedTabController;
+@property (nonatomic, retain, readonly) TDTabViewController *selectedTabViewController;
 @end

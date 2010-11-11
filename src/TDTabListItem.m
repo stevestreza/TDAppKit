@@ -253,7 +253,7 @@ static NSImage *sProgressImage = nil;
         
         [tabModel.image setFlipped:[self isFlipped]];
         
-        img = [tabModel.image scaledImageOfSize:imgSize alpha:alpha hiRez:hiRez cornerRadius:NORMAL_RADIUS progress:tabModel.estimatedProgress];
+        img = [tabModel.image scaledImageOfSize:imgSize alpha:alpha hiRez:hiRez cornerRadius:NORMAL_RADIUS progress:0];
         tabModel.scaledImage = img;
     }
     
