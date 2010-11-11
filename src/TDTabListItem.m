@@ -8,7 +8,7 @@
 
 #import <TDAppKit/TDTabListItem.h>
 #import <TDAppKit/TDTabModel.h>
-//#import "FUTabsViewController.h"
+#import <TDAppKit/TDTabsListViewController.h>
 #import <TDAppKit/TDUtils.h>
 #import <TDAppKit/NSImage+TDAdditions.h>
 //#import <Fluidium/FUUtils.h>
@@ -183,7 +183,7 @@ static NSImage *sProgressImage = nil;
     self.tabModel = nil;
     self.closeButton = nil;
     self.progressIndicator = nil;
-    //self.viewController = nil;
+    self.tabsListViewController = nil;
     self.drawHiRezTimer = nil;
     [super dealloc];
 }
@@ -246,7 +246,7 @@ static NSImage *sProgressImage = nil;
     if (!img || !NSEqualSizes(imgSize, [img size])) {
         CGFloat alpha = 1;
         BOOL hiRez = YES;
-        if (/*!drawHiRez || */tabModel.isLoading) {
+        if (NO /*!drawHiRez || tabModel.isLoading*/) {
             //alpha = .4;
             hiRez = NO;
         }
@@ -290,13 +290,13 @@ static NSImage *sProgressImage = nil;
 }
 
 
-- (void)setTabModel:(TDTabModel *)m {
-    if (m != tabModel) {
+- (void)setTabModel:(TDTabModel *)tm {
+    if (tm != tabModel) {
         [self willChangeValueForKey:@"tabModel"];
         [self stopObserveringModel:tabModel];
         
         [tabModel autorelease];
-        tabModel = [m retain];
+        tabModel = [tm retain];
         
         [self startObserveringModel:tabModel];
         [self didChangeValueForKey:@"tabModel"];
@@ -360,6 +360,6 @@ static NSImage *sProgressImage = nil;
 @synthesize tabModel;
 @synthesize closeButton;
 @synthesize progressIndicator;
-//@synthesize viewController;
+@synthesize tabsListViewController;
 @synthesize drawHiRezTimer;
 @end

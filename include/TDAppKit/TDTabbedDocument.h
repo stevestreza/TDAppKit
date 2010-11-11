@@ -24,6 +24,8 @@
 - (IBAction)newTab:(id)sender;
 - (IBAction)newBackgroundTab:(id)sender;
 
+- (void)closeTabAtIndex:(NSUInteger)i;
+
 // subclass
 - (void)didAddTabModel:(TDTabModel *)tm;
 - (void)selectedTabIndexDidChange;

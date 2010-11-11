@@ -51,6 +51,7 @@
     }
     
     listItem.tabModel = tabModel;
+    listItem.tabsListViewController = self;
     
     [listItem setNeedsDisplay:YES];
     return listItem;

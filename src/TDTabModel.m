@@ -17,7 +17,6 @@
 + (TDTabModel *)tabModelFromPlist:(NSDictionary *)plist {
     TDTabModel *m = [[[self alloc] init] autorelease];
     m.title = [plist objectForKey:@"title"];
-    m.URLString = [plist objectForKey:@"URLString"];
     m.index = [[plist objectForKey:@"index"] integerValue];
     m.selected = [[plist objectForKey:@"selected"] boolValue];
     return m;
@@ -29,7 +28,6 @@
     self.image = nil;
     self.scaledImage = nil;
     self.title = nil;
-    self.URLString = nil;
     [super dealloc];
 }
 
@@ -42,7 +40,6 @@
 - (NSDictionary *)plist {
     NSMutableDictionary *d = [NSMutableDictionary dictionaryWithCapacity:3];
     [d setObject:title forKey:@"title"];
-    [d setObject:URLString forKey:@"URLString"];
     [d setObject:[NSNumber numberWithInteger:index] forKey:@"index"];
     [d setObject:[NSNumber numberWithInteger:selected] forKey:@"selected"];
     return d;
@@ -67,8 +64,6 @@
 @synthesize image;
 @synthesize scaledImage;
 @synthesize title;
-@synthesize URLString;
 @synthesize index;
-@synthesize loading;
 @synthesize selected;
 @end

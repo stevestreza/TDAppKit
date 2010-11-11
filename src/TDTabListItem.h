@@ -10,12 +10,13 @@
 #import <TDAppKit/TDListItem.h>
 
 @class TDTabModel;
+@class TDTabsListViewController;
 
 @interface TDTabListItem : TDListItem {
     TDTabModel *tabModel;
     NSButton *closeButton;
     NSProgressIndicator *progressIndicator;
-//    FUTabsViewController *viewController;
+    TDTabsListViewController *tabsListViewController;
     
     NSTimer *drawHiRezTimer;
     BOOL drawHiRez;
@@ -29,5 +30,5 @@
 @property (nonatomic, retain) TDTabModel *tabModel;
 @property (nonatomic, retain) NSButton *closeButton;
 @property (nonatomic, retain) NSProgressIndicator *progressIndicator;
-//@property (nonatomic, assign) FUTabsViewController *viewController;
+@property (nonatomic, assign) TDTabsListViewController *tabsListViewController; // weakref
 @end

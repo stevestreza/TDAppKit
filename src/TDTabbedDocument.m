@@ -67,13 +67,14 @@
 
 
 - (IBAction)closeTab:(id)sender {
-    
+    [self closeTabAtIndex:self.selectedTabIndex];
 }
 
 
 - (IBAction)newTab:(id)sender {
     // create
     TDTabModel *tm = [[[TDTabModel alloc] init] autorelease];
+    tm.index = [tabModels count];
     
     // add
     [tabModels addObject:tm];
@@ -87,11 +88,19 @@
     [self didAddTabModel:tm];
 
     // select
-    self.selectedTabIndex = [tabModels count] - 1;
+    self.selectedTabIndex = tm.index;
 }
 
 
 - (IBAction)newBackgroundTab:(id)sender {
+    
+}
+
+
+#pragma mark -
+#pragma mark Public
+
+- (void)closeTabAtIndex:(NSUInteger)i {
     
 }
 

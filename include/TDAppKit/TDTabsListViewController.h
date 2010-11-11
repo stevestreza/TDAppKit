@@ -15,6 +15,7 @@
 @protocol TDTabsListViewControllerDelegate <NSObject>
 - (NSUInteger)numberOfTabsInTabsViewController:(TDTabsListViewController *)tvc;
 - (TDTabModel *)tabsViewController:(TDTabsListViewController *)tvc tabModelAtIndex:(NSUInteger)i;
+- (void)tabsViewController:(TDTabsListViewController *)tvc closeTabModelAtIndex:(NSUInteger)i;
 @end
 
 @interface TDTabsListViewController : NSViewController <TDListViewDataSource, TDListViewDelegate> {

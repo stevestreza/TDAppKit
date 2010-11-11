@@ -54,5 +54,11 @@
     return tabModel;
 }
 
+
+- (void)tabsViewController:(TDTabsListViewController *)tvc closeTabModelAtIndex:(NSUInteger)i {
+    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+    [doc closeTabAtIndex:i];
+}
+
 @synthesize tabsListViewController;
 @end
