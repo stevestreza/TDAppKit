@@ -103,8 +103,8 @@
     // notify
     [self didAddTabModel:tm];
     
+    // select
     if (select) {
-        // select
         self.selectedTabIndex = tm.index;
     }
 }

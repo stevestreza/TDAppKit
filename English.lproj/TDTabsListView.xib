@@ -238,7 +238,10 @@
 					<string>1.editorWindowContentRectSynchronizationRect</string>
 					<string>3.IBPluginDependency</string>
 					<string>3.IBViewBoundsToFrameTransform</string>
+					<string>6.CustomClassName</string>
 					<string>6.IBViewBoundsToFrameTransform</string>
+					<string>7.CustomClassName</string>
+					<string>8.CustomClassName</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -251,9 +254,12 @@
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">AUMeAABCsAAAA</bytes>
 					</object>
+					<string>TDScrollView</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABClgAAwt4AAA</bytes>
 					</object>
+					<string>TDScroller</string>
+					<string>TDScroller</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -325,8 +331,35 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">TDScrollView</string>
+					<string key="superclassName">NSScrollView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">include/TDAppKit/TDScrollView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">TDScroller</string>
+					<string key="superclassName">NSScroller</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">include/TDAppKit/TDScroller.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">TDTabsListViewController</string>
 					<string key="superclassName">TDViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">closeTabButtonClick:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">closeTabButtonClick:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">closeTabButtonClick:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
