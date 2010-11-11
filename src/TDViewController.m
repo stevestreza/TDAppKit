@@ -20,4 +20,24 @@
     
 }
 
+
+- (void)viewWillAppear {
+    
+}
+
+
+- (void)viewDidAppear {
+    
+}
+
+
+- (void)viewWillDisappear {
+    
+}
+
+
+- (void)viewDidDisappear {
+    
+}
+
 @end
