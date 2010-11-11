@@ -10,4 +10,8 @@
 
 @implementation TDTabbedDocumentController
 
+- (IBAction)newTab:(id)sender {
+    [self newDocument:sender];
+}
+
 @end

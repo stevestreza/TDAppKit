@@ -12,4 +12,6 @@
 
 }
 
+- (IBAction)newTab:(id)sender;
+
 @end

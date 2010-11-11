@@ -22,6 +22,15 @@
     [super dealloc];
 }
 
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)performClose:(id)sender {
+    [[self document] closeTab:sender];
+}
+
+
 #pragma mark -
 #pragma mark NSWindowController
 

@@ -18,17 +18,19 @@
     NSUInteger selectedTabIndex;
 }
 
-- (IBAction)performClose:(id)sender;
-- (IBAction)closeWindow:(id)sender;
 - (IBAction)closeTab:(id)sender;
+- (IBAction)closeWindow:(id)sender;
 
 - (IBAction)newTab:(id)sender;
 - (IBAction)newBackgroundTab:(id)sender;
 
-- (void)closeTabAtIndex:(NSUInteger)i;
+- (void)addTabAtIndex:(NSUInteger)i select:(BOOL)select;
+- (void)removeTabAtIndex:(NSUInteger)i;
 
 // subclass
 - (void)didAddTabModel:(TDTabModel *)tm;
+- (void)willRemoveTabModel:(TDTabModel *)tm;
+- (void)selectedTabIndexWillChange;
 - (void)selectedTabIndexDidChange;
 
 - (TDTabViewController *)newTabViewController;
