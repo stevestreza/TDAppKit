@@ -71,7 +71,6 @@ static NSMutableDictionary *sDocuments = nil;
         [[self class] addDocument:self];
         
         self.models = [NSMutableArray array];
-        self.tabViewControllers = [NSMutableArray array];
         selectedTabIndex = NSNotFound;
     }
     return self;
@@ -83,7 +82,6 @@ static NSMutableDictionary *sDocuments = nil;
     [[self class] removeDocument:self];
     
     self.models = nil;
-    self.tabViewControllers = nil;
     self.selectedTabModel = nil;
     [super dealloc];
 }
@@ -181,15 +179,14 @@ static NSMutableDictionary *sDocuments = nil;
     // create viewController
     TDTabViewController *tvc = [[self newTabViewController] autorelease];
     tvc.tabModel = tm;
+    tm.tabViewController = tvc;
     
     // add or insert
     BOOL isAppend = (i == [models count]);
     if (isAppend) {
         [models addObject:tm];
-        [tabViewControllers addObject:tvc];
     } else {
         [models insertObject:tm atIndex:i];
-        [tabViewControllers insertObject:tvc atIndex:i];
     }
     
     // notify
@@ -212,13 +209,15 @@ static NSMutableDictionary *sDocuments = nil;
         newIndex--;
     }
     
-    //TDTabModel *tm = 
-    [[[models objectAtIndex:i] retain] autorelease];
+    TDTabModel *tm = [[[models objectAtIndex:i] retain] autorelease];
     [models removeObjectAtIndex:i];
     
-    TDTabViewController *tvc = [[[tabViewControllers objectAtIndex:i] retain] autorelease];
+    TDTabViewController *tvc = tm.tabViewController;
     [[tvc view] removeFromSuperview]; // ?? 
-    [tabViewControllers removeObjectAtIndex:i];
+
+    // ??
+    tm.tabViewController.tabModel = nil;
+    tm.tabViewController = nil;
     
     self.selectedTabIndex = newIndex;
 }
@@ -338,7 +337,7 @@ static NSMutableDictionary *sDocuments = nil;
 
 
 - (TDTabViewController *)selectedTabViewController {
-    return [tabViewControllers objectAtIndex:selectedTabIndex];
+    return self.selectedTabModel.tabViewController;
 }
 
 
@@ -367,7 +366,6 @@ static NSMutableDictionary *sDocuments = nil;
 
 @synthesize identifier;
 @synthesize models;
-@synthesize tabViewControllers;
 @synthesize selectedTabIndex;
 @synthesize selectedTabModel;
 @end

@@ -14,5 +14,5 @@
     TDTabModel *tabModel;
 }
 
-@property (nonatomic, retain) TDTabModel *tabModel;
+@property (nonatomic, assign) TDTabModel *tabModel; // weakref
 @end
