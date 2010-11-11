@@ -24,6 +24,12 @@
 - (IBAction)newTab:(id)sender;
 - (IBAction)newBackgroundTab:(id)sender;
 
+// subclass
+- (void)didAddTabModel:(TDTabModel *)tm;
+- (void)selectedTabIndexDidChange;
+
+- (TDTabViewController *)newTabViewController;
+
 @property (nonatomic, retain) NSMutableArray *tabModels;
 @property (nonatomic, retain) NSMutableArray *tabViewControllers;
 @property (nonatomic, assign) NSUInteger selectedTabIndex;

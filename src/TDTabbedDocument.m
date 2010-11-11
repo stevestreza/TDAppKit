@@ -17,6 +17,17 @@
 
 @implementation TDTabbedDocument
 
+- (id)init {
+    if (self = [super init]) {
+        selectedTabIndex = NSNotFound;
+        
+        self.tabModels = [NSMutableArray array];
+        self.tabViewControllers = [NSMutableArray array];
+    }
+    return self;
+}
+
+
 - (void)dealloc {
     self.tabModels = nil;
     self.tabViewControllers = nil;
@@ -28,7 +39,6 @@
 #pragma mark NSDocument
 
 - (void)makeWindowControllers {
-    [super makeWindowControllers];
 
 }
 
@@ -62,12 +72,46 @@
 
 
 - (IBAction)newTab:(id)sender {
+    // create
+    TDTabModel *tm = [[[TDTabModel alloc] init] autorelease];
     
+    // add
+    [tabModels addObject:tm];
+    
+    // create viewController
+    TDTabViewController *tvc = [[self newTabViewController] autorelease];
+    tvc.tabModel = tm;
+    [tabViewControllers addObject:tvc];
+
+    // notify
+    [self didAddTabModel:tm];
+
+    // select
+    self.selectedTabIndex = [tabModels count] - 1;
 }
 
 
 - (IBAction)newBackgroundTab:(id)sender {
     
+}
+
+
+#pragma mark -
+#pragma mark Subclass
+
+- (void)didAddTabModel:(TDTabModel *)tm {
+    
+}
+
+
+- (void)selectedTabIndexDidChange {
+    
+}
+
+
+- (TDTabViewController *)newTabViewController {
+    NSAssert1(0, @"must override %s", __PRETTY_FUNCTION__);
+    return nil;
 }
 
 
@@ -89,6 +133,8 @@
         [self willChangeValueForKey:@"selectedTabIndex"];
         
         selectedTabIndex = i;
+
+        [self selectedTabIndexDidChange];
         
         [self didChangeValueForKey:@"selectedTabIndex"];
     }
