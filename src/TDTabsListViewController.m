@@ -136,7 +136,8 @@
 }
 
 
-- (NSMenu *)listView:(TDListView *)lv contextMenuForItemAtIndex:(NSUInteger)i {
+- (NSMenu *)listView:(TDListView *)lv contextMenuForItemsAtIndexes:(NSIndexSet *)set {
+    NSUInteger i = [set firstIndex];
     NSMenu *menu = [delegate tabsViewController:self contextMenuForTabModelAtIndex:i];
     return menu;
 }

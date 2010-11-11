@@ -132,6 +132,30 @@ static NSMutableDictionary *sDocuments = nil;
 }
 
 
+- (IBAction)takeTabIndexToCloseFrom:(id)sender {
+    NSUInteger i = [sender tag];
+    [self removeTabModelAtIndex:i];
+}
+
+
+- (IBAction)takeTabIndexToMoveToNewWindowFrom:(id)sender {
+    NSUInteger i = [sender tag];
+    TDTabModel *tm = [self tabModelAtIndex:i];
+    
+    NSError *err = nil;
+    TDTabbedDocument *doc = [[NSDocumentController sharedDocumentController] openUntitledDocumentAndDisplay:YES error:&err];
+    
+    if (doc) {
+        [self removeTabModelAtIndex:i];
+        TDTabModel *oldtm = doc.selectedTabModel;
+        [doc addTabModel:tm];
+        [doc removeTabModel:oldtm];
+    } else {
+        NSLog(@"%@", err);
+    }
+}
+
+
 #pragma mark -
 #pragma mark Public
 
@@ -139,6 +163,11 @@ static NSMutableDictionary *sDocuments = nil;
     // create model
     TDTabModel *tm = [[[TDTabModel alloc] init] autorelease];
     [self addTabModel:tm atIndex:i];
+}
+
+
+- (void)addTabModel:(TDTabModel *)tm {
+    [self addTabModel:tm atIndex:[models count]];
 }
 
 
@@ -239,6 +268,32 @@ static NSMutableDictionary *sDocuments = nil;
 }
 
 
+- (NSMenu *)contextMenuForTabModelAtIndex:(NSUInteger)i {
+    TDTabModel *tm = [self tabModelAtIndex:i];
+    NSMenu *menu = [[[NSMenu alloc] initWithTitle:@""] autorelease];
+    NSMenuItem *item = nil;
+    item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Close Tab", @"")
+                                       action:@selector(takeTabIndexToCloseFrom:) 
+                                keyEquivalent:@""] autorelease];
+    [item setTarget:self];
+    [item setRepresentedObject:tm];
+    [item setOnStateImage:nil];
+    [item setTag:i];
+    [menu addItem:item];
+    
+    item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Move Tab to New Window", @"")
+                                       action:@selector(takeTabIndexToMoveToNewWindowFrom:) 
+                                keyEquivalent:@""] autorelease];
+    [item setTarget:self];
+    [item setRepresentedObject:tm];
+    [item setOnStateImage:nil];
+    [item setTag:i];
+    [menu addItem:item];    
+    
+    return menu;
+}
+
+
 #pragma mark -
 #pragma mark TDTabsListViewControllerDelegate
 
@@ -255,7 +310,7 @@ static NSMutableDictionary *sDocuments = nil;
 
 
 - (NSMenu *)tabsViewController:(TDTabsListViewController *)tvc contextMenuForTabModelAtIndex:(NSUInteger)i {
-    return nil;
+    return [self contextMenuForTabModelAtIndex:i];
 }
 
 

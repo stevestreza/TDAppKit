@@ -26,7 +26,11 @@
 - (IBAction)newTab:(id)sender;
 - (IBAction)newBackgroundTab:(id)sender;
 
+- (IBAction)takeTabIndexToCloseFrom:(id)sender;
+- (IBAction)takeTabIndexToMoveToNewWindowFrom:(id)sender;
+
 - (void)addTabModelAtIndex:(NSUInteger)i;
+- (void)addTabModel:(TDTabModel *)tm;
 - (void)addTabModel:(TDTabModel *)tm atIndex:(NSUInteger)i;
 - (void)removeTabModelAtIndex:(NSUInteger)i;
 - (void)removeTabModel:(TDTabModel *)tm;
@@ -41,6 +45,7 @@
 - (void)selectedTabIndexDidChange;
 
 - (TDTabViewController *)newTabViewController;
+- (NSMenu *)contextMenuForTabModelAtIndex:(NSUInteger)i;
 
 @property (nonatomic, retain, readonly) NSArray *tabModels;
 @property (nonatomic, retain) NSMutableArray *tabViewControllers;
