@@ -23,5 +23,5 @@
 }
 
 @property (nonatomic, assign) id <TDTabsListViewControllerDelegate> delegate; // weak ref
-@property (nonatomic, retain) TDListView *listView;
+@property (nonatomic, retain) IBOutlet TDListView *listView;
 @end
