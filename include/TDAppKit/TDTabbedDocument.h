@@ -13,6 +13,7 @@
 @class TDTabViewController;
 
 @interface TDTabbedDocument : NSDocument  <TDTabsListViewControllerDelegate> {
+    NSString *identifier;
     NSMutableArray *models;
     NSMutableArray *tabViewControllers;
     TDTabModel *selectedTabModel;
@@ -27,7 +28,7 @@
 
 - (void)addTabModelAtIndex:(NSUInteger)i;
 - (void)addTabModel:(TDTabModel *)tm atIndex:(NSUInteger)i;
-- (void)removeTabAtIndex:(NSUInteger)i;
+- (void)removeTabModelAtIndex:(NSUInteger)i;
 - (void)removeTabModel:(TDTabModel *)tm;
 
 - (TDTabModel *)tabModelAtIndex:(NSUInteger)i;

@@ -11,13 +11,18 @@
 #import <TDAppKit/TDTabModel.h>
 #import <TDAppKit/TDTabListItem.h>
 
-#define KEY_SELECTION_INDEXES @"selectionIndexes"
-#define KEY_TAB_CONTROLLER @"FUTabController"
-#define KEY_INDEX @"FUIndex"
+#define TAB_MODEL_KEY @"tabModel"
+#define TAB_MODEL_INDEX_KEY @"tabModelIndex"
+#define DOC_ID_KEY @"tabbedDocumentIdentifier"
 
 #define ASPECT_RATIO .7
 
 #define TDTabPboardType @"TDTabPboardType"
+
+@interface TDTabbedDocument ()
++ (TDTabbedDocument *)documentForIdentifier:(NSString *)identifier;
+@property (nonatomic, copy, readonly) NSString *identifier;
+@end
 
 @interface TDTabsListViewController ()
 - (TDTabbedDocument *)document;
@@ -141,7 +146,7 @@
 #pragma mark TDListViewDelegate Drag
 
 - (BOOL)listView:(TDListView *)lv canDragItemsAtIndexes:(NSIndexSet *)set withEvent:(NSEvent *)evt slideBack:(BOOL *)slideBack {
-    *slideBack = NO;
+    *slideBack = YES;
     return YES;
 }
 
@@ -151,14 +156,19 @@
     
     TDTabbedDocument *doc = [self document];
     self.draggingTabModel = [doc tabModelAtIndex:i];
-//    NSURL *URL = [NSURL URLWithString:[draggingTabModel URLString]];
-//    
-//    if (URL) {
-        [pboard declareTypes:[NSArray arrayWithObjects:TDTabPboardType, TDListItemPboardType, nil] owner:self];
-        return YES;
-//    }
-//    
-//    return NO;
+
+    // declare
+    [pboard declareTypes:[NSArray arrayWithObjects:TDTabPboardType, TDListItemPboardType, nil] owner:self];
+
+    // write
+    NSDictionary *plist = [NSDictionary dictionaryWithObjectsAndKeys:
+                           [draggingTabModel plist], TAB_MODEL_KEY,
+                           [NSNumber numberWithInteger:i], TAB_MODEL_INDEX_KEY,
+                           doc.identifier, DOC_ID_KEY,
+                           nil];
+    [pboard setPropertyList:plist forType:TDTabPboardType];
+    
+    return YES;
 }
 
 
@@ -180,51 +190,68 @@
 }
 
 
-- (BOOL)listView:(TDListView *)lv acceptDrop:(id <NSDraggingInfo>)draggingInfo index:(NSUInteger)i dropOperation:(TDListViewDropOperation)dropOperation {
+- (BOOL)listView:(TDListView *)lv acceptDrop:(id <NSDraggingInfo>)draggingInfo index:(NSUInteger)newIndex dropOperation:(TDListViewDropOperation)dropOperation {
     NSPasteboard *pboard = [draggingInfo draggingPasteboard];
     
-    TDTabbedDocument *doc = [self document];
+    TDTabbedDocument *newDoc = [self document];
     NSArray *types = [pboard types];
-    if ([types containsObject:TDTabPboardType]) {
-        if (!draggingTabModel) {
-            return NO; // we dont yet support dragging tab thumbnails to a new window
-        }
+
+    if (![types containsObject:TDTabPboardType]) {
+        return NO;
+    }
         
-        NSUInteger oldIndex = [doc indexOfTabModel:draggingTabModel];
+    BOOL isLocal = (nil != draggingTabModel);
+
+    NSDictionary *plist = [pboard propertyListForType:TDTabPboardType];
+    
+    TDTabbedDocument *oldDoc = nil;
+    TDTabModel *tm = nil;
+    NSUInteger oldIndex = NSNotFound;
+    if (isLocal) {
+        oldDoc = newDoc;
+        tm = draggingTabModel;
+
+        self.draggingTabModel = nil;
+
+        oldIndex = [oldDoc indexOfTabModel:tm];
         NSAssert(NSNotFound != oldIndex, @"");
-        if (i == oldIndex) { // same index. do nothing
+        if (isLocal && newIndex == oldIndex) { // same index. do nothing
             return YES;
         }
-        
-        [doc removeTabModel:draggingTabModel];
-        [doc addTabModel:draggingTabModel atIndex:i];
-        self.draggingTabModel = nil;
-        
-        [self updateAllTabModelsFromIndex:i];
-        doc.selectedTabIndex = i;
-        return YES;
+    } else {
+        oldDoc = [TDTabbedDocument documentForIdentifier:[plist objectForKey:DOC_ID_KEY]];
+        tm = [TDTabModel tabModelFromPlist:[plist objectForKey:TAB_MODEL_KEY]];
+        oldIndex = [[plist objectForKey:TAB_MODEL_INDEX_KEY] unsignedIntegerValue];
     }
     
-    return NO;
+    [oldDoc removeTabModelAtIndex:oldIndex];
+    [newDoc addTabModel:tm atIndex:newIndex];
+        
+    [self updateAllTabModelsFromIndex:newIndex];
+    newDoc.selectedTabIndex = newIndex;
+    
+    return YES;
 }
 
 
 - (BOOL)listView:(TDListView *)lv shouldRunPoofAt:(NSPoint)endPointInScreen forRemovedItemsAtIndexes:(NSIndexSet *)set {
-    NSUInteger i = [set firstIndex];
+    return NO;
     
-    if (!draggingTabModel) {
-        return NO; // we dont yet support dragging tab thumbnails to a new window
-    }
-    
-    TDTabbedDocument *doc = [self document];
-    NSAssert(NSNotFound != i, @"");
-    NSAssert([set containsIndex:[doc indexOfTabModel:draggingTabModel]], @"");
-    
-    [doc removeTabModel:draggingTabModel];
-    self.draggingTabModel = nil;
-    
-    [self updateAllTabModelsFromIndex:i];
-    return YES;
+//    NSUInteger i = [set firstIndex];
+//    
+//    if (!draggingTabModel) {
+//        return NO; // we dont yet support dragging tab thumbnails to a new window
+//    }
+//    
+//    TDTabbedDocument *doc = [self document];
+//    NSAssert(NSNotFound != i, @"");
+//    NSAssert([set containsIndex:[doc indexOfTabModel:draggingTabModel]], @"");
+//    
+//    [doc removeTabModel:draggingTabModel];
+//    self.draggingTabModel = nil;
+//    
+//    [self updateAllTabModelsFromIndex:i];
+//    return YES;
 }
 
 

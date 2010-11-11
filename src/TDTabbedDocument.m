@@ -10,25 +10,78 @@
 #import <TDAppKit/TDTabModel.h>
 #import <TDAppKit/TDTabViewController.h>
 
+static NSMutableDictionary *sDocuments = nil;
+
 @interface TDTabbedDocument ()
++ (TDTabbedDocument *)documentForIdentifier:(NSString *)identifier;
++ (void)addDocument:(TDTabbedDocument *)doc;
++ (void)removeDocument:(TDTabbedDocument *)doc;
++ (NSString *)nextUniqueID;
+
+@property (nonatomic, copy) NSString *identifier;
 @property (nonatomic, retain) NSMutableArray *models;
 @property (nonatomic, retain, readwrite) TDTabModel *selectedTabModel;
 @end
 
 @implementation TDTabbedDocument
 
++ (void)initialize {
+    if ([TDTabbedDocument class] == self) {
+        sDocuments = [[NSMutableDictionary alloc] init];
+    }
+}
+
+                      
++ (TDTabbedDocument *)documentForIdentifier:(NSString *)identifier {
+    NSParameterAssert([identifier length]);
+    TDTabbedDocument *doc = nil;
+    @synchronized (sDocuments) {
+        doc = [sDocuments objectForKey:identifier];
+    }
+    NSAssert(doc, @"");
+    return doc;
+}              
+
+
++ (void)addDocument:(TDTabbedDocument *)doc {
+    @synchronized (sDocuments) {
+        [sDocuments setObject:doc forKey:doc.identifier];
+    }
+}
+
+
++ (void)removeDocument:(TDTabbedDocument *)doc {
+    @synchronized (sDocuments) {
+        [sDocuments removeObjectForKey:doc.identifier];
+    }
+}
+
+
++ (NSString *)nextUniqueID {
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    NSString *s = [(id)CFUUIDCreateString(NULL, uuid) autorelease];
+    CFRelease(uuid);
+    return s;
+}
+
+
 - (id)init {
     if (self = [super init]) {
-        selectedTabIndex = NSNotFound;
+        self.identifier = [[self class] nextUniqueID];
+        [[self class] addDocument:self];
         
         self.models = [NSMutableArray array];
         self.tabViewControllers = [NSMutableArray array];
+        selectedTabIndex = NSNotFound;
     }
     return self;
 }
 
 
 - (void)dealloc {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [[self class] removeDocument:self];
+    
     self.models = nil;
     self.tabViewControllers = nil;
     self.selectedTabModel = nil;
@@ -58,7 +111,7 @@
 #pragma mark Actions
 
 - (IBAction)closeTab:(id)sender {
-    [self removeTabAtIndex:self.selectedTabIndex];
+    [self removeTabModelAtIndex:self.selectedTabIndex];
 }
 
 
@@ -90,6 +143,7 @@
 
 
 - (void)addTabModel:(TDTabModel *)tm atIndex:(NSUInteger)i {
+    NSParameterAssert(tm);
     NSParameterAssert(NSNotFound != i && i >= 0 && i <= [models count]);
     
     // set index
@@ -114,7 +168,7 @@
 }
 
 
-- (void)removeTabAtIndex:(NSUInteger)i {
+- (void)removeTabModelAtIndex:(NSUInteger)i {
     NSParameterAssert(NSNotFound != i && i >= 0 && i <= [models count]);
 
     NSUInteger c = [models count];
@@ -142,7 +196,7 @@
 
 
 - (void)removeTabModel:(TDTabModel *)tm {
-    [self removeTabAtIndex:[models indexOfObject:tm]];
+    [self removeTabModelAtIndex:[models indexOfObject:tm]];
 }
 
 
@@ -211,7 +265,7 @@
 
 
 - (void)tabsViewController:(TDTabsListViewController *)tvc didCloseTabModelAtIndex:(NSUInteger)i {
-    [self removeTabAtIndex:i];
+    [self removeTabModelAtIndex:i];
 }
 
 
@@ -256,6 +310,7 @@
     //}
 }
 
+@synthesize identifier;
 @synthesize models;
 @synthesize tabViewControllers;
 @synthesize selectedTabIndex;
