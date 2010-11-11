@@ -138,11 +138,6 @@ static NSImage *sProgressImage = nil;
 }
 
 
-+ (CGFloat)defaultExtent {
-    return 10.0;
-}
-
-
 + (NSString *)reuseIdentifier {
     return NSStringFromClass(self);
 }

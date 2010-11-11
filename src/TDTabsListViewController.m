@@ -42,7 +42,8 @@
 
 
 - (void)viewDidLoad {
-    listView.backgroundColor = [NSColor greenColor];
+    listView.backgroundColor = [NSColor colorWithDeviceWhite:.92 alpha:1.0];
+    listView.orientation = TDListViewOrientationLandscape;
 }
 
 
