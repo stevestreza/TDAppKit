@@ -15,6 +15,7 @@
 @interface TDTabbedDocument : NSDocument  <TDTabsListViewControllerDelegate> {
     NSMutableArray *tabModels;
     NSMutableArray *tabViewControllers;
+    TDTabModel *selectedTabModel;
     NSUInteger selectedTabIndex;
 }
 

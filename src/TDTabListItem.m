@@ -154,7 +154,7 @@ static NSImage *sProgressImage = nil;
         self.closeButton = [[[NSButton alloc] initWithFrame:NSMakeRect(7, 5, 10, 10)] autorelease];
         [closeButton setButtonType:NSMomentaryChangeButton];
         [closeButton setBordered:NO];
-        //[closeButton setAction:@selector(closeTabButtonClick:)];
+        [closeButton setAction:@selector(closeTabButtonClick:)];
         
         NSSize imgSize = NSMakeSize(10, 10);
         [closeButton setImage:[self imageNamed:@"close_button" scaledToSize:imgSize]];
@@ -203,7 +203,7 @@ static NSImage *sProgressImage = nil;
 - (void)drawRect:(NSRect)dirtyRect {
     //NSLog(@"%s %@", __PRETTY_FUNCTION__, tabModel);
     [closeButton setTag:tabModel.index];
-    //[closeButton setTarget:viewController];
+    [closeButton setTarget:tabsListViewController];
     
     NSRect bounds = [self bounds];
     

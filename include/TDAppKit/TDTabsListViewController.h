@@ -28,6 +28,8 @@
     TDListView *listView;
 }
 
+- (IBAction)closeTabButtonClick:(id)sender;
+
 @property (nonatomic, assign) id <TDTabsListViewControllerDelegate> delegate; // weak ref
 @property (nonatomic, retain) IBOutlet NSScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet TDListView *listView;

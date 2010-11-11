@@ -48,6 +48,15 @@
 
 
 #pragma mark -
+#pragma mark Actions
+
+- (IBAction)closeTabButtonClick:(id)sender {
+    [delegate tabsViewController:self didCloseTabModelAtIndex:[sender tag]];
+    [listView reloadData];
+}
+
+
+#pragma mark -
 #pragma mark TDListViewDataSource
 
 - (NSUInteger)numberOfItemsInListView:(TDListView *)lv {
@@ -57,7 +66,8 @@
 
 
 - (TDListItem *)listView:(TDListView *)lv itemAtIndex:(NSUInteger)i {
-    TDTabModel *tabModel = [delegate tabsViewController:self tabModelAtIndex:i];
+    TDTabModel *tm = [delegate tabsViewController:self tabModelAtIndex:i];
+    tm.index = i;
     
     TDTabListItem *listItem = (TDTabListItem *)[listView dequeueReusableItemWithIdentifier:[TDTabListItem reuseIdentifier]];
     
@@ -65,7 +75,7 @@
         listItem = [[[TDTabListItem alloc] init] autorelease];
     }
     
-    listItem.tabModel = tabModel;
+    listItem.tabModel = tm;
     listItem.tabsListViewController = self;
     
     [listItem setNeedsDisplay:YES];

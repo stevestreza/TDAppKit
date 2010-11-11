@@ -11,8 +11,7 @@
 #import <TDAppKit/TDTabViewController.h>
 
 @interface TDTabbedDocument ()
-//@property (nonatomic, retain, readwrite) TDTabController *selectedTabModel;
-//@property (nonatomic, retain, readwrite) TDTabController *selectedTabController;
+@property (nonatomic, retain, readwrite) TDTabModel *selectedTabModel;
 @end
 
 @implementation TDTabbedDocument
@@ -31,6 +30,7 @@
 - (void)dealloc {
     self.tabModels = nil;
     self.tabViewControllers = nil;
+    self.selectedTabModel = nil;
     [super dealloc];
 }
 
@@ -57,11 +57,7 @@
 #pragma mark Actions
 
 - (IBAction)closeTab:(id)sender {
-    if (1 == [tabModels count]) {
-        [self closeWindow:sender];
-    } else {
-        [self removeTabAtIndex:self.selectedTabIndex];
-    }
+    [self removeTabAtIndex:self.selectedTabIndex];
 }
 
 
@@ -119,12 +115,14 @@
 
     NSUInteger c = [tabModels count];
 
-    NSUInteger newIndex = NSNotFound;
-    if (c > 1) {
-        newIndex = i;
-        if (i == c - 1) {
-            newIndex--;
-        }
+    if (1 == c) {
+        [self closeWindow:nil];
+        return;
+    }
+    
+    NSUInteger newIndex = i;
+    if (i == c - 1) {
+        newIndex--;
     }
     
     //TDTabModel *tm = 
@@ -206,11 +204,6 @@
 #pragma mark -
 #pragma mark Properties
 
-- (TDTabModel *)selectedTabModel {
-    return [tabModels objectAtIndex:selectedTabIndex];
-}
-
-
 - (TDTabViewController *)selectedTabViewController {
     return [tabViewControllers objectAtIndex:selectedTabIndex];
 }
@@ -222,7 +215,16 @@
 
         [self selectedTabIndexWillChange];
         
+        selectedTabModel.selected = NO;
+
         selectedTabIndex = i;
+        
+        TDTabModel *tm = nil;
+        if (NSNotFound != selectedTabIndex) {
+            tm = [tabModels objectAtIndex:selectedTabIndex];
+            tm.selected = YES;
+        }
+        self.selectedTabModel = tm;
 
         [self selectedTabIndexDidChange];
         
@@ -233,4 +235,5 @@
 @synthesize tabModels;
 @synthesize tabViewControllers;
 @synthesize selectedTabIndex;
+@synthesize selectedTabModel;
 @end
