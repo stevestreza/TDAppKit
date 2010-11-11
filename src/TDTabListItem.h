@@ -22,7 +22,7 @@
     BOOL drawHiRez;
 }
 
-+ (CGFloat)defaultHeight;
++ (CGFloat)defaultExtent;
 + (NSString *)reuseIdentifier;
 
 - (void)drawHiRezLater;

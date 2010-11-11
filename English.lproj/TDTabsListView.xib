@@ -45,7 +45,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="NSScrollView" id="428545274">
 						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="NSClipView" id="274299753">
@@ -318,7 +318,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">TDTabsListViewController</string>
-					<string key="superclassName">NSViewController</string>
+					<string key="superclassName">TDViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -354,6 +354,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">include/TDAppKit/TDTabsListViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">TDViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">include/TDAppKit/TDViewController.h</string>
 					</object>
 				</object>
 			</object>

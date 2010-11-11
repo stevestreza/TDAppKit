@@ -10,6 +10,14 @@
 #import <TDAppKit/TDTabModel.h>
 #import <TDAppKit/TDTabListItem.h>
 
+#define KEY_SELECTION_INDEXES @"selectionIndexes"
+#define KEY_TAB_CONTROLLER @"FUTabController"
+#define KEY_INDEX @"FUIndex"
+
+#define ASPECT_RATIO .7
+
+#define TDTabPboardType @"TDTabPboardType"
+
 @implementation TDTabsListViewController
 
 - (id)init {
@@ -27,8 +35,14 @@
 
 
 - (void)dealloc {
+    self.scrollView = nil;
     self.listView = nil;
     [super dealloc];
+}
+
+
+- (void)viewDidLoad {
+    listView.backgroundColor = [NSColor greenColor];
 }
 
 
@@ -61,21 +75,38 @@
 #pragma mark -
 #pragma mark TDListViewDelegate
 
-
 - (CGFloat)listView:(TDListView *)lv extentForItemAtIndex:(NSUInteger)i {
-    return [TDTabListItem defaultHeight];
+    NSSize scrollSize = [scrollView frame].size;
+    
+    if (listView.isPortrait) {
+        return floor(scrollSize.width * ASPECT_RATIO);
+    } else {
+        return floor(scrollSize.height * 1 / ASPECT_RATIO);
+    }
+}
+
+
+- (void)listView:(TDListView *)lv willDisplayView:(TDListItem *)itemView forItemAtIndex:(NSUInteger)i {
+    
 }
 
 
 - (void)listView:(TDListView *)lv didSelectItemsAtIndexes:(NSIndexSet *)set {
-    
+    [delegate tabsViewController:self didSelectTabModelAtIndex:[set firstIndex]];
 }
 
 
-- (void)listView:(TDListView *)lv itemWasDoubleClickedAtIndex:(NSUInteger)i {
-    
+- (void)listViewEmptyAreaWasDoubleClicked:(TDListView *)lv {
+    [delegate tabsViewControllerWantsNewTab:self];
+}
+
+
+- (NSMenu *)listView:(TDListView *)lv contextMenuForItemAtIndex:(NSUInteger)i {
+    NSMenu *menu = [delegate tabsViewController:self contextMenuForTabModelAtIndex:i];
+    return menu;
 }
 
 @synthesize delegate;
+@synthesize scrollView;
 @synthesize listView;
 @end

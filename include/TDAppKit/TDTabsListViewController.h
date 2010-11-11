@@ -6,7 +6,7 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <TDAppKit/TDViewController.h>
 #import <TDAppKit/TDListView.h>
 
 @class TDTabModel;
@@ -15,14 +15,20 @@
 @protocol TDTabsListViewControllerDelegate <NSObject>
 - (NSUInteger)numberOfTabsInTabsViewController:(TDTabsListViewController *)tvc;
 - (TDTabModel *)tabsViewController:(TDTabsListViewController *)tvc tabModelAtIndex:(NSUInteger)i;
-- (void)tabsViewController:(TDTabsListViewController *)tvc closeTabModelAtIndex:(NSUInteger)i;
+
+- (NSMenu *)tabsViewController:(TDTabsListViewController *)tvc contextMenuForTabModelAtIndex:(NSUInteger)i;
+- (void)tabsViewController:(TDTabsListViewController *)tvc didSelectTabModelAtIndex:(NSUInteger)i;
+- (void)tabsViewController:(TDTabsListViewController *)tvc didCloseTabModelAtIndex:(NSUInteger)i;
+- (void)tabsViewControllerWantsNewTab:(TDTabsListViewController *)tvc;
 @end
 
-@interface TDTabsListViewController : NSViewController <TDListViewDataSource, TDListViewDelegate> {
+@interface TDTabsListViewController : TDViewController <TDListViewDataSource, TDListViewDelegate> {
     id <TDTabsListViewControllerDelegate> delegate;
+    NSScrollView *scrollView;
     TDListView *listView;
 }
 
 @property (nonatomic, assign) id <TDTabsListViewControllerDelegate> delegate; // weak ref
+@property (nonatomic, retain) IBOutlet NSScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet TDListView *listView;
 @end

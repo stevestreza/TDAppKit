@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <TDAppKit/TDTabsListViewController.h>
 
-@interface TDTabbedWindowController : NSWindowController <TDTabsListViewControllerDelegate> {
+@class TDTabsListViewController;
+
+@interface TDTabbedWindowController : NSWindowController {
     TDTabsListViewController *tabsListViewController;
 }
 

@@ -138,7 +138,7 @@ static NSImage *sProgressImage = nil;
 }
 
 
-+ (CGFloat)defaultHeight {
++ (CGFloat)defaultExtent {
     return 10.0;
 }
 
@@ -149,7 +149,8 @@ static NSImage *sProgressImage = nil;
 
 
 - (id)init {
-    return [self initWithFrame:NSZeroRect reuseIdentifier:[[self class] reuseIdentifier]];
+    self = [self initWithFrame:NSZeroRect reuseIdentifier:[[self class] reuseIdentifier]];
+    return self;
 }
 
 

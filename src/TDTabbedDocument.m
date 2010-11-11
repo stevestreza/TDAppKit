@@ -125,6 +125,41 @@
 
 
 #pragma mark -
+#pragma mark TDTabsListViewControllerDelegate
+
+- (NSUInteger)numberOfTabsInTabsViewController:(TDTabsListViewController *)tvc {
+    NSUInteger c = [tabModels count];
+    return c;
+}
+
+
+- (TDTabModel *)tabsViewController:(TDTabsListViewController *)tvc tabModelAtIndex:(NSUInteger)i {
+    TDTabModel *tabModel = [tabModels objectAtIndex:i];
+    return tabModel;
+}
+
+
+- (NSMenu *)tabsViewController:(TDTabsListViewController *)tvc contextMenuForTabModelAtIndex:(NSUInteger)i {
+    return nil;
+}
+
+
+- (void)tabsViewController:(TDTabsListViewController *)tvc didSelectTabModelAtIndex:(NSUInteger)i {
+    self.selectedTabIndex = i;
+}
+
+
+- (void)tabsViewController:(TDTabsListViewController *)tvc didCloseTabModelAtIndex:(NSUInteger)i {
+    [self closeTabAtIndex:i];
+}
+
+
+- (void)tabsViewControllerWantsNewTab:(TDTabsListViewController *)tvc {
+    [self newTab:nil];
+}
+
+
+#pragma mark -
 #pragma mark Properties
 
 - (TDTabModel *)selectedTabModel {

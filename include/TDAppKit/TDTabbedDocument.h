@@ -7,11 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <TDAppKit/TDTabsListViewController.h>
 
 @class TDTabModel;
 @class TDTabViewController;
 
-@interface TDTabbedDocument : NSDocument {
+@interface TDTabbedDocument : NSDocument  <TDTabsListViewControllerDelegate> {
     NSMutableArray *tabModels;
     NSMutableArray *tabViewControllers;
     NSUInteger selectedTabIndex;

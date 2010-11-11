@@ -34,31 +34,49 @@
 
 - (void)setUpTabsListView {
     self.tabsListViewController = [[[TDTabsListViewController alloc] init] autorelease];
-    tabsListViewController.delegate = self;
-}
-
-
-#pragma mark -
-#pragma mark TDTabsListViewControllerDelegate
-
-- (NSUInteger)numberOfTabsInTabsViewController:(TDTabsListViewController *)tvc {
     TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
-    NSUInteger c = [doc.tabModels count];
-    return c;
+    tabsListViewController.delegate = doc;
 }
 
 
-- (TDTabModel *)tabsViewController:(TDTabsListViewController *)tvc tabModelAtIndex:(NSUInteger)i {
-    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
-    TDTabModel *tabModel = [doc.tabModels objectAtIndex:i];
-    return tabModel;
-}
-
-
-- (void)tabsViewController:(TDTabsListViewController *)tvc closeTabModelAtIndex:(NSUInteger)i {
-    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
-    [doc closeTabAtIndex:i];
-}
-
+//#pragma mark -
+//#pragma mark TDTabsListViewControllerDelegate
+//
+//- (NSUInteger)numberOfTabsInTabsViewController:(TDTabsListViewController *)tvc {
+//    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+//    NSUInteger c = [doc.tabModels count];
+//    return c;
+//}
+//
+//
+//- (TDTabModel *)tabsViewController:(TDTabsListViewController *)tvc tabModelAtIndex:(NSUInteger)i {
+//    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+//    TDTabModel *tabModel = [doc.tabModels objectAtIndex:i];
+//    return tabModel;
+//}
+//
+//
+//- (NSMenu *)tabsViewController:(TDTabsListViewController *)tvc contextMenuForTabModelAtIndex:(NSUInteger)i {
+//    return nil;
+//}
+//
+//
+//- (void)tabsViewController:(TDTabsListViewController *)tvc didSelectTabModelAtIndex:(NSUInteger)i {
+//    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+//    doc.selectedTabIndex = i;
+//}
+//
+//
+//- (void)tabsViewController:(TDTabsListViewController *)tvc didCloseTabModelAtIndex:(NSUInteger)i {
+//    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+//    [doc closeTabAtIndex:i];
+//}
+//
+//
+//- (void)tabsViewControllerWantsNewTab:(TDTabsListViewController *)tvc {
+//    TDTabbedDocument *doc = (TDTabbedDocument *)[self document];
+//    [doc newTab:nil];
+//}
+//
 @synthesize tabsListViewController;
 @end
