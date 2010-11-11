@@ -210,7 +210,7 @@
 
 
 - (void)setSelectedTabIndex:(NSUInteger)i {
-    if (selectedTabIndex != i) {
+    //if (selectedTabIndex != i) {
         [self willChangeValueForKey:@"selectedTabIndex"];
 
         [self selectedTabIndexWillChange];
@@ -229,7 +229,7 @@
         [self selectedTabIndexDidChange];
         
         [self didChangeValueForKey:@"selectedTabIndex"];
-    }
+    //}
 }
 
 @synthesize tabModels;

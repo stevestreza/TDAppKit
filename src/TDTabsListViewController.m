@@ -52,7 +52,7 @@
 
 - (IBAction)closeTabButtonClick:(id)sender {
     [delegate tabsViewController:self didCloseTabModelAtIndex:[sender tag]];
-    [listView reloadData];
+    //[listView reloadData];
 }
 
 
