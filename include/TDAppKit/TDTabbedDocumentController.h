@@ -12,6 +12,12 @@
 
 }
 
+- (IBAction)toggleFullScreen:(id)sender;
 - (IBAction)newTab:(id)sender;
 
+- (id)frontDocument;
+
+- (NSDictionary *)fullScreenOptions;
+- (void)willEnterFullScreenMode;
+- (void)didExitFullScreenMode;
 @end
