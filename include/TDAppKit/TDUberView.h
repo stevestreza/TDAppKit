@@ -27,6 +27,8 @@
 {
     id <TDUberViewDelegate>delegate;
     
+    NSString *autosaveName;
+    
     NSSplitView *verticalSplitView;
     NSSplitView *horizontalSplitView;
     NSView *leftSuperview;
@@ -87,7 +89,11 @@
 - (IBAction)openBottomView:(id)sender;
 - (IBAction)closeBottomView:(id)sender;
 
+- (void)reflectStoredOpenStates;
+
 @property (nonatomic, assign) id <TDUberViewDelegate>delegate; // weak ref
+
+@property (nonatomic, copy) NSString *autosaveName;
 
 @property (nonatomic, retain) NSView *leftView;
 @property (nonatomic, retain) NSView *rightView;
