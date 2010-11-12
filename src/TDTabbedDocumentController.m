@@ -19,12 +19,16 @@
     NSWindow *win = [[[doc windowControllers] objectAtIndex:0] window];
     NSView *v = [win contentView];
     if ([v isInFullScreenMode]) {
+        [self willExitFullScreenMode];
         [v exitFullScreenModeWithOptions:nil];
+        fullScreen = NO;
         [self didExitFullScreenMode];
     } else {
         [self willEnterFullScreenMode];
+        fullScreen = YES;
         NSDictionary *opts = [self fullScreenOptions];
         [v enterFullScreenMode:[win screen] withOptions:opts];
+        [self didEnterFullScreenMode];
     }
 }
 
@@ -48,6 +52,11 @@
 }
 
 
+- (BOOL)isFullScreen {
+    return fullScreen;
+}
+
+
 - (NSDictionary *)fullScreenOptions {
     return nil;
 }
@@ -57,6 +66,15 @@
     
 }
 
+
+- (void)didEnterFullScreenMode {
+    
+}
+
+
+- (void)willExitFullScreenMode {
+    
+}
 
 - (void)didExitFullScreenMode {
     

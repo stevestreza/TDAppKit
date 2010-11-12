@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface TDTabbedDocumentController : NSDocumentController {
-
+    BOOL fullScreen;
 }
 
 - (IBAction)toggleFullScreen:(id)sender;
@@ -17,7 +17,10 @@
 
 - (id)frontDocument;
 
+- (BOOL)isFullScreen;
 - (NSDictionary *)fullScreenOptions;
 - (void)willEnterFullScreenMode;
+- (void)didEnterFullScreenMode;
+- (void)willExitFullScreenMode;
 - (void)didExitFullScreenMode;
 @end
