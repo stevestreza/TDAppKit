@@ -18,7 +18,7 @@
 static NSString *const kTDUberViewSplitViewDividerStyleKey = @"TDUberViewSplitViewDividerStyle";
 static NSString *const kTDUberViewIsLeftViewOpenKey = @"TDUberViewIsLeftViewOpen";
 static NSString *const kTDUberViewIsRightViewOpenKey = @"TDUberViewIsRightViewOpen";
-static NSString *const kTDUberViewIsTopViewOpenKey = @"TDUberViewIsLeftViewOpen";
+static NSString *const kTDUberViewIsTopViewOpenKey = @"TDUberViewIsTopViewOpen";
 static NSString *const kTDUberViewIsBottomViewOpenKey = @"TDUberViewIsBottomViewOpen";
 
 static NSString *const kTDUberViewLeftViewWidthKey = @"TDUberViewLeftViewWidth";
@@ -456,7 +456,7 @@ static NSComparisonResult TDHSplitViewSubviewComparatorFunc(id viewA, id viewB, 
         }
     } else if ((!topViewOpen && 0 == dividerIndex) || (topViewOpen && 1 == dividerIndex)) { //snap rightFrame
         NSRect frame = [splitView frame];
-        CGFloat y = frame.size.height - preferredTopSplitHeight;
+        CGFloat y = frame.size.height - preferredBottomSplitHeight;
         if (proposedPosition < NSMinY([midSuperview frame]) + snapTolerance - dividerThickness) {
             result = NSMinY([midSuperview frame]);
         } else if (proposedPosition > y - snapTolerance && proposedPosition < y + snapTolerance) {
