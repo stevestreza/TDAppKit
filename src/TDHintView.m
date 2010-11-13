@@ -57,6 +57,11 @@ static NSDictionary *sHintAttrs = nil;
 }
 
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@ %p '%@'>", [self class], self, hintText];
+}
+
+
 - (NSRect)hintTextRectForBounds:(NSRect)bounds {
     CGFloat w = bounds.size.width - HINT_MARGIN_X * 2 - HINT_PADDING_X * 2;
     w = w < HINT_MIN_WIDTH ? HINT_MIN_WIDTH : w;
