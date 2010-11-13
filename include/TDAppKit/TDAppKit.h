@@ -42,6 +42,7 @@
 #import <TDAppKit/TDTabbedDocumentController.h>
 #import <TDAppKit/TDTabbedDocument.h>
 #import <TDAppKit/TDTabbedWindowController.h>
+#import <TDAppKit/TDTabbedWindow.h>
 #import <TDAppKit/TDTabModel.h>
 #import <TDAppKit/TDTabViewController.h>
 #import <TDAppKit/TDTabsListViewController.h>

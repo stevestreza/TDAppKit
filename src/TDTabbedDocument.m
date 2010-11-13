@@ -108,6 +108,11 @@ static NSMutableDictionary *sDocuments = nil;
 #pragma mark -
 #pragma mark Actions
 
+- (IBAction)performClose:(id)sender {
+    [self closeTab:sender];
+}
+
+
 - (IBAction)closeTab:(id)sender {
     [self removeTabModelAtIndex:self.selectedTabIndex];
 }
