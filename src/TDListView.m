@@ -294,6 +294,8 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (void)resizeSubviewsWithOldSize:(NSSize)oldBoundsSize {
+    if (![self window]) return;
+    
     [self layoutItems];
 }
 
