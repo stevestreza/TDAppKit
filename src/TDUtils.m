@@ -14,6 +14,7 @@
 
 #import <TDAppKit/TDUtils.h>
 #import <TDAppKit/NSBezierPath+TDAdditions.h>
+#import <QuartzCore/QuartzCore.h>
 
 NSBezierPath *TDGetRoundRect(NSRect r, CGFloat radius, CGFloat lineWidth) {
     NSBezierPath *path = [NSBezierPath bezierPathWithRoundRect:r radius:radius];
@@ -112,3 +113,16 @@ BOOL TDIsOptionKeyPressed(NSInteger modifierFlags) {
 }
 
 
+CGPoint TDAlignCGPointToUserSpace(CGContextRef ctx, CGPoint p) {
+    p = CGContextConvertPointToDeviceSpace(ctx, p);
+    p.x = floor(p.x);
+    p.y = floor(p.y);
+    p = CGContextConvertPointToUserSpace(ctx, p);
+    return p;
+}
+
+
+NSPoint TDAlignPointToUserSpace(CGContextRef ctx, NSPoint p) {
+    CGPoint cgpoint = NSPointToCGPoint(p);
+    return NSPointFromCGPoint(TDAlignCGPointToUserSpace(ctx, cgpoint));
+}

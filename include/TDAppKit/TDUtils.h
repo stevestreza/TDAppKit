@@ -23,3 +23,5 @@ BOOL TDIsControlKeyPressed(NSInteger modifierFlags);
 BOOL TDIsShiftKeyPressed(NSInteger modifierFlags);
 BOOL TDIsOptionKeyPressed(NSInteger modifierFlags);
 
+NSPoint TDAlignPointToUserSpace(CGContextRef ctx, NSPoint p);
+CGPoint TDAlignCGPointToUserSpace(CGContextRef ctx, CGPoint p);
