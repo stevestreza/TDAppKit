@@ -185,6 +185,7 @@ static NSMutableDictionary *sDocuments = nil;
     TDTabViewController *tvc = [[self newTabViewController] autorelease];
     tvc.tabModel = tm;
     tm.tabViewController = tvc;
+    tm.document = self;
     
     // add or insert
     BOOL isAppend = (i == [models count]);
