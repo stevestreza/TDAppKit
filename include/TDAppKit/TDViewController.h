@@ -17,4 +17,9 @@
 - (void)viewDidAppear;
 - (void)viewWillDisappear;
 - (void)viewDidDisappear;
+
+- (void)viewWillMoveToSuperview:(NSView *)v;
+- (void)viewDidMoveToSuperview;
+- (void)viewWillMoveToWindow:(NSWindow *)win;
+- (void)viewDidMoveToWindow;
 @end

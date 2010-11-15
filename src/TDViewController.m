@@ -6,13 +6,22 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import "TDViewController.h"
+#import <TDAppKit/TDViewController.h>
+#import <TDAppKit/TDView.h>
 
 @implementation TDViewController
 
 - (void)loadView {
-    [super loadView];
+    [super loadView];    
     [self viewDidLoad];
+}
+
+
+- (void)setView:(NSView *)v {
+    if (v) {
+        [(TDView *)v setViewController:self];
+    }
+    [super setView:v];
 }
 
 
@@ -37,6 +46,26 @@
 
 
 - (void)viewDidDisappear {
+    
+}
+
+
+- (void)viewWillMoveToSuperview:(NSView *)v {
+    
+}
+
+
+- (void)viewDidMoveToSuperview {
+    
+}
+
+
+- (void)viewWillMoveToWindow:(NSWindow *)win {
+    
+}
+
+
+- (void)viewDidMoveToWindow {
     
 }
 

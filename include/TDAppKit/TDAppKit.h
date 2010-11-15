@@ -37,6 +37,7 @@
 #import <TDAppKit/TDFlippedColorView.h>
 #import <TDAppKit/TDHintView.h>
 #import <TDAppKit/TDViewController.h>
+#import <TDAppKit/TDView.h>
 
 // Tabbed App stuff
 #import <TDAppKit/TDTabbedDocumentController.h>
