@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class TDTabbedDocument;
 @class TDTabViewController;
 
 @interface TDTabModel : NSObject {
     id representedObject;
+    TDTabbedDocument *document;
     TDTabViewController *tabViewController;
     
     NSImage *image;
@@ -30,6 +32,7 @@
 - (void)setNeedsNewImage:(BOOL)yn;
 
 @property (nonatomic, retain) id representedObject;
+@property (nonatomic, assign) TDTabbedDocument *document; // weak ref
 @property (nonatomic, retain) TDTabViewController *tabViewController;
 @property (nonatomic, retain) NSImage *image;
 @property (nonatomic, retain) NSImage *scaledImage;
