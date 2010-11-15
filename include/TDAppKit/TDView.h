@@ -6,11 +6,11 @@
 //  Copyright 2010 Todd Ditchendorf. All rights reserved.
 //
 
-#import <TDAppKit/TDHintView.h>
+#import <TDAppKit/TDColorView.h>
 
 @class TDViewController;
 
-@interface TDView : TDHintView {
+@interface TDView : TDColorView {
     TDViewController *viewController;
 }
 
