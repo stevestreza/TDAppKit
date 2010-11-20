@@ -16,6 +16,7 @@
 #import <TDAppKit/TDUtils.h>
 
 #define ESC 53
+#define DELETE 51
 #define RETURN 36
 #define ENTER 76
 #define PERIOD 47
@@ -113,6 +114,11 @@
 
 - (BOOL)isTabKeyDown {
     return [self isKeyDown] && TAB == [self keyCode];
+}
+
+
+- (BOOL)isDeleteKeyDown {
+    return [self isKeyDown] && DELETE == [self keyCode];
 }
 
 

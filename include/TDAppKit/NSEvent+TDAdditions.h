@@ -33,6 +33,7 @@
 - (BOOL)isReturnKeyPressed;
 - (BOOL)isEnterKeyPressed;
 - (BOOL)isTabKeyDown;
+- (BOOL)isDeleteKeyDown;
 - (BOOL)isUpArrowKeyDown;
 - (BOOL)isDownArrowKeyDown;
 - (BOOL)isSpaceKeyDown;
