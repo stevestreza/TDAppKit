@@ -403,6 +403,9 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     NSMutableIndexSet *newIndexes = nil;
     NSUInteger newAnchorIndex = NSNotFound;
     if (NSNotFound == i) {
+        if (delegate && [delegate respondsToSelector:@selector(listViewEmptyAreaWasClicked:)]) {
+            [delegate listViewEmptyAreaWasClicked:self];
+        }
         // set to nil selection
     } else {
         newIndexes = [NSMutableIndexSet indexSet];
