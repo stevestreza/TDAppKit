@@ -657,7 +657,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
     }
 
     // get offset from last item
-    if (dragImageOffset) {
+    if (item && dragImageOffset) {
         NSPoint p = [item convertPoint:[evt locationInWindow] fromView:nil];
         *dragImageOffset = NSMakePoint(p.x, p.y - NSHeight([item frame]));
     }
