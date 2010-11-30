@@ -105,6 +105,19 @@ static NSMutableDictionary *sDocuments = nil;
 }
 
 
+- (BOOL)isDocumentEdited {
+    BOOL yn = [self.selectedTabModel isDocumentEdited];
+    //return [super isDocumentEdited];
+    return yn;
+}
+
+
+- (void)updateChangeCount:(NSDocumentChangeType)type {
+    [self.selectedTabModel updateChangeCount:type];
+    [super updateChangeCount:type];
+}    
+
+
 #pragma mark -
 #pragma mark Actions
 
@@ -381,6 +394,8 @@ static NSMutableDictionary *sDocuments = nil;
             tm.selected = YES;
         }
         self.selectedTabModel = tm;
+    
+        [[[[self windowControllers] objectAtIndex:0] window] setDocumentEdited:[tm isDocumentEdited]];
 
         [self selectedTabIndexDidChange];
         

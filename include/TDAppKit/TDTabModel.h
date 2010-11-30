@@ -22,6 +22,8 @@
     NSUInteger index;
     BOOL selected;
     BOOL needsNewImage;
+    
+    NSUInteger changeCount;
 }
 
 + (TDTabModel *)tabModelFromPlist:(NSDictionary *)plist;
@@ -31,6 +33,9 @@
 - (BOOL)wantsNewImage;
 - (void)setNeedsNewImage:(BOOL)yn;
 
+- (void)updateChangeCount:(NSDocumentChangeType)changeType;
+- (BOOL)isDocumentEdited;
+
 @property (nonatomic, retain) id representedObject;
 @property (nonatomic, assign) TDTabbedDocument *document; // weak ref
 @property (nonatomic, retain) TDTabViewController *tabViewController;
@@ -39,5 +44,4 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) NSUInteger index;
 @property (nonatomic, assign, getter=isSelected) BOOL selected;
-@property (nonatomic, assign, readonly, getter=isDocumentEdited) BOOL documentEdited;
 @end

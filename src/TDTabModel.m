@@ -25,6 +25,14 @@
 }
 
 
+- (id)init {
+    if (self = [super init]) {
+        changeCount = 0;
+    }
+    return self;
+}
+
+
 - (void)dealloc {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     self.representedObject = nil;
@@ -39,6 +47,44 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"<TDTabModel %p %@>", self, title];
+}
+
+
+- (BOOL)isDocumentEdited {
+    NSAssert(changeCount != NSNotFound, @"invalid changeCount");
+    NSLog(@"%d", changeCount);
+    BOOL yn = changeCount != 0;
+    [[[[document windowControllers] objectAtIndex:0] window] setDocumentEdited:yn];
+    return yn;
+}
+
+
+- (void)updateChangeCount:(NSDocumentChangeType)type {
+    NSAssert(changeCount != NSNotFound, @"invalid changeCount");
+
+    switch (type) {
+        case NSChangeDone:
+            changeCount++;
+            break;
+        case NSChangeUndone:
+            changeCount--;
+            break;
+        case NSChangeRedone:
+            changeCount++;
+            break;
+        case NSChangeCleared:
+            changeCount = 0;
+            break;
+        case NSChangeReadOtherContents:
+            break;
+        case NSChangeAutosaved:
+            break;
+        default:
+            NSAssert(0, @"unknown changeType");
+            break;
+    }
+
+    NSAssert(changeCount != NSNotFound, @"invalid changeCount");
 }
 
 
@@ -63,11 +109,6 @@
 
 - (void)setNeedsNewImage:(BOOL)yn {
     needsNewImage = yn;
-}
-
-
-- (BOOL)isDocumentEdited {
-    return YES;
 }
 
 @synthesize representedObject;
