@@ -39,4 +39,5 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) NSUInteger index;
 @property (nonatomic, assign, getter=isSelected) BOOL selected;
+@property (nonatomic, assign, readonly, getter=isDocumentEdited) BOOL documentEdited;
 @end

@@ -14,7 +14,7 @@
     TDTabsListViewController *tabsListViewController;
 }
 
-- (IBAction)performClose:(id)sender; // maps to -closeTab:. must do this for framework calls
+//- (IBAction)performClose:(id)sender; // maps to -closeTab:. must do this for framework calls
 
 @property (nonatomic, retain) TDTabsListViewController *tabsListViewController;
 @end

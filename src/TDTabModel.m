@@ -26,6 +26,7 @@
 
 
 - (void)dealloc {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     self.representedObject = nil;
     self.document = nil;
     self.tabViewController = nil;
@@ -62,6 +63,11 @@
 
 - (void)setNeedsNewImage:(BOOL)yn {
     needsNewImage = yn;
+}
+
+
+- (BOOL)isDocumentEdited {
+    return YES;
 }
 
 @synthesize representedObject;

@@ -7,11 +7,24 @@
 //
 
 #import "TDTabbedWindow.h"
+#import "TDTabbedDocument.h"
 
 @implementation TDTabbedWindow
 
+- (void)dealloc {
+    NSLog(@"%s", __PRETTY_FUNCTION__);    
+    [super dealloc];
+}
+
+
 - (IBAction)performClose:(id)sender {
-    [[[self windowController] document] performClose:sender];
+    [super performClose:sender];
+//    [[[self windowController] document] performClose:sender];
+}
+
+
+- (void)close {
+    [[[self windowController] document] close];
 }
 
 @end

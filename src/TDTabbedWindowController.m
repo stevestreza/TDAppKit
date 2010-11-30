@@ -18,6 +18,7 @@
 @implementation TDTabbedWindowController
 
 - (void)dealloc {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     self.tabsListViewController = nil;
     [super dealloc];
 }
@@ -26,9 +27,20 @@
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)performClose:(id)sender {
-    [[self document] closeTab:sender];
+- (BOOL)shouldCloseDocument {
+    return [super shouldCloseDocument];
+    
 }
+
+
+//- (IBAction)performClose:(id)sender {
+//    [[self document] closeTab:sender];
+//}
+
+
+//- (void)close {
+//    [[self document] closeTab:nil];
+//}
 
 
 #pragma mark -

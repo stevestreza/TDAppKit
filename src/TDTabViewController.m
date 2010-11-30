@@ -25,6 +25,7 @@
 
 
 - (void)dealloc {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     self.tabModel = nil;
     [super dealloc];
 }

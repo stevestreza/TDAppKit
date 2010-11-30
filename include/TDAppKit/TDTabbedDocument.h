@@ -19,7 +19,7 @@
     NSUInteger selectedTabIndex;
 }
 
-- (IBAction)performClose:(id)sender;
+//- (IBAction)performClose:(id)sender;
 - (IBAction)closeTab:(id)sender;
 - (IBAction)closeWindow:(id)sender;
 

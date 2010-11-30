@@ -68,7 +68,7 @@ static NSMutableDictionary *sDocuments = nil;
 - (id)init {
     if (self = [super init]) {
         self.identifier = [[self class] nextUniqueID];
-        [[self class] addDocument:self];
+        //[[self class] addDocument:self];
         
         self.models = [NSMutableArray array];
         selectedTabIndex = NSNotFound;
@@ -79,7 +79,7 @@ static NSMutableDictionary *sDocuments = nil;
 
 - (void)dealloc {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    [[self class] removeDocument:self];
+    //[[self class] removeDocument:self];
     
     self.models = nil;
     self.selectedTabModel = nil;
@@ -108,18 +108,29 @@ static NSMutableDictionary *sDocuments = nil;
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)performClose:(id)sender {
-    [self closeTab:sender];
-}
+//- (IBAction)performClose:(id)sender {
+//    [self closeTab:sender];
+//}
 
 
 - (IBAction)closeTab:(id)sender {
-    [self removeTabModelAtIndex:self.selectedTabIndex];
+    [[[[self windowControllers] objectAtIndex:0] window] performClose:self];
+//    [self removeTabModelAtIndex:self.selectedTabIndex];
+}
+              
+              
+- (IBAction)closeWindow:(id)sender {
+    [super close];
+    [[[[self windowControllers] objectAtIndex:0] window] orderOut:self];
 }
 
 
-- (IBAction)closeWindow:(id)sender {
-    [self close];
+- (void)close {
+    if ([models count] > 1) {
+        [self removeTabModelAtIndex:self.selectedTabIndex];
+    } else {
+        [self closeWindow:nil];
+    }
 }
 
 
@@ -206,7 +217,7 @@ static NSMutableDictionary *sDocuments = nil;
     NSUInteger c = [models count];
 
     if (1 == c) {
-        [self closeWindow:nil];
+        [self closeWindow:self];
         return;
     }
     
@@ -325,7 +336,14 @@ static NSMutableDictionary *sDocuments = nil;
 
 
 - (void)tabsViewController:(TDTabsListViewController *)tvc didCloseTabModelAtIndex:(NSUInteger)i {
-    [self removeTabModelAtIndex:i];
+    TDTabModel *tm = [models objectAtIndex:i];
+    if (tm.isDocumentEdited) {
+        // runs 'sure you want to close?' dialog
+        self.selectedTabIndex = i;
+        [self closeTab:nil];
+    } else {
+        [self removeTabModelAtIndex:i];
+    }
 }
 
 

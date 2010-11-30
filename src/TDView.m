@@ -11,10 +11,24 @@
 
 @implementation TDView
 
+//- (id)initWithFrame:(CGRect)f {
+//    if (self = [super initWithFrame:f]) {
+//        NSLog(@"%s", __PRETTY_FUNCTION__);
+//    }
+//    return self;
+//}
+
+
 - (void)dealloc {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     self.viewController = nil;
     [super dealloc];
 }
+
+
+//- (void)awakeFromNib {
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+//}
 
 
 - (void)viewWillMoveToSuperview:(NSView *)v {

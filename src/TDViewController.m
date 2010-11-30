@@ -11,6 +11,16 @@
 
 @implementation TDViewController
 
+- (void)dealloc {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, self);
+    NSView *v = [self view];
+    if (v) {
+        [(TDView *)v setViewController:nil];
+    }
+    [super dealloc];
+}
+
+
 - (void)loadView {
     [super loadView];    
     [self viewDidLoad];
