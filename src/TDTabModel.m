@@ -52,7 +52,7 @@
 
 - (BOOL)isDocumentEdited {
     NSAssert(changeCount != NSNotFound, @"invalid changeCount");
-    NSLog(@"%d", changeCount);
+    //NSLog(@"%d", changeCount);
     BOOL yn = changeCount != 0;
     [[[[document windowControllers] objectAtIndex:0] window] setDocumentEdited:yn];
     return yn;
