@@ -36,6 +36,8 @@
 - (BOOL)isDeleteKeyDown;
 - (BOOL)isUpArrowKeyDown;
 - (BOOL)isDownArrowKeyDown;
+- (BOOL)isLeftArrowKeyDown;
+- (BOOL)isRightArrowKeyDown;
 - (BOOL)isSpaceKeyDown;
 - (BOOL)isCommandPeriodKeyDown;
 @end
