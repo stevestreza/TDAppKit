@@ -34,6 +34,7 @@
 - (BOOL)isEnterKeyPressed;
 - (BOOL)isTabKeyDown;
 - (BOOL)isDeleteKeyDown;
+- (BOOL)isArrowKeyDown;
 - (BOOL)isUpArrowKeyDown;
 - (BOOL)isDownArrowKeyDown;
 - (BOOL)isLeftArrowKeyDown;

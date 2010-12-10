@@ -124,6 +124,14 @@
 }
 
 
+- (BOOL)isArrowKeyDown {
+    if (![self isKeyDown]) return NO;
+    
+    NSInteger keyCode = [self keyCode];
+    return (UP_ARROW == keyCode || DOWN_ARROW == keyCode || LEFT_ARROW == keyCode || RIGHT_ARROW == keyCode);
+}
+
+
 - (BOOL)isUpArrowKeyDown {
     return [self isKeyDown] && UP_ARROW == [self keyCode];
 }
