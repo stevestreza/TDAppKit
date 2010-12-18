@@ -78,7 +78,9 @@ static NSMutableDictionary *sDocuments = nil;
 
 
 - (void)dealloc {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+#ifdef TDDEBUG
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, self);
+#endif
     //[[self class] removeDocument:self];
     
     self.identifier = nil;

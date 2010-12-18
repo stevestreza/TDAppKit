@@ -12,7 +12,9 @@
 @implementation TDViewController
 
 - (void)dealloc {
+#ifdef TDDEBUG
     NSLog(@"%s %@", __PRETTY_FUNCTION__, self);
+#endif
     NSView *v = [self view];
     if (v) {
         [(TDView *)v setViewController:nil];
