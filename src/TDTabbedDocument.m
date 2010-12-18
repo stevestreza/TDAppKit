@@ -81,6 +81,7 @@ static NSMutableDictionary *sDocuments = nil;
     NSLog(@"%s", __PRETTY_FUNCTION__);
     //[[self class] removeDocument:self];
     
+    self.identifier = nil;
     self.models = nil;
     self.selectedTabModel = nil;
     [super dealloc];
