@@ -130,6 +130,10 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 #pragma mark Public
 
 - (void)reloadData {
+	[[[items copy] autorelease] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		[(NSView *)obj removeFromSuperview];
+	}];
+	[items removeAllObjects];
     [self layoutItems];
     [self setNeedsDisplay:YES];
 }
@@ -888,7 +892,7 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
         //[item removeFromSuperview];
     }
     
-    [items removeAllObjects];
+//    [items removeAllObjects];
     
     NSRect viewportRect = [self visibleRect];
     NSRect bounds = [self bounds];
