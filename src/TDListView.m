@@ -514,14 +514,20 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 
 - (void)handleRightClickEvent:(NSEvent *)evt {
-    NSPoint locInWin = [evt locationInWindow];
-    NSPoint p = [self convertPoint:locInWin fromView:nil];
+    NSPoint p = [self convertPoint:[evt locationInWindow] fromView:nil];
     NSUInteger i = [self indexForItemAtPoint:p];
+
+    BOOL wantsSelection = YES;
+    if (delegate && [delegate respondsToSelector:@selector(listViewWantsSelectionOnRightClick:)]) {
+        wantsSelection = [delegate listViewWantsSelectionOnRightClick:self];
+    }
     
-    if (NSNotFound == i || i >= [dataSource numberOfItemsInListView:self]) {
-        self.selectionIndexes = nil;
-    } else if (![self.selectionIndexes containsIndex:i]) {
-        self.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
+    if (wantsSelection) {
+        if (NSNotFound == i || i >= [dataSource numberOfItemsInListView:self]) {
+            self.selectionIndexes = nil;
+        } else if (![self.selectionIndexes containsIndex:i]) {
+            self.selectionIndexes = [NSIndexSet indexSetWithIndex:i];
+        }
     }
 
     if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemsAtIndexes:)]) {
@@ -537,8 +543,23 @@ NSString *const TDListItemPboardType = @"TDListItemPboardType";
 
 - (void)displayContextMenu:(NSTimer *)timer {
     if (delegate && [delegate respondsToSelector:@selector(listView:contextMenuForItemsAtIndexes:)]) {
-        NSEvent *evt = [timer userInfo];        
-        NSMenu *menu = [delegate listView:self contextMenuForItemsAtIndexes:self.selectionIndexes];
+        NSEvent *evt = [timer userInfo];
+        
+        BOOL wantsSelection = YES;
+        if (delegate && [delegate respondsToSelector:@selector(listViewWantsSelectionOnRightClick:)]) {
+            wantsSelection = [delegate listViewWantsSelectionOnRightClick:self];
+        }
+        
+        NSIndexSet *indexes = nil;
+        if (wantsSelection) {
+            indexes = self.selectionIndexes;
+        } else {
+            NSPoint p = [self convertPoint:[evt locationInWindow] fromView:nil];
+            NSUInteger i = [self indexForItemAtPoint:p];
+            indexes = [NSIndexSet indexSetWithIndex:i];
+        }
+        
+        NSMenu *menu = [delegate listView:self contextMenuForItemsAtIndexes:indexes];
         if (menu) {
             NSEvent *click = [NSEvent mouseEventWithType:[evt type] 
                                                 location:[evt locationInWindow]

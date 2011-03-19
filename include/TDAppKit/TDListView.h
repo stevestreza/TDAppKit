@@ -124,8 +124,8 @@ extern NSString *const TDListItemPboardType;
 - (void)listView:(TDListView *)lv itemWasDoubleClickedAtIndex:(NSUInteger)i;
 - (void)listViewEmptyAreaWasDoubleClicked:(TDListView *)lv;
 - (void)listViewEmptyAreaWasClicked:(TDListView *)lv;
+- (BOOL)listViewWantsSelectionOnRightClick:(TDListView *)lv;
 - (NSMenu *)listView:(TDListView *)lv contextMenuForItemsAtIndexes:(NSIndexSet *)set;
-
 /* Drag and drop support */
 
 /* The return value indicates whether the list view can attempt to initiate a drag for the given event and items. 
