@@ -14,6 +14,10 @@
 
 #import <TDAppKit/NSAppleEventDescriptor+TDAdditions.h>
 
+@interface NSObject (TDAdditions)
+- (FourCharCode)scriptSuiteFourCharCode;
+@end
+
 @implementation NSAppleEventDescriptor (TDAdditions)
 
 + (NSAppleEventDescriptor *)descriptorForOwnProcess {
@@ -23,7 +27,13 @@
 
 
 + (NSAppleEventDescriptor *)appleEventWithFluidiumEventID:(FourCharCode)code {
-    return [self appleEventWithClass:'FuSS' eventID:code];
+    FourCharCode appCode = 'FuSS';
+
+    if ([NSApp respondsToSelector:@selector(scriptSuiteFourCharCode)]) {
+        appCode = [NSApp scriptSuiteFourCharCode];
+    }
+
+    return [self appleEventWithClass:appCode eventID:code];
 }
 
 
