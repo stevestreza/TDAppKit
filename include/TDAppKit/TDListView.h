@@ -93,8 +93,8 @@ extern NSString *const TDListItemPboardType;
 - (BOOL)ignoreModifierKeysWhileDragging;
 
 @property (nonatomic, assign) IBOutlet NSScrollView *scrollView;
-@property (nonatomic, assign) id <TDListViewDataSource>dataSource;
-@property (nonatomic, assign) id <TDListViewDelegate>delegate;
+@property (nonatomic, assign) IBOutlet id <TDListViewDataSource>dataSource;
+@property (nonatomic, assign) IBOutlet id <TDListViewDelegate>delegate;
 @property (nonatomic, retain) NSColor *backgroundColor;
 @property (nonatomic, assign) CGFloat itemExtent; // height if isPortrait. width if isLandscape
 @property (nonatomic, assign) CGFloat itemMargin; // height if isPortrait. width if isLandscape
