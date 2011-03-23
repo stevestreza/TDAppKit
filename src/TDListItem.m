@@ -45,12 +45,18 @@
 
 
 - (NSImage *)draggingImage {
-    NSRect r = [self bounds];
-    NSBitmapImageRep *bitmap = [self bitmapImageRepForCachingDisplayInRect:r];
-    [self cacheDisplayInRect:r toBitmapImageRep:bitmap];
+    NSRect bounds = [self bounds];
+    if (NSEqualRects(NSZeroRect, bounds)) return nil;
+
+    NSBitmapImageRep *bitmap = [self bitmapImageRepForCachingDisplayInRect:bounds];
+    if (!bitmap) return nil;
+    [self cacheDisplayInRect:bounds toBitmapImageRep:bitmap];
     
     NSSize imgSize = [bitmap size];
+    if (NSEqualSizes(NSZeroSize, imgSize)) return nil;
+    
     NSImage *img = [[[NSImage alloc] initWithSize:imgSize] autorelease];
+    if (!img) return nil;
     [img addRepresentation:bitmap];
     
     NSImage *result = [[[NSImage alloc] initWithSize:imgSize] autorelease];
@@ -58,7 +64,7 @@
     NSGraphicsContext *currentContext = [NSGraphicsContext currentContext];
     NSImageInterpolation savedInterpolation = [currentContext imageInterpolation];
     [currentContext setImageInterpolation:NSImageInterpolationHigh];
-    [img drawInRect:NSMakeRect(0, 0, imgSize.width, imgSize.height) fromRect:NSMakeRect(0, 0, imgSize.width, imgSize.height) operation:NSCompositeSourceOver fraction:.5];
+    [img drawInRect:NSMakeRect(0.0, 0.0, imgSize.width, imgSize.height) fromRect:NSMakeRect(0.0, 0.0, imgSize.width, imgSize.height) operation:NSCompositeSourceOver fraction:0.5];
     [currentContext setImageInterpolation:savedInterpolation];
     [result unlockFocus];
     
