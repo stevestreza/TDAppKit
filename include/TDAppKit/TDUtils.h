@@ -25,3 +25,5 @@ BOOL TDIsOptionKeyPressed(NSInteger modifierFlags);
 
 NSPoint TDAlignPointToUserSpace(CGContextRef ctx, NSPoint p);
 CGPoint TDAlignCGPointToUserSpace(CGContextRef ctx, CGPoint p);
+
+NSNib *TDLoadNib(id owner, NSString *nibName, NSBundle *bundle);

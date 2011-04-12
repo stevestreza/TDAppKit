@@ -126,3 +126,16 @@ NSPoint TDAlignPointToUserSpace(CGContextRef ctx, NSPoint p) {
     CGPoint cgpoint = NSPointToCGPoint(p);
     return NSPointFromCGPoint(TDAlignCGPointToUserSpace(ctx, cgpoint));
 }
+
+
+NSNib *TDLoadNib(id owner, NSString *nibName, NSBundle *bundle) {
+    if (!bundle) {
+        bundle = [NSBundle mainBundle];
+    }
+    NSNib *nib = [[[NSNib alloc] initWithNibNamed:nibName bundle:bundle] autorelease];
+    if (![nib instantiateNibWithOwner:owner topLevelObjects:nil]) {
+        NSLog(@"Could not load nib named %@", nibName);
+        return nil;
+    }
+    return nib;
+}
