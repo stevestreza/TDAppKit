@@ -118,11 +118,7 @@
         if ([licenseFileExtensions containsObject:[filename pathExtension]]) {
             id appDelegate = [NSApp delegate];
             if (appDelegate && [appDelegate respondsToSelector:@selector(registerWithLicenseAtPath:)]) {
-                if ([appDelegate registerWithLicenseAtPath:filename]) {
-
-                } else {
-                    NSBeep();
-                }
+                [appDelegate registerWithLicenseAtPath:filename];
             }
         }
     }
