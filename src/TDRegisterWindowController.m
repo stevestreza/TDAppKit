@@ -37,6 +37,7 @@
 
 - (void)dealloc {
     self.hintView = nil;
+    self.imageView = nil;
     self.appName = nil;
     self.licenseFileExtensions = nil;
     [super dealloc];
@@ -48,7 +49,10 @@
 
 - (void)awakeFromNib {
     [[self window] center];
-    [[self window] registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+    
+    NSArray *types = [NSArray arrayWithObject:NSFilenamesPboardType];
+    [[self window] registerForDraggedTypes:types];
+    [[self imageView] registerForDraggedTypes:types];
     
     [self setUpTitle];
     [self setUpHint];
@@ -113,7 +117,7 @@
             id appDelegate = [NSApp delegate];
             if (appDelegate && [appDelegate respondsToSelector:@selector(registerWithLicenseAtPath:)]) {
                 if ([appDelegate registerWithLicenseAtPath:filename]) {
-                    [self close];
+
                 } else {
                     NSBeep();
                 }
@@ -122,6 +126,7 @@
     }
 }
 
+@synthesize imageView;
 @synthesize hintView;
 @synthesize appName;
 @synthesize licenseFileExtensions;

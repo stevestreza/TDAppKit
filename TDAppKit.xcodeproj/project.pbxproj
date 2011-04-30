@@ -47,6 +47,8 @@
 		D36713B6136C57E70043A644 /* TDRegisterWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = D36713B5136C57E70043A644 /* TDRegisterWindow.h */; };
 		D36713F9136C59A70043A644 /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36713F7136C59A70043A644 /* TDRegisterWindow.xib */; };
 		D36714EA136C670F0043A644 /* register_drop.png in Resources */ = {isa = PBXBuildFile; fileRef = D36714E9136C670F0043A644 /* register_drop.png */; };
+		D367159A136C6E000043A644 /* TDDragDestinationImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3671598136C6E000043A644 /* TDDragDestinationImageView.h */; };
+		D367159B136C6E000043A644 /* TDDragDestinationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3671599136C6E000043A644 /* TDDragDestinationImageView.m */; };
 		D36A3613128B246B00AB56C9 /* TDTabbedDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A3611128B246B00AB56C9 /* TDTabbedDocumentController.m */; };
 		D36A3619128B249100AB56C9 /* TDTabbedDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = D36A3618128B249100AB56C9 /* TDTabbedDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D36A361B128B24AB00AB56C9 /* TDTabbedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A361A128B24AB00AB56C9 /* TDTabbedDocument.m */; };
@@ -211,6 +213,8 @@
 		D36713B5136C57E70043A644 /* TDRegisterWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDRegisterWindow.h; path = src/TDRegisterWindow.h; sourceTree = "<group>"; };
 		D36713F8136C59A70043A644 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TDRegisterWindow.xib; sourceTree = "<group>"; };
 		D36714E9136C670F0043A644 /* register_drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register_drop.png; path = res/img/register_drop.png; sourceTree = "<group>"; };
+		D3671598136C6E000043A644 /* TDDragDestinationImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDDragDestinationImageView.h; path = src/TDDragDestinationImageView.h; sourceTree = "<group>"; };
+		D3671599136C6E000043A644 /* TDDragDestinationImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDDragDestinationImageView.m; path = src/TDDragDestinationImageView.m; sourceTree = "<group>"; };
 		D36A3611128B246B00AB56C9 /* TDTabbedDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocumentController.m; path = src/TDTabbedDocumentController.m; sourceTree = "<group>"; };
 		D36A3618128B249100AB56C9 /* TDTabbedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabbedDocument.h; path = include/TDAppKit/TDTabbedDocument.h; sourceTree = "<group>"; };
 		D36A361A128B24AB00AB56C9 /* TDTabbedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocument.m; path = src/TDTabbedDocument.m; sourceTree = "<group>"; };
@@ -518,6 +522,8 @@
 				D36713A9136C57AC0043A644 /* TDRegisterWindowController.m */,
 				D36713B5136C57E70043A644 /* TDRegisterWindow.h */,
 				D36713A8136C57AC0043A644 /* TDRegisterWindow.m */,
+				D3671598136C6E000043A644 /* TDDragDestinationImageView.h */,
+				D3671599136C6E000043A644 /* TDDragDestinationImageView.m */,
 			);
 			name = RegisterWindow;
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 				D3F68AD21290E56F00FB4EB5 /* TDView.h in Headers */,
 				D36713AF136C57BD0043A644 /* TDRegisterWindowController.h in Headers */,
 				D36713B6136C57E70043A644 /* TDRegisterWindow.h in Headers */,
+				D367159A136C6E000043A644 /* TDDragDestinationImageView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,6 +944,7 @@
 				D3F68AD01290E55900FB4EB5 /* TDView.m in Sources */,
 				D36713AA136C57AC0043A644 /* TDRegisterWindow.m in Sources */,
 				D36713AB136C57AC0043A644 /* TDRegisterWindowController.m in Sources */,
+				D367159B136C6E000043A644 /* TDDragDestinationImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

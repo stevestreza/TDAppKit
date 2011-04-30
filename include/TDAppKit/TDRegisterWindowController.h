@@ -12,7 +12,7 @@
 
 @interface TDRegisterWindowController : NSWindowController {
     TDHintView *hintView;
-
+    NSImageView *imageView;
     NSString *appName;
     NSArray *licenseFileExtensions;
 }
@@ -20,6 +20,7 @@
 - (id)initWithAppName:(NSString *)s licenseFileExtension:(NSString *)ext;
 
 @property (nonatomic, retain) IBOutlet TDHintView *hintView;
+@property (nonatomic, retain) IBOutlet NSImageView *imageView;
 
 @property (nonatomic, copy) NSString *appName;
 @property (nonatomic, copy) NSArray *licenseFileExtensions;
