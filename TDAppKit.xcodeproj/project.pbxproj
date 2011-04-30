@@ -41,6 +41,12 @@
 		D366C1EC112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1EB112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */; };
 		D366C1EF112902E500547FD6 /* NSURL+NDCarbonUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D366C1ED112902E400547FD6 /* NSURL+NDCarbonUtilities.h */; };
 		D366C1F0112902E500547FD6 /* NSURL+NDCarbonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */; };
+		D36713AA136C57AC0043A644 /* TDRegisterWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D36713A8136C57AC0043A644 /* TDRegisterWindow.m */; };
+		D36713AB136C57AC0043A644 /* TDRegisterWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36713A9136C57AC0043A644 /* TDRegisterWindowController.m */; };
+		D36713AF136C57BD0043A644 /* TDRegisterWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = D36713AD136C57BD0043A644 /* TDRegisterWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D36713B6136C57E70043A644 /* TDRegisterWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = D36713B5136C57E70043A644 /* TDRegisterWindow.h */; };
+		D36713F9136C59A70043A644 /* TDRegisterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36713F7136C59A70043A644 /* TDRegisterWindow.xib */; };
+		D36714EA136C670F0043A644 /* register_drop.png in Resources */ = {isa = PBXBuildFile; fileRef = D36714E9136C670F0043A644 /* register_drop.png */; };
 		D36A3613128B246B00AB56C9 /* TDTabbedDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A3611128B246B00AB56C9 /* TDTabbedDocumentController.m */; };
 		D36A3619128B249100AB56C9 /* TDTabbedDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = D36A3618128B249100AB56C9 /* TDTabbedDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D36A361B128B24AB00AB56C9 /* TDTabbedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D36A361A128B24AB00AB56C9 /* TDTabbedDocument.m */; };
@@ -199,6 +205,12 @@
 		D366C1EB112902DC00547FD6 /* NSAppleEventDescriptor+NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+NDAppleScriptObject.m"; path = "src/NSAppleEventDescriptor+NDAppleScriptObject.m"; sourceTree = "<group>"; };
 		D366C1ED112902E400547FD6 /* NSURL+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+NDCarbonUtilities.h"; path = "src/NSURL+NDCarbonUtilities.h"; sourceTree = "<group>"; };
 		D366C1EE112902E500547FD6 /* NSURL+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+NDCarbonUtilities.m"; path = "src/NSURL+NDCarbonUtilities.m"; sourceTree = "<group>"; };
+		D36713A8136C57AC0043A644 /* TDRegisterWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRegisterWindow.m; path = src/TDRegisterWindow.m; sourceTree = "<group>"; };
+		D36713A9136C57AC0043A644 /* TDRegisterWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDRegisterWindowController.m; path = src/TDRegisterWindowController.m; sourceTree = "<group>"; };
+		D36713AD136C57BD0043A644 /* TDRegisterWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDRegisterWindowController.h; path = include/TDAppKit/TDRegisterWindowController.h; sourceTree = "<group>"; };
+		D36713B5136C57E70043A644 /* TDRegisterWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDRegisterWindow.h; path = src/TDRegisterWindow.h; sourceTree = "<group>"; };
+		D36713F8136C59A70043A644 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TDRegisterWindow.xib; sourceTree = "<group>"; };
+		D36714E9136C670F0043A644 /* register_drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register_drop.png; path = res/img/register_drop.png; sourceTree = "<group>"; };
 		D36A3611128B246B00AB56C9 /* TDTabbedDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocumentController.m; path = src/TDTabbedDocumentController.m; sourceTree = "<group>"; };
 		D36A3618128B249100AB56C9 /* TDTabbedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDTabbedDocument.h; path = include/TDAppKit/TDTabbedDocument.h; sourceTree = "<group>"; };
 		D36A361A128B24AB00AB56C9 /* TDTabbedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDTabbedDocument.m; path = src/TDTabbedDocument.m; sourceTree = "<group>"; };
@@ -389,6 +401,7 @@
 				D318A04A10F856FA00B6AA21 /* SourceCodeTextView */,
 				D31CBFBA10EFB7E90013347D /* UberView */,
 				D31CBFA810EFB6F80013347D /* ListView */,
+				D36713A0136C577B0043A644 /* RegisterWindow */,
 				D33B19ED11168A2600F754AD /* ScrollView */,
 				D371244010F051D600D7107B /* Misc Views */,
 			);
@@ -498,6 +511,17 @@
 			name = AppleEvents;
 			sourceTree = "<group>";
 		};
+		D36713A0136C577B0043A644 /* RegisterWindow */ = {
+			isa = PBXGroup;
+			children = (
+				D36713AD136C57BD0043A644 /* TDRegisterWindowController.h */,
+				D36713A9136C57AC0043A644 /* TDRegisterWindowController.m */,
+				D36713B5136C57E70043A644 /* TDRegisterWindow.h */,
+				D36713A8136C57AC0043A644 /* TDRegisterWindow.m */,
+			);
+			name = RegisterWindow;
+			sourceTree = "<group>";
+		};
 		D36A360F128B245200AB56C9 /* TabbedDocumentApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +614,7 @@
 		D3EAB017128B4582006EDFF7 /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D36713F7136C59A70043A644 /* TDRegisterWindow.xib */,
 				D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */,
 			);
 			name = nib;
@@ -598,6 +623,7 @@
 		D3EAB018128B4589006EDFF7 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				D36714E9136C670F0043A644 /* register_drop.png */,
 				D38F3E8E128B9D8300DC5FDB /* close_button_hover.tif */,
 				D38F3E8F128B9D8300DC5FDB /* close_button_pressed.tif */,
 				D38F3E90128B9D8300DC5FDB /* close_button.tif */,
@@ -726,6 +752,8 @@
 				D38F4A17128CDB0800DC5FDB /* TDHintView.h in Headers */,
 				D3F677D2128E580300FB4EB5 /* TDTabbedWindow.h in Headers */,
 				D3F68AD21290E56F00FB4EB5 /* TDView.h in Headers */,
+				D36713AF136C57BD0043A644 /* TDRegisterWindowController.h in Headers */,
+				D36713B6136C57E70043A644 /* TDRegisterWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,6 +854,8 @@
 				D38F3E95128B9D8300DC5FDB /* close_button.tif in Resources */,
 				D38F3E96128B9D8300DC5FDB /* combo_field_progress_indicator.png in Resources */,
 				D38F3E97128B9D8300DC5FDB /* progress_indicator.png in Resources */,
+				D36713F9136C59A70043A644 /* TDRegisterWindow.xib in Resources */,
+				D36714EA136C670F0043A644 /* register_drop.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,6 +935,8 @@
 				D38F4A15128CDAF800DC5FDB /* TDHintView.m in Sources */,
 				D3F677D0128E57E900FB4EB5 /* TDTabbedWindow.m in Sources */,
 				D3F68AD01290E55900FB4EB5 /* TDView.m in Sources */,
+				D36713AA136C57AC0043A644 /* TDRegisterWindow.m in Sources */,
+				D36713AB136C57AC0043A644 /* TDRegisterWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -950,6 +982,14 @@
 				089C1667FE841158C02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D36713F7136C59A70043A644 /* TDRegisterWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D36713F8136C59A70043A644 /* English */,
+			);
+			name = TDRegisterWindow.xib;
 			sourceTree = "<group>";
 		};
 		D3EAB025128B45ED006EDFF7 /* TDTabsListView.xib */ = {

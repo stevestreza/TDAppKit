@@ -67,8 +67,14 @@ static NSDictionary *sHintAttrs = nil;
     w = w < HINT_MIN_WIDTH ? HINT_MIN_WIDTH : w;
     
     NSRect strRect = [hintText boundingRectWithSize:NSMakeSize(w, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:sHintAttrs];
-    
-    return NSMakeRect(HINT_MARGIN_X + HINT_PADDING_X, bounds.size.height / 2 - strRect.size.height / 2 + HINT_VERT_FUDGE, w, strRect.size.height);
+
+    CGFloat h = strRect.size.height;
+    CGFloat x = HINT_MARGIN_X + HINT_PADDING_X;
+    CGFloat y = bounds.size.height / 2 - strRect.size.height / 2 + HINT_VERT_FUDGE;
+    y += hintTextOffsetY;
+
+    NSRect r = NSMakeRect(x, y, w, h);
+    return r;
 }
 
 
@@ -108,4 +114,5 @@ static NSDictionary *sHintAttrs = nil;
 }
 
 @synthesize hintText;
+@synthesize hintTextOffsetY;
 @end

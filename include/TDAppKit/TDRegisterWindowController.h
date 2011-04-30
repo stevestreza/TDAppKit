@@ -1,0 +1,26 @@
+//
+//  TDRegisterWindowController.h
+//  Fluid
+//
+//  Created by Todd Ditchendorf on 4/30/11.
+//  Copyright 2011 Todd Ditchendorf. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+
+@class TDHintView;
+
+@interface TDRegisterWindowController : NSWindowController {
+    TDHintView *hintView;
+
+    NSString *appName;
+    NSArray *licenseFileExtensions;
+}
+
+- (id)initWithAppName:(NSString *)s licenseFileExtension:(NSString *)ext;
+
+@property (nonatomic, retain) IBOutlet TDHintView *hintView;
+
+@property (nonatomic, copy) NSString *appName;
+@property (nonatomic, copy) NSArray *licenseFileExtensions;
+@end

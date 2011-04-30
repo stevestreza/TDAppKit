@@ -10,9 +10,11 @@
 
 @interface TDHintView : TDColorView {
     NSString *hintText;
+    CGFloat hintTextOffsetY;
 }
 
 - (NSRect)hintTextRectForBounds:(NSRect)bounds;
 
 @property (nonatomic, copy) NSString *hintText;
+@property (nonatomic, assign) CGFloat hintTextOffsetY;
 @end
