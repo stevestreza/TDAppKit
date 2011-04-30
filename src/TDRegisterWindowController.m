@@ -84,9 +84,11 @@
     
     if ([[pboard types] containsObject:NSFilenamesPboardType]) {
         NSArray *filenames = [pboard propertyListForType:NSFilenamesPboardType];
-        [self handleDroppedFilenames:filenames];
+        [self performSelector:@selector(handleDroppedFilenames:) withObject:filenames afterDelay:0.0];
+        return YES;
+    } else {
+        return NO;
     }
-    return YES;
 }
 
 
