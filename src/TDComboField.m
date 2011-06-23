@@ -158,8 +158,8 @@
         if (delegate && [delegate respondsToSelector:@selector(comboFieldWillDismiss:)]) {
             [delegate comboFieldWillDismiss:self];
         }
-        if ([self window]) {
-            [[self window] removeChildWindow:self.listWindow];
+        if ([self.listWindow parentWindow]) {
+            [[self.listWindow parentWindow] removeChildWindow:self.listWindow];
             [self.listWindow orderOut:nil];
         }
         //self.listWindow = nil;
