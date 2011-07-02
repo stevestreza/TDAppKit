@@ -27,3 +27,7 @@ NSPoint TDAlignPointToUserSpace(CGContextRef ctx, NSPoint p);
 CGPoint TDAlignCGPointToUserSpace(CGContextRef ctx, CGPoint p);
 
 NSNib *TDLoadNib(id owner, NSString *nibName, NSBundle *bundle);
+
+BOOL TDIsLionOrLater();
+BOOL TDIsSnowLeopardOrLater();
+void TDGetSystemVersion(NSUInteger *major, NSUInteger *minor, NSUInteger *bugfix);

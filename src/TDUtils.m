@@ -139,3 +139,43 @@ NSNib *TDLoadNib(id owner, NSString *nibName, NSBundle *bundle) {
     }
     return nib;
 }
+
+BOOL TDIsLionOrLater() {
+    NSUInteger major, minor, bugfix;
+    TDGetSystemVersion(&major, &minor, &bugfix);
+    return minor > 6;
+}
+
+
+BOOL TDIsSnowLeopardOrLater() {
+    NSUInteger major, minor, bugfix;
+    TDGetSystemVersion(&major, &minor, &bugfix);
+    return minor > 5;
+}
+
+
+void TDGetSystemVersion(NSUInteger *major, NSUInteger *minor, NSUInteger *bugfix) {
+    OSErr err;
+    SInt32 systemVersion, versionMajor, versionMinor, versionBugFix;
+    if ((err = Gestalt(gestaltSystemVersion, &systemVersion)) != noErr) goto fail;
+    if (systemVersion < 0x1040) {
+        if (major) *major = ((systemVersion & 0xF000) >> 12) * 10 + ((systemVersion & 0x0F00) >> 8);
+        if (minor) *minor = (systemVersion & 0x00F0) >> 4;
+        if (bugfix) *bugfix = (systemVersion & 0x000F);
+    } else {
+        if ((err = Gestalt(gestaltSystemVersionMajor, &versionMajor)) != noErr) goto fail;
+        if ((err = Gestalt(gestaltSystemVersionMinor, &versionMinor)) != noErr) goto fail;
+        if ((err = Gestalt(gestaltSystemVersionBugFix, &versionBugFix)) != noErr) goto fail;
+        if (major) *major = versionMajor;
+        if (minor) *minor = versionMinor;
+        if (bugfix) *bugfix = versionBugFix;
+    }
+    
+    return;
+    
+fail:
+    NSLog(@"Unable to obtain system version: %ld", (long)err);
+    if (major) *major = 10;
+    if (minor) *minor = 0;
+    if (bugfix) *bugfix = 0;
+}
