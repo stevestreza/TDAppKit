@@ -9,6 +9,7 @@
 #import <TDAppKit/TDComboField.h>
 #import <TDAppKit/TDListItem.h>
 #import <TDAppKit/NSImage+TDAdditions.h>
+#import <TDAppKit/TDUtils.h>
 #import "TDComboFieldCell.h"
 #import "TDComboFieldListView.h"
 #import "TDComboFieldListItem.h"
@@ -85,9 +86,16 @@
     NSRect bounds = [self bounds];
     NSSize size = bounds.size;
     
+    CGFloat y;
+    if (TDIsLionOrLater()) {
+        y = bounds.origin.y;
+    } else {
+        y = bounds.origin.y + 2;
+    }
+    
     NSSize pSize = NSMakeSize(size.width * progress, size.height);
     NSRect pRect = NSMakeRect(bounds.origin.x + 1,
-                              bounds.origin.y + 2,
+                              y,
                               pSize.width - 2,
                               pSize.height - 2);
     
