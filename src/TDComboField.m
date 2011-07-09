@@ -65,7 +65,7 @@
     
     self.progressImage = [NSImage imageNamed:@"combo_field_progress_indicator"]; //[NSImage imageNamed:@"combo_field_progress_indicator" inBundleForClass:[TDComboField class]];
 
-    self.font = [NSFont controlContentFontOfSize:12];
+    self.font = [NSFont controlContentFontOfSize:12.0];
 }
 
 
@@ -90,14 +90,14 @@
     if (TDIsLionOrLater()) {
         y = bounds.origin.y;
     } else {
-        y = bounds.origin.y + 2;
+        y = bounds.origin.y + 2.0;
     }
     
     NSSize pSize = NSMakeSize(size.width * progress, size.height);
-    NSRect pRect = NSMakeRect(bounds.origin.x + 1,
+    NSRect pRect = NSMakeRect(bounds.origin.x + 1.0,
                               y,
-                              pSize.width - 2,
-                              pSize.height - 2);
+                              pSize.width - 2.0,
+                              pSize.height - 2.0);
     
     NSRect imageRect = NSZeroRect;
     imageRect.size = [progressImage size];
@@ -109,8 +109,8 @@
                      fraction:1];
     
     NSRect cellRect = [[self cell] drawingRectForBounds:bounds];
-    cellRect.origin.x -= 2;
-    cellRect.origin.y -= 1;
+    cellRect.origin.x -= 2.0;
+    cellRect.origin.y -= 1.0;
     [[self cell] drawInteriorImageOnlyWithFrame:cellRect inView:self];
 }
 
@@ -139,6 +139,7 @@
     [self.listView reloadData];
 }
 
+
 #pragma mark -
 #pragma mark Bounds
 
@@ -163,8 +164,8 @@
 - (void)removeListWindow {
     if ([self isListVisible]) {
         id delegate = [self delegate];
-        if (delegate && [delegate respondsToSelector:@selector(comboFieldWillDismiss:)]) {
-            [delegate comboFieldWillDismiss:self];
+        if (delegate && [delegate respondsToSelector:@selector(comboFieldWillDismissPopUp:)]) {
+            [delegate comboFieldWillDismissPopUp:self];
         }
         if ([self.listWindow parentWindow]) {
             [[self.listWindow parentWindow] removeChildWindow:self.listWindow];
@@ -209,7 +210,7 @@
 //    CGFloat y = windowFrame.origin.y + windowFrame.size.height + textFrame.origin.y - listRect.size.height - LIST_MARGIN_Y;
     
     NSPoint p = [[self window] convertBaseToScreen:[self convertPoint:[self frame].origin fromView:nil]];
-    p.x += 380;
+    p.x += 380.0;
     p.y -= listRect.size.height + textFrame.size.height;
     
     return NSMakeRect(p.x, p.y, listRect.size.width, listRect.size.height);
@@ -218,7 +219,7 @@
 
 - (NSRect)listViewRectForBounds:(NSRect)bounds {
     CGFloat listHeight = [TDComboFieldListItem defaultHeight] * [self numberOfItemsInListView:listView];
-    return NSMakeRect(0, 0, bounds.size.width, listHeight);
+    return NSMakeRect(0.0, 0.0, bounds.size.width, listHeight);
 }
 
 
@@ -295,7 +296,9 @@
 #pragma mark NSWindowNotifications
 
 - (void)windowDidResize:(NSNotification *)n {
-    [self removeListWindow];
+    if ([n object] == [self window]) {
+        [self removeListWindow];
+    }
 }
 
 
@@ -310,6 +313,11 @@
         NSRange r = [[self currentEditor] selectedRange];
         NSString *s = [[self stringValue] substringToIndex:r.location];
         [self setStringValue:s];
+    } else {
+        id delegate = [self delegate];
+        if (delegate && [delegate respondsToSelector:@selector(comboFieldDidEscape:)]) {
+            [delegate comboFieldDidEscape:self];
+        }
     }
 }
 
