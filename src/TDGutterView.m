@@ -52,16 +52,17 @@
 
 
 - (void)drawRect:(NSRect)dirtyRect {
+    [super drawRect:dirtyRect];
     NSRect rect = [self bounds];
-    NSDrawWindowBackground(rect);
+    //NSDrawWindowBackground(rect);
 
     // stroke vert line
     [borderColor set];
     CGFloat rectWidth = rect.size.width;
     
     CGContextRef ctx = [[NSGraphicsContext currentContext] graphicsPort];
-    CGPoint p1 = CGPointMake(rectWidth, 0);
-    CGPoint p2 = CGPointMake(rectWidth, rect.size.height);
+    CGPoint p1 = CGPointMake(rectWidth + 0.0, 0.0);
+    CGPoint p2 = CGPointMake(rectWidth + 0.0, rect.size.height);
     
     CGContextSetLineWidth(ctx, 1.0);
     CGContextMoveToPoint(ctx, p1.x, p1.y);
@@ -84,21 +85,21 @@
         NSRect r = [[lineNumberRects objectAtIndex:i - startLineNumber] rectValue];
 
         // set the x origin of the number according to the number of digits it contains
-        CGFloat x = 0.;
+        CGFloat x = 0.0;
         if (i < 9) {
-            x = rectWidth - 14.;
+            x = rectWidth - 14.0;
         } else if (i < 99) {
-            x = rectWidth - 21.;
+            x = rectWidth - 21.0;
         } else if (i < 999) {
-            x = rectWidth - 28.;
+            x = rectWidth - 28.0;
         } else if (i < 9999) {
-            x = rectWidth - 35.;
+            x = rectWidth - 35.0;
         }
         r.origin.x = x;
         
         // center the number vertically for tall lines
         if (r.origin.y) {
-            r.origin.y += r.size.height/2. - 7.;
+            r.origin.y += r.size.height/2.0 - 7.0;
         }
         
         NSString *s = [[NSNumber numberWithInteger:i + 1] stringValue];
