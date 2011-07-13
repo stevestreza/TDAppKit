@@ -1010,6 +1010,7 @@
 				INSTALL_PATH = "build/$(CONFIGURATION)";
 				PRODUCT_NAME = TDAppKit;
 				SDKROOT = macosx10.6;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
